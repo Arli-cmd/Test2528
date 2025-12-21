@@ -344,30 +344,51 @@ function initStickyHeader() {
 }
 
 function initMobileMenu() {
+  const wrap = document.getElementById("menuWrap");
   const burger = document.getElementById("burger");
   const mobileNav = document.getElementById("mobileNav");
-if (!burger || !mobileNav) return;
+
+  if (!wrap || !burger || !mobileNav) return;
 
   function setOpen(open) {
+    wrap.classList.toggle("is-open", open);
     burger.setAttribute("aria-expanded", String(open));
     burger.textContent = open ? "✕" : "☰";
+    // можно оставить hidden для доступности
     mobileNav.hidden = !open;
   }
-setOpen(false);
-   
-  burger.addEventListener("click", () => {
+
+  // по умолчанию ЗАКРЫТО
+  setOpen(false);
+
+  burger.addEventListener("click", (e) => {
+    e.stopPropagation();
     const open = burger.getAttribute("aria-expanded") !== "true";
     setOpen(open);
   });
 
+  // клики внутри меню не закрывают его сами по себе
+  mobileNav.addEventListener("click", (e) => e.stopPropagation());
+
+  // клик вне — закрыть
+  document.addEventListener("click", () => setOpen(false));
+
+  // ESC — закрыть
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  // клик по пункту — закрыть
   mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
     a.addEventListener("click", () => setOpen(false));
   });
 
+  // при переходе на desktop — закрыть
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 768) setOpen(false);
   });
 }
+
 
 function initReveal() {
   const els = document.querySelectorAll(".reveal");
