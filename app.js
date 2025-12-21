@@ -424,34 +424,129 @@ function clamp(n, min, max) {
 }
 
 function initParallax() {
-  if (state.reduceMotion) return;
-
   const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
     el,
     rate: Number(el.getAttribute("data-parallax")) || 0,
   }));
 
-  let raf = 0;
-  const onScroll = () => {
-    if (raf) return;
-    raf = requestAnimationFrame(() => {
-      raf = 0;
-      const y = window.scrollY;
-      for (const l of layers) {
-        const t = clamp(y * l.rate, -160, 320);
-        l.el.style.transform = `translate3d(0, ${t}px, 0)`;
-      }
-    });
-  };
+  if (layers.length === 0) return;
 
-  onScroll();
+  // Mouse parallax (tiny amplitude, premium)
+  // target range: [-1..1] in both axes
+  const mouse = { x: 0, y: 0 };
+  const target = { x: 0, y: 0 };
+
+  // Keep it subtle
+  const MAX_PX = 12; // total max mouse shift on fastest layer
+  const SMOOTH = 0.08; // interpolation factor
+
+  function onPointerMove(e) {
+    // ignore if reduced motion
+    if (state.reduceMotion) return;
+
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const nx = (e.clientX - cx) / cx;
+    const ny = (e.clientY - cy) / cy;
+    target.x = clamp(nx, -1, 1);
+    target.y = clamp(ny, -1, 1);
+  }
+
+  // Scroll parallax base
+  let scrollY = window.scrollY;
+
+  let rafScroll = 0;
+  function onScroll() {
+    scrollY = window.scrollY;
+    if (rafScroll) return;
+    rafScroll = requestAnimationFrame(() => {
+      rafScroll = 0;
+      // do nothing here; render loop handles final transform
+    });
+  }
+
+  // Render loop (combines scroll + mouse)
+  let raf = 0;
+  function render() {
+    raf = requestAnimationFrame(render);
+
+    // Smooth mouse values
+    mouse.x += (target.x - mouse.x) * SMOOTH;
+    mouse.y += (target.y - mouse.y) * SMOOTH;
+
+    for (const l of layers) {
+      const scrollOffset = state.reduceMotion ? 0 : clamp(scrollY * l.rate, -160, 320);
+
+      // mouseOffset scales with layer rate (fast layer moves slightly more)
+      const mx = state.reduceMotion ? 0 : mouse.x * (MAX_PX * (l.rate / 0.18));
+      const my = state.reduceMotion ? 0 : mouse.y * (MAX_PX * (l.rate / 0.18));
+
+      // Combined transform (small mouse on top of scroll)
+      l.el.style.transform = `translate3d(${mx.toFixed(2)}px, ${(scrollOffset + my).toFixed(2)}px, 0)`;
+    }
+  }
+
+  // Start
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("pointermove", onPointerMove, { passive: true });
+
+  // If user leaves the tab, relax mouse parallax back to center
+  window.addEventListener("blur", () => {
+    target.x = 0;
+    target.y = 0;
+  });
+
+  // kick
+  onScroll();
+  if (!raf) render();
 }
+
 
 function hashToUnit(i) {
   const x = Math.sin(i * 999.123 + 0.12345) * 43758.5453;
   return x - Math.floor(x);
 }
+
+function initGoldSweep() {
+  const sweep = document.getElementById("sweep");
+  if (!sweep || state.reduceMotion) return;
+
+  // мягкая рандомизация (12–16 сек)
+  function nextDelay() {
+    return 12000 + Math.random() * 4000; // 12–16s
+  }
+
+  function runOnce() {
+    // начальные/конечные позиции (диагональный проход)
+    sweep.classList.add("is-on");
+
+    // очень мягкая анимация: лёгкий проход + fade
+    sweep.animate(
+      [
+        { transform: "translate3d(-30%, 20%, 0)", opacity: 0.0 },
+        { transform: "translate3d(-10%, 10%, 0)", opacity: 0.22 },
+        { transform: "translate3d(10%, 0%, 0)", opacity: 0.28 },
+        { transform: "translate3d(30%, -10%, 0)", opacity: 0.18 },
+        { transform: "translate3d(55%, -20%, 0)", opacity: 0.0 },
+      ],
+      {
+        duration: 2200, // коротко, но “кинематографично”
+        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        fill: "forwards",
+      }
+    );
+
+    // выключаем класс чуть позже
+    setTimeout(() => sweep.classList.remove("is-on"), 2300);
+
+    // планируем следующий проход
+    setTimeout(runOnce, nextDelay());
+  }
+
+  // старт через небольшую паузу, чтобы не отвлекать на загрузке
+  setTimeout(runOnce, 1800);
+}
+
 
 function initDust() {
   const host = document.getElementById("dust");
@@ -511,7 +606,9 @@ function boot() {
   initReveal();
   initParallax();
   initDust();
+  initGoldSweep(); 
   initForm();
 }
+
 
 document.addEventListener("DOMContentLoaded", boot);
