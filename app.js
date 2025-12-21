@@ -103,6 +103,21 @@ const COPY = {
           description: "For active players who want strict coordination and strong results in every major event.",
         },
         {
+  tag: "Core",
+  name: "ONE",
+  motto: "Forging Victory, Together.",
+  languages: "English",
+  scheduleTitle: "Event Schedule (UTC)",
+  note: "Yes, we have BT3",
+  coordsTitle: "Coordinates",
+  coords: "X:589  Y:461",
+  reqTitle: "Ideal Members",
+  requirements: ["FC4+", "Daily activity", "Discord required", "Team-first mindset"],
+  description:
+    "Strategists and active warriors committed to mutual growth and dominance—strategy, teamwork, and a mature environment."
+}
+   
+        {
           tag: "Balanced",
           name: "AFK",
           motto: "Steady growth, steady wins.",
@@ -239,6 +254,21 @@ const COPY = {
           requirements: ["FC4+", "일일 활동", "디스코드 필수", "팀 우선"],
           description: "강한 조율로 주요 이벤트에서 성과를 내고 싶은 액티브 유저를 위한 팀입니다.",
         },
+         {
+  tag: "핵심",
+  name: "ONE",
+  motto: "승리를 함께 빚어낸다.",
+  languages: "영어",
+  scheduleTitle: "이벤트 일정 (UTC)",
+  note: "BT3 보유",
+  coordsTitle: "좌표",
+  coords: "X:589  Y:461",
+  reqTitle: "추천 대상",
+  requirements: ["FC4+", "일일 활동", "디스코드 필수", "팀 우선"],
+  description:
+    "전략가와 활동적인 전사들의 팀. 전략과 팀워크, 성숙한 분위기 속에서 성장과 지배를 추구합니다."
+}
+
         {
           tag: "밸런스",
           name: "AFK",
