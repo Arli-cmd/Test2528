@@ -53,7 +53,7 @@ const COPY = {
   sharedTitle: "Shared Power",
   sharedDesc:
     "Power is shared through coordinated rotations and cooperation, keeping top alliances strong without internal rivalry.",
-},
+    },
 
     reasons: {
       kicker: "Why Join",
@@ -205,7 +205,7 @@ const COPY = {
   sharedTitle: "권한 공유",
   sharedDesc:
     "조율된 로테이션과 협력을 통해 상위 연맹들이 내부 경쟁 없이 함께 강해집니다.",
-},
+   },
      
     reasons: {
       kicker: "장점",
