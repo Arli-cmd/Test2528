@@ -611,12 +611,29 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: .14em;
   color: rgba(253,230,138,0.92);
 }
-.miniList--clean {
+/* ONE card requirements: clean left-aligned list */
+.reqList{
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  gap: 8px;
 }
 
-.miniList--clean li {
-  display: block;
-  padding-left: 0;
+.reqList li{
+  position: relative;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.45;
+  font-size: 13px;
 }
+
+.reqList li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(253,230,138,0.90);
+  font-weight: 900;
+}
+
