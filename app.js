@@ -389,45 +389,6 @@ function initStickyHeader() {
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
-function initMobileMenu() {
-  const wrap = document.getElementById("menuWrap");
-  const burger = document.getElementById("burger");
-  const mobileNav = document.getElementById("mobileNav");
-
-  if (!wrap || !burger || !mobileNav) return;
-
-  function setOpen(open) {
-    wrap.classList.toggle("is-open", open);
-    burger.setAttribute("aria-expanded", String(open));
-    burger.textContent = open ? "✕" : "☰";
-    mobileNav.hidden = !open;
-  }
-
-  setOpen(false);
-
-  burger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = burger.getAttribute("aria-expanded") !== "true";
-    setOpen(open);
-  });
-
-  mobileNav.addEventListener("click", (e) => e.stopPropagation());
-
-  document.addEventListener("click", () => setOpen(false));
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
-  });
-
-  mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
-    a.addEventListener("click", () => setOpen(false));
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768) setOpen(false);
-  });
-}
-
 function initReveal() {
   const els = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
@@ -534,7 +495,6 @@ function init() {
   applyI18n();
   initLangSwitch();
   initStickyHeader();
-  initMobileMenu();
   initReveal();
   initParallax();
   initDust();
