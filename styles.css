@@ -327,6 +327,87 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero__buttons{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 18px; }
 
+/* ---------- Hero Signature (right side) ---------- */
+.hero__inner{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+}
+
+.hero__left{
+  position: relative;
+  z-index: 2;
+}
+
+/* декоративный блок справа */
+.hero__sig{
+  display: none;
+  justify-self: end;
+  align-self: center;
+  width: min(440px, 42vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  position: relative;
+  border: 1px solid rgba(251,191,36,0.18);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(251,191,36,0.10), transparent 60%),
+    radial-gradient(circle at 40% 35%, rgba(253,230,138,0.10), transparent 55%),
+    rgba(7,16,34,0.22);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+}
+
+/* внутреннее кольцо */
+.sig__ring{
+  position: absolute;
+  inset: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(251,191,36,0.20);
+  box-shadow: 0 0 80px rgba(251,191,36,0.12);
+}
+
+/* корона */
+.sig__crest{
+  position: absolute;
+  top: 26%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(28px, 4vw, 44px);
+  color: rgba(253,230,138,0.92);
+  text-shadow: 0 0 26px rgba(251,191,36,0.20);
+}
+
+/* номер 2528 */
+.sig__num{
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  letter-spacing: .22em;
+  font-size: clamp(24px, 4.4vw, 56px);
+  color: rgba(253,230,138,0.96);
+  text-shadow: 0 0 34px rgba(251,191,36,0.16);
+}
+
+/* подпись */
+.sig__sub{
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+/* показываем справа только на десктопе */
+@media (min-width: 900px){
+  .hero__sig{ display: block; }
+}
+
 /* ---------- Panels / Cards ---------- */
 .panel, .card {
   position: relative;
@@ -533,69 +614,4 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-weight: 900;
   letter-spacing: .14em;
   color: rgba(253,230,138,0.92);
-}
-.hero__inner{
-  grid-template-columns: 1.1fr 0.9fr;
-}
-
-.hero__sig{
-  display: none;
-  justify-self: end;
-  align-self: center;
-  width: min(440px, 42vw);
-  aspect-ratio: 1 / 1;
-  border-radius: 999px;
-  position: relative;
-  border: 1px solid rgba(251,191,36,0.18);
-  background:
-    radial-gradient(circle at 50% 50%, rgba(251,191,36,0.10), transparent 60%),
-    radial-gradient(circle at 40% 35%, rgba(253,230,138,0.10), transparent 55%),
-    rgba(7,16,34,0.22);
-  box-shadow: 0 40px 120px rgba(0,0,0,0.45);
-  backdrop-filter: blur(10px);
-}
-
-.sig__ring{
-  position: absolute; inset: 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(251,191,36,0.20);
-  box-shadow: 0 0 80px rgba(251,191,36,0.12);
-}
-
-.sig__crest{
-  position: absolute;
-  top: 26%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(28px, 4vw, 44px);
-  color: rgba(253,230,138,0.92);
-  text-shadow: 0 0 26px rgba(251,191,36,0.20);
-}
-
-.sig__num{
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: Cinzel, serif;
-  font-weight: 700;
-  letter-spacing: .22em;
-  font-size: clamp(24px, 4.4vw, 56px);
-  color: rgba(253,230,138,0.96);
-  text-shadow: 0 0 34px rgba(251,191,36,0.16);
-}
-
-.sig__sub{
-  position: absolute;
-  top: 64%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-}
-
-@media (min-width: 900px){
-  .hero__sig{ display: block; }
 }
