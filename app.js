@@ -539,7 +539,6 @@ function init() {
   initReveal();
   initParallax();
   initDust();
-  initForm();
 }
 
 window.addEventListener("DOMContentLoaded", init);
