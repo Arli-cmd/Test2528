@@ -54,14 +54,31 @@ const COPY = {
       kicker: "Why Join",
       title: "What We Offer",
       items: [
-        { title: "Stable Growth", desc: "Build power without internal wars draining your resources." },
-        { title: "Clean Leadership", desc: "Clear rules, rotations, and consistent enforcement." },
-        { title: "SvS Ready", desc: "We plan, coordinate, and show up disciplined for every phase." },
-        { title: "International Friendly", desc: "English primary, global players welcome and supported." },
-        { title: "Drama-Free Culture", desc: "We keep comms respectful and focused on winning." },
-        { title: "Event Optimized", desc: "Structured times, shared sheets, and rally standards." },
-      ],
-    },
+  {
+    title: "International & Inclusive",
+    desc: "Players from all over the world in a comfortable, respectful environment—regardless of culture or time zone.",
+  },
+  {
+    title: "Experienced Leadership",
+    desc: "Veteran leaders who manage growth, events, and SvS without chaos or unnecessary pressure.",
+  },
+  {
+    title: "Official State Discord",
+    desc: "A unified state Discord for coordination, announcements, events, and transparent communication between alliances.",
+  },
+  {
+    title: "Structured State Management",
+    desc: "Clear rules, aligned decisions, and organized cooperation between alliances across the state.",
+  },
+  {
+    title: "SvS-Oriented State",
+    desc: "Strong focus on preparation, discipline, and teamwork to achieve consistent SvS results.",
+  },
+  {
+    title: "Drama-Free & Mature Community",
+    desc: "Zero tolerance for toxicity, conflicts, or personal attacks. Calm, mature, goal-focused environment.",
+  },
+],
 
     alliances: {
       kicker: "Alliances",
@@ -200,15 +217,32 @@ const COPY = {
     reasons: {
       kicker: "장점",
       title: "우리가 제공하는 것",
-      items: [
-        { title: "안정적인 성장", desc: "내전으로 자원을 낭비하지 않습니다." },
-        { title: "명확한 운영", desc: "규칙과 로테이션, 집행이 투명합니다." },
-        { title: "SvS 준비", desc: "매 фазе 계획과 조율로 강하게 참여합니다." },
-        { title: "국제 멤버 환영", desc: "영어 중심, 글로벌 플레이어 지원." },
-        { title: "드라마 최소", desc: "존중 기반 커뮤니케이션." },
-        { title: "이벤트 최적화", desc: "구조화된 시간/기준/집결 운영." },
-      ],
-    },
+     items: [
+  {
+    title: "국제적 · 포용적인 환경",
+    desc: "문화와 타임존에 상관없이 전 세계 유저들이 편안하고 존중받는 분위기에서 함께합니다.",
+  },
+  {
+    title: "경험 많은 운영진",
+    desc: "혼란이나 불필요한 압박 없이 성장, 이벤트, SvS를 안정적으로 운영하는 베테랑 리더십.",
+  },
+  {
+    title: "공식 국가 디스코드",
+    desc: "국가 단위 디스코드에서 공지, 이벤트, 조율을 통합하고 연맹 간 소통을 투명하게 유지합니다.",
+  },
+  {
+    title: "체계적인 국가 운영",
+    desc: "명확한 규칙과 일관된 결정, 그리고 연맹 간 조직적인 협업으로 국가가 함께 움직입니다.",
+  },
+  {
+    title: "SvS 중심 국가",
+    desc: "준비, 규율, 팀워크에 집중하여 꾸준한 SvS 성과를 만들어냅니다.",
+  },
+  {
+    title: "드라마 없는 성숙한 커뮤니티",
+    desc: "독성, 분쟁, 인신공격 무관용. 차분하고 성숙하며 목표 지향적인 환경.",
+  },
+],
 
     alliances: {
       kicker: "동맹",
