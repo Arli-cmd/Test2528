@@ -116,8 +116,7 @@ const COPY = {
   description:
     "Strategists and active warriors committed to mutual growth and dominance—strategy, teamwork, and a mature environment."
 }
-   
-        {
+           {
           tag: "Balanced",
           name: "AFK",
           motto: "Steady growth, steady wins.",
@@ -268,7 +267,6 @@ const COPY = {
   description:
     "전략가와 활동적인 전사들의 팀. 전략과 팀워크, 성숙한 분위기 속에서 성장과 지배를 추구합니다."
 }
-
         {
           tag: "밸런스",
           name: "AFK",
