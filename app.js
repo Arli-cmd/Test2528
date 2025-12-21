@@ -368,26 +368,35 @@ function initMobileMenu() {
     mobileNav.hidden = !open;
   }
 
+  // default closed
   setOpen(false);
 
   burger.addEventListener("click", (e) => {
-    e.stopPropagation();
+    e.preventDefault();
     const open = burger.getAttribute("aria-expanded") !== "true";
     setOpen(open);
   });
 
-  mobileNav.addEventListener("click", (e) => e.stopPropagation());
+  // Close when clicking/tapping outside
+  document.addEventListener(
+    "pointerdown",
+    (e) => {
+      if (!wrap.contains(e.target)) setOpen(false);
+    },
+    { passive: true }
+  );
 
-  document.addEventListener("click", () => setOpen(false));
-
+  // ESC closes
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setOpen(false);
   });
 
+  // Clicking a link closes
   mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
     a.addEventListener("click", () => setOpen(false));
   });
 
+  // When switching to desktop layout, close
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 768) setOpen(false);
   });
