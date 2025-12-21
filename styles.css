@@ -611,3 +611,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: .14em;
   color: rgba(253,230,138,0.92);
 }
+.miniList--clean {
+  list-style: none;
+  padding-left: 0;
+}
+
+.miniList--clean li {
+  display: block;
+  padding-left: 0;
+}
