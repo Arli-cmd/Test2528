@@ -656,4 +656,50 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 8px 10px;
   opacity: 0.75;
 }
+/* Alliance name — premium glow */
+.allianceName{
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: rgba(253,230,138,0.98);
+  position: relative;
+}
+
+/* Soft golden glow */
+.allianceName.glow{
+  text-shadow:
+    0 0 10px rgba(251,191,36,0.45),
+    0 0 22px rgba(251,191,36,0.25),
+    0 0 44px rgba(251,191,36,0.12);
+}
+
+/* Subtle animated shimmer (optional but beautiful) */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(251,191,36,0.35),
+      0 0 22px rgba(251,191,36,0.22),
+      0 0 44px rgba(251,191,36,0.10);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(251,191,36,0.55),
+      0 0 30px rgba(251,191,36,0.35),
+      0 0 60px rgba(251,191,36,0.18);
+  }
+}
+
+/* Enable animation only for main alliance */
+.allianceName.glow{
+  animation: glowPulse 3.6s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .allianceName.glow{
+    animation: none;
+  }
+}
 
