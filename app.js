@@ -50,11 +50,6 @@ const COPY = {
   fortsDesc:
     "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives.",
 
-  sharedTitle: "Shared Power",
-  sharedDesc:
-    "Power is shared through coordinated rotations and cooperation, keeping top alliances strong without internal rivalry.",
-    },
-
     reasons: {
       kicker: "Why Join",
       title: "What We Offer",
@@ -201,11 +196,6 @@ const COPY = {
     "Sunfire Castle은 정해진 일정에 따라 공정하게 로테이션되며, 장기적인 국가 안정과 리더십 균형을 보장합니다.",
   fortsDesc:
     "요새 및 거점은 SvS 준비 단계 기여도를 기준으로 공정하게 분배됩니다.",
-
-  sharedTitle: "권한 공유",
-  sharedDesc:
-    "조율된 로테이션과 협력을 통해 상위 연맹들이 내부 경쟁 없이 함께 강해집니다.",
-   },
      
     reasons: {
       kicker: "장점",
