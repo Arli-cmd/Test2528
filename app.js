@@ -1,10 +1,9 @@
-/* STATE 2528 — app.js
+/* STATE 2528 — app.js (UPDATED)
    - i18n EN/KOR (real switching)
-   - Parallax background layers (scroll-based)
-   - Golden dust (light, cinematic)
+   - Cinematic background: scroll + mouse parallax, golden dust, gold sweep (12–16s)
    - Reveal on scroll (IntersectionObserver)
    - Sticky header shadow
-   - Mobile menu
+   - Burger dropdown menu (compact, right aligned), open on click + optional hover
 */
 
 const COPY = {
@@ -328,8 +327,8 @@ const state = {
   reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
 };
 
+/* ---------- helpers ---------- */
 function get(path, langObj) {
-  // path: "hero.badges.0"
   const parts = path.split(".");
   let cur = langObj;
   for (const p of parts) {
@@ -339,38 +338,47 @@ function get(path, langObj) {
   return cur ?? "";
 }
 
+function clamp(n, min, max) {
+  return Math.min(max, Math.max(min, n));
+}
+
 function applyI18n() {
   const dict = COPY[state.lang];
 
-  // text nodes
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const val = get(key, dict);
     if (typeof val === "string") el.textContent = val;
   });
 
-  // placeholders
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     const val = get(key, dict);
     if (typeof val === "string") el.setAttribute("placeholder", val);
   });
 
-  // update lang label + html lang
-  document.getElementById("langLabel").textContent = state.lang;
+  const langLabel = document.getElementById("langLabel");
+  if (langLabel) langLabel.textContent = state.lang;
+
   document.documentElement.setAttribute("lang", state.lang === "KOR" ? "ko" : "en");
 }
 
+/* ---------- language ---------- */
 function initLangSwitch() {
   const btn = document.getElementById("langBtn");
+  if (!btn) return;
+
   btn.addEventListener("click", () => {
     state.lang = state.lang === "EN" ? "KOR" : "EN";
     applyI18n();
   });
 }
 
+/* ---------- sticky header shadow ---------- */
 function initStickyHeader() {
   const bar = document.getElementById("topbar");
+  if (!bar) return;
+
   const onScroll = () => {
     bar.classList.toggle("is-scrolled", window.scrollY > 8);
   };
@@ -378,36 +386,89 @@ function initStickyHeader() {
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
+/* ---------- burger dropdown menu ---------- */
 function initMobileMenu() {
   const burger = document.getElementById("burger");
   const mobileNav = document.getElementById("mobileNav");
+  if (!burger || !mobileNav) return;
 
-  function setOpen(open) {
+  let open = false;
+  let hoverTimer = null;
+
+  function setOpen(next) {
+    open = next;
+
     burger.setAttribute("aria-expanded", String(open));
     burger.textContent = open ? "✕" : "☰";
-    mobileNav.hidden = !open;
+
+    if (open) {
+      mobileNav.hidden = false;
+      requestAnimationFrame(() => mobileNav.classList.add("is-open"));
+    } else {
+      mobileNav.classList.remove("is-open");
+      setTimeout(() => {
+        if (!open) mobileNav.hidden = true;
+      }, 230);
+    }
   }
 
-  burger.addEventListener("click", () => {
-    const open = burger.getAttribute("aria-expanded") !== "true";
-    setOpen(open);
-  });
+  // click toggle
+  burger.addEventListener("click", () => setOpen(!open));
 
+  // close on menu link click
   mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
     a.addEventListener("click", () => setOpen(false));
   });
 
+  // close on outside click
+  document.addEventListener("click", (e) => {
+    if (!open) return;
+    const t = e.target;
+    if (mobileNav.contains(t) || burger.contains(t)) return;
+    setOpen(false);
+  });
+
+  // OPTIONAL: hover open on desktop
+  burger.addEventListener("mouseenter", () => {
+    if (window.innerWidth < 768) return;
+    if (hoverTimer) clearTimeout(hoverTimer);
+    setOpen(true);
+  });
+
+  function scheduleClose() {
+    if (window.innerWidth < 768) return;
+    if (hoverTimer) clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => setOpen(false), 220);
+  }
+
+  burger.addEventListener("mouseleave", scheduleClose);
+  mobileNav.addEventListener("mouseenter", () => {
+    if (hoverTimer) clearTimeout(hoverTimer);
+  });
+  mobileNav.addEventListener("mouseleave", scheduleClose);
+
+  // If user hits ESC — close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  // Ensure closed on larger changes if desired (keeping current behavior)
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768) setOpen(false);
+    if (window.innerWidth >= 1200 && open) {
+      // optional: keep it open on desktop; comment next line if you want it to persist
+      // setOpen(false);
+    }
   });
 }
 
+/* ---------- reveal on scroll ---------- */
 function initReveal() {
   const els = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
     els.forEach((el) => el.classList.add("is-visible"));
     return;
   }
+
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
@@ -416,13 +477,11 @@ function initReveal() {
     },
     { threshold: 0.18 }
   );
+
   els.forEach((el) => io.observe(el));
 }
 
-function clamp(n, min, max) {
-  return Math.min(max, Math.max(min, n));
-}
-
+/* ---------- parallax: scroll + mouse (subtle) ---------- */
 function initParallax() {
   const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
     el,
@@ -431,19 +490,14 @@ function initParallax() {
 
   if (layers.length === 0) return;
 
-  // Mouse parallax (tiny amplitude, premium)
-  // target range: [-1..1] in both axes
   const mouse = { x: 0, y: 0 };
   const target = { x: 0, y: 0 };
 
-  // Keep it subtle
-  const MAX_PX = 12; // total max mouse shift on fastest layer
-  const SMOOTH = 0.08; // interpolation factor
+  const MAX_PX = 12;     // total max mouse shift on fastest layer
+  const SMOOTH = 0.08;   // smoothing factor
 
   function onPointerMove(e) {
-    // ignore if reduced motion
     if (state.reduceMotion) return;
-
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 2;
     const nx = (e.clientX - cx) / cx;
@@ -452,104 +506,59 @@ function initParallax() {
     target.y = clamp(ny, -1, 1);
   }
 
-  // Scroll parallax base
   let scrollY = window.scrollY;
+  window.addEventListener(
+    "scroll",
+    () => {
+      scrollY = window.scrollY;
+    },
+    { passive: true }
+  );
 
-  let rafScroll = 0;
-  function onScroll() {
-    scrollY = window.scrollY;
-    if (rafScroll) return;
-    rafScroll = requestAnimationFrame(() => {
-      rafScroll = 0;
-      // do nothing here; render loop handles final transform
-    });
-  }
-
-  // Render loop (combines scroll + mouse)
-  let raf = 0;
-  function render() {
-    raf = requestAnimationFrame(render);
-
-    // Smooth mouse values
-    mouse.x += (target.x - mouse.x) * SMOOTH;
-    mouse.y += (target.y - mouse.y) * SMOOTH;
-
-    for (const l of layers) {
-      const scrollOffset = state.reduceMotion ? 0 : clamp(scrollY * l.rate, -160, 320);
-
-      // mouseOffset scales with layer rate (fast layer moves slightly more)
-      const mx = state.reduceMotion ? 0 : mouse.x * (MAX_PX * (l.rate / 0.18));
-      const my = state.reduceMotion ? 0 : mouse.y * (MAX_PX * (l.rate / 0.18));
-
-      // Combined transform (small mouse on top of scroll)
-      l.el.style.transform = `translate3d(${mx.toFixed(2)}px, ${(scrollOffset + my).toFixed(2)}px, 0)`;
-    }
-  }
-
-  // Start
-  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("pointermove", onPointerMove, { passive: true });
-
-  // If user leaves the tab, relax mouse parallax back to center
   window.addEventListener("blur", () => {
     target.x = 0;
     target.y = 0;
   });
 
-  // kick
-  onScroll();
-  if (!raf) render();
+  function scaleForRate(rate) {
+    // Normalize to the fastest layer rate (0.18)
+    const base = 0.18;
+    const k = base ? rate / base : 0;
+    return clamp(k, 0.15, 1); // keep slow layers from feeling frozen
+  }
+
+  function render() {
+    // smooth mouse towards target
+    mouse.x += (target.x - mouse.x) * SMOOTH;
+    mouse.y += (target.y - mouse.y) * SMOOTH;
+
+    for (const l of layers) {
+      const scrollOffset = state.reduceMotion ? 0 : clamp(scrollY * l.rate, -160, 320);
+      const k = scaleForRate(l.rate);
+
+      const mx = state.reduceMotion ? 0 : mouse.x * (MAX_PX * k);
+      const my = state.reduceMotion ? 0 : mouse.y * (MAX_PX * k);
+
+      l.el.style.transform = `translate3d(${mx.toFixed(2)}px, ${(scrollOffset + my).toFixed(2)}px, 0)`;
+    }
+
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
 }
 
-
+/* ---------- golden dust (deterministic) ---------- */
 function hashToUnit(i) {
   const x = Math.sin(i * 999.123 + 0.12345) * 43758.5453;
   return x - Math.floor(x);
 }
 
-function initGoldSweep() {
-  const sweep = document.getElementById("sweep");
-  if (!sweep || state.reduceMotion) return;
-
-  // мягкая рандомизация (12–16 сек)
-  function nextDelay() {
-    return 12000 + Math.random() * 4000; // 12–16s
-  }
-
-  function runOnce() {
-    // начальные/конечные позиции (диагональный проход)
-    sweep.classList.add("is-on");
-
-    // очень мягкая анимация: лёгкий проход + fade
-    sweep.animate(
-      [
-        { transform: "translate3d(-30%, 20%, 0)", opacity: 0.0 },
-        { transform: "translate3d(-10%, 10%, 0)", opacity: 0.22 },
-        { transform: "translate3d(10%, 0%, 0)", opacity: 0.28 },
-        { transform: "translate3d(30%, -10%, 0)", opacity: 0.18 },
-        { transform: "translate3d(55%, -20%, 0)", opacity: 0.0 },
-      ],
-      {
-        duration: 2200, // коротко, но “кинематографично”
-        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-        fill: "forwards",
-      }
-    );
-
-    // выключаем класс чуть позже
-    setTimeout(() => sweep.classList.remove("is-on"), 2300);
-
-    // планируем следующий проход
-    setTimeout(runOnce, nextDelay());
-  }
-
-  // старт через небольшую паузу, чтобы не отвлекать на загрузке
-  setTimeout(runOnce, 1800);
-}
-
-
 function initDust() {
   const host = document.getElementById("dust");
+  if (!host) return;
+
   const count = 26;
 
   for (let i = 0; i < count; i++) {
@@ -585,19 +594,55 @@ function initDust() {
   }
 }
 
+/* ---------- Gold light sweep (12–16s) ---------- */
+function initGoldSweep() {
+  const sweep = document.getElementById("sweep");
+  if (!sweep || state.reduceMotion) return;
+
+  function nextDelay() {
+    return 12000 + Math.random() * 4000; // 12–16 sec
+  }
+
+  function runOnce() {
+    sweep.classList.add("is-on");
+
+    sweep.animate(
+      [
+        { transform: "translate3d(-30%, 20%, 0)", opacity: 0.0 },
+        { transform: "translate3d(-10%, 10%, 0)", opacity: 0.22 },
+        { transform: "translate3d(10%, 0%, 0)", opacity: 0.28 },
+        { transform: "translate3d(30%, -10%, 0)", opacity: 0.18 },
+        { transform: "translate3d(55%, -20%, 0)", opacity: 0.0 },
+      ],
+      {
+        duration: 2200,
+        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        fill: "forwards",
+      }
+    );
+
+    setTimeout(() => sweep.classList.remove("is-on"), 2300);
+    setTimeout(runOnce, nextDelay());
+  }
+
+  setTimeout(runOnce, 1800);
+}
+
+/* ---------- form demo ---------- */
 function initForm() {
   const form = document.getElementById("applyForm");
   const toast = document.getElementById("toast");
+  if (!form || !toast) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // demo only
     toast.textContent = state.lang === "KOR" ? "제출 완료! (데모)" : "Submitted! (demo)";
     setTimeout(() => (toast.textContent = ""), 3200);
     form.reset();
   });
 }
 
+/* ---------- boot ---------- */
 function boot() {
   applyI18n();
   initLangSwitch();
@@ -606,9 +651,8 @@ function boot() {
   initReveal();
   initParallax();
   initDust();
-  initGoldSweep(); 
+  initGoldSweep();
   initForm();
 }
-
 
 document.addEventListener("DOMContentLoaded", boot);
