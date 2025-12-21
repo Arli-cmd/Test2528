@@ -31,28 +31,29 @@ const COPY = {
     },
 
     nap: {
-      kicker: "NAP Protocol",
-      title: "Fair Play & Shared Power",
-      desc:
-        "Our state is united under a stable NAP. We don’t waste resources fighting each other—we grow, rotate, and strengthen together.",
-      rulesTitle: "NAP Rules",
-      rules: [
-        "No city hits or resource harassment within NAP alliances.",
-        "Castle/fortress and major objective rotations are scheduled and transparent.",
-        "Disputes go through leadership mediation—no public flame wars.",
-        "Zero-tolerance for toxicity, personal attacks, or sabotage.",
-      ],
-      whyTitle: "Why It’s Safe (and Profitable)",
-      why: [
-        "Stable farming and growth: less loss, faster upgrades.",
-        "Predictable rotations: fair access to power structures.",
-        "Clean coordination: faster response in SvS and events.",
-        "Better retention: drama-free communities last longer.",
-      ],
-      alliesTitle: "Our Valued Allies",
-      sharedTitle: "Shared Power",
-      sharedDesc: "Rotations and distribution keep top alliances strong without internal rivalries.",
-    },
+  kicker: "NAP Protocol",
+  title: "Fair Play & Shared Power",
+  desc:
+    "Our state operates under a stable NAP, built on cooperation and mutual respect between alliances. We don’t waste resources fighting each other — we grow stronger together.",
+
+  rulesTitle: "NAP Rules",
+  rules: [
+    "No city attacks or scouting within NAP alliances.",
+    "Scheduled and transparent castle and fort rotations.",
+    "Disputes are handled by leadership — no public conflicts.",
+    "Zero tolerance for toxicity, sabotage, or harassment.",
+  ],
+
+  rotationTitle: "Castle & Fort Rotations",
+  rotationDesc:
+    "Sunfire Castle is rotated on a scheduled and transparent basis, ensuring fair access to leadership and long-term state stability.",
+  fortsDesc:
+    "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives.",
+
+  sharedTitle: "Shared Power",
+  sharedDesc:
+    "Power is shared through coordinated rotations and cooperation, keeping top alliances strong without internal rivalry.",
+},
 
     reasons: {
       kicker: "Why Join",
@@ -181,24 +182,31 @@ const COPY = {
       points: ["공동의 힘", "경험 있는 운영진", "연맹 간 조율", "친화적 환경", "다국적 커뮤니티"],
     },
 
-    nap: {
-      kicker: "국가 규약",
-      title: "공정한 NAP • 공동 성장",
-      desc: "안정적인 NAP 아래 국가가 하나로 움직입니다. 내부 싸움에 자원을 낭비하지 않고 함께 성장합니다.",
-      rulesTitle: "NAP 규칙",
-      rules: [
-        "NAP 연맹 간 도시 공격/자원 괴롭힘 금지.",
-        "성/요새 등 주요 목표는 일정 기반으로 투명하게 로테이션.",
-        "분쟁은 운영진 중재로 해결—공개 싸움 금지.",
-        "독성/인신공격/방해 행위는 무관용.",
-      ],
-      whyTitle: "왜 안전하고 이득인가요?",
-      why: ["안정적인 성장", "예측 가능한 로테이션", "깔끔한 조율", "드라마 없는 커뮤니티"],
-      alliesTitle: "우호 연맹",
-      sharedTitle: "권한 공유",
-      sharedDesc: "로테이션과 분배로 최상위 연맹이 내부 경쟁 없이 강해집니다.",
-    },
+   nap: {
+  kicker: "NAP 규약",
+  title: "공정한 운영 · 공동 권한",
+  desc:
+    "State 2528은 연맹 간 협력과 상호 존중을 기반으로 한 안정적인 NAP 체계를 운영합니다. 내부 전투에 자원을 낭비하지 않고 함께 성장합니다.",
 
+  rulesTitle: "NAP 규칙",
+  rules: [
+    "NAP 연맹 간 도시 공격 및 정찰 금지.",
+    "성 및 요새 로테이션은 일정 기반으로 투명하게 진행.",
+    "분쟁은 운영진이 중재하며 공개 충돌은 금지.",
+    "독성 행동, 방해, 괴롭힘은 무관용 원칙.",
+  ],
+
+  rotationTitle: "성 · 요새 로테이션",
+  rotationDesc:
+    "Sunfire Castle은 정해진 일정에 따라 공정하게 로테이션되며, 장기적인 국가 안정과 리더십 균형을 보장합니다.",
+  fortsDesc:
+    "요새 및 거점은 SvS 준비 단계 기여도를 기준으로 공정하게 분배됩니다.",
+
+  sharedTitle: "권한 공유",
+  sharedDesc:
+    "조율된 로테이션과 협력을 통해 상위 연맹들이 내부 경쟁 없이 함께 강해집니다.",
+},
+     
     reasons: {
       kicker: "장점",
       title: "우리가 제공하는 것",
