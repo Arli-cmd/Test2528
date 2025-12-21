@@ -1,3 +1,13 @@
+/* STATE 2528 — app.js
+   - i18n EN/KOR
+   - Parallax
+   - Dust
+   - Reveal
+   - Sticky header
+   - Mobile menu (click only)
+*/
+console.log('✅ app.js loaded');
+
 const COPY = {
   EN: {
     nav: { about: "State", nap: "NAP", reasons: "Why Us", alliances: "Alliances", apply: "Apply" },
@@ -325,3 +335,211 @@ const COPY = {
     footer: { line: "STATE 2528 • 골든 엠파이어 프로토콜", small: "전략, 안정, 그리고 깔끔한 승리를 위해." },
   },
 };
+
+const state = {
+  lang: "EN",
+  reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+};
+
+function get(path, langObj) {
+  const parts = path.split(".");
+  let cur = langObj;
+  for (const p of parts) {
+    if (cur == null) return "";
+    cur = Array.isArray(cur) ? cur[Number(p)] : cur[p];
+  }
+  return cur ?? "";
+}
+
+function applyI18n() {
+  const dict = COPY[state.lang];
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const val = get(key, dict);
+    if (typeof val === "string") el.textContent = val;
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const val = get(key, dict);
+    if (typeof val === "string") el.setAttribute("placeholder", val);
+  });
+
+  const label = document.getElementById("langLabel");
+  if (label) label.textContent = state.lang;
+  document.documentElement.setAttribute("lang", state.lang === "KOR" ? "ko" : "en");
+}
+
+function initLangSwitch() {
+  const btn = document.getElementById("langBtn");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    state.lang = state.lang === "EN" ? "KOR" : "EN";
+    applyI18n();
+  });
+}
+
+function initStickyHeader() {
+  const bar = document.getElementById("topbar");
+  if (!bar) return;
+  const onScroll = () => {
+    bar.classList.toggle("is-scrolled", window.scrollY > 8);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+function initMobileMenu() {
+  const wrap = document.getElementById("menuWrap");
+  const burger = document.getElementById("burger");
+  const mobileNav = document.getElementById("mobileNav");
+
+  if (!wrap || !burger || !mobileNav) return;
+
+  function setOpen(open) {
+    wrap.classList.toggle("is-open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    burger.textContent = open ? "✕" : "☰";
+    mobileNav.hidden = !open;
+  }
+
+  setOpen(false);
+
+  burger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = burger.getAttribute("aria-expanded") !== "true";
+    setOpen(open);
+  });
+
+  mobileNav.addEventListener("click", (e) => e.stopPropagation());
+
+  document.addEventListener("click", () => setOpen(false));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
+    a.addEventListener("click", () => setOpen(false));
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) setOpen(false);
+  });
+}
+
+function initReveal() {
+  const els = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.classList.add("is-visible");
+      }
+    },
+    { threshold: 0.18 }
+  );
+  els.forEach((el) => io.observe(el));
+}
+
+function clamp(n, min, max) {
+  return Math.min(max, Math.max(min, n));
+}
+
+function initParallax() {
+  if (state.reduceMotion) return;
+
+  const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
+    el,
+    rate: Number(el.getAttribute("data-parallax")) || 0,
+  }));
+
+  let raf = 0;
+  const onScroll = () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const y = window.scrollY;
+      for (const l of layers) {
+        const t = clamp(y * l.rate, -160, 320);
+        l.el.style.transform = `translate3d(0, ${t}px, 0)`;
+      }
+    });
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+function hashToUnit(i) {
+  const x = Math.sin(i * 999.123 + 0.12345) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+function initDust() {
+  const host = document.getElementById("dust");
+  if (!host) return;
+  const count = 26;
+
+  for (let i = 0; i < count; i++) {
+    const x = hashToUnit(i + 1);
+    const y = hashToUnit(i + 77);
+    const s = 0.6 + hashToUnit(i + 333) * 1.4;
+    const o = 0.18 + hashToUnit(i + 555) * 0.22;
+    const blur = 0.6 + hashToUnit(i + 222) * 1.6;
+    const dur = 7 + hashToUnit(i + 999) * 10;
+    const dx = (hashToUnit(i + 111) - 0.5) * 28;
+    const dy = (hashToUnit(i + 444) - 0.5) * 40;
+
+    const dot = document.createElement("span");
+    dot.style.left = `${x * 100}%`;
+    dot.style.top = `${y * 100}%`;
+    dot.style.width = `${2.2 * s}px`;
+    dot.style.height = `${2.2 * s}px`;
+    dot.style.opacity = o.toFixed(3);
+    dot.style.filter = `blur(${blur.toFixed(2)}px)`;
+
+    if (!state.reduceMotion) {
+      dot.animate(
+        [
+          { transform: "translate3d(0,0,0)", opacity: o * 0.6 },
+          { transform: `translate3d(${dx}px, ${dy}px, 0)`, opacity: o },
+          { transform: "translate3d(0,0,0)", opacity: o * 0.7 },
+        ],
+        { duration: dur * 1000, iterations: Infinity, direction: "alternate", easing: "ease-in-out" }
+      );
+    }
+
+    host.appendChild(dot);
+  }
+}
+
+function initForm() {
+  const form = document.getElementById("applyForm");
+  const toast = document.getElementById("toast");
+  if (!form || !toast) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    toast.textContent = state.lang === "KOR" ? "제출 완료 (데모)" : "Submitted (demo)";
+    setTimeout(() => (toast.textContent = ""), 2400);
+    form.reset();
+  });
+}
+
+function init() {
+  applyI18n();
+  initLangSwitch();
+  initStickyHeader();
+  initMobileMenu();
+  initReveal();
+  initParallax();
+  initDust();
+  initForm();
+}
+
+window.addEventListener("DOMContentLoaded", init);
