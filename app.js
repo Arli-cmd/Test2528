@@ -1,528 +1,481 @@
-:root {
-  --bg: #140a06;
-  --ink: rgba(255, 255, 255, 0.92);
-  --muted: rgba(255, 255, 255, 0.72);
-  --muted2: rgba(255, 255, 255, 0.56);
+/* STATE 2528 — app.js
+   - i18n EN/KOR (real switching)
+   - Parallax background layers (scroll-based)
+   - Golden dust (light, cinematic)
+   - Reveal on scroll (IntersectionObserver)
+   - Sticky header shadow
+   - Mobile menu
+*/
 
-  --card: rgba(11, 21, 48, 0.55);
-  --card2: rgba(7, 16, 34, 0.55);
-  --chip: rgba(3, 7, 18, 0.35);
+const COPY = {
+  EN: {
+    nav: { about: "State", nap: "NAP", reasons: "Why Us", alliances: "Alliances", apply: "Apply" },
+    hero: {
+      title: "STATE 2528",
+      subtitle: "Stability & Teamwork",
+      blurb:
+        "A state forged in stability and teamwork—engineered for total SvS domination. We grow together, win together, and keep internal drama at zero.",
+      badges: ["Organized Leadership", "Drama-Free Culture", "Event Optimized", "International Friendly"],
+      cta: "Apply for Transfer",
+      secondary: "Explore Our Structure",
+    },
+    one: {
+      title: "Forging Victory, Together.",
+      desc:
+        "A collective of strategists and active warriors committed to mutual growth and dominance—strategy, teamwork, and a mature environment.",
+      scheduleTitle: "Event Schedule (UTC)",
+      bt3: "Yes, we have BT3",
+      contactTitle: "Contact / Coordinates",
+      contactDesc: "Message our leader in-game for details.",
+      requireHint: "Requirement highlight: FC4+ • daily active • Discord.",
+    },
+    about: {
+      kicker: "About the State",
+      title: "A Stable Empire Built for Winners",
+      desc:
+        "State 2528 prioritizes growth and external threats over costly internal conflicts. Our structure rewards teamwork, coordination, and mature play—so winners can thrive.",
+      svsTitle: "SvS Performance Focus",
+      svsPrep: "Preparation Phase: coordinated scoring plans, resource routing, and role assignments.",
+      svsBattle: "Battle Phase: disciplined rallies, clean comms, and focused objectives.",
+      govTitle: "Governance",
+      govDesc: "Stable NAP, transparent rotations, and clear enforcement. We focus on external threats—not internal chaos.",
+      govPill1: "Statewide teamwork",
+      govPill2: "Low conflict",
+      stats: [
+        { label: "Core Principle", value: "Shared Power" },
+        { label: "Culture", value: "Respectful • Mature" },
+        { label: "Primary Language", value: "English (International Welcome)" },
+      ],
+      commsTitle: "Communication Standard",
+      commsDesc: "Discord is our command center: guides, rally sheets, SvS plans, and rapid coordination.",
+    },
+    nap: {
+      kicker: "NAP Protocol",
+      title: "Fair Play & Shared Power",
+      desc:
+        "Our state is united under a stable NAP. We don’t waste resources fighting each other—we grow, rotate, and strengthen together.",
+      rulesTitle: "NAP Rules",
+      rules: [
+        "No city hits or resource harassment within NAP alliances.",
+        "Castle/fortress and major objective rotations are scheduled and transparent.",
+        "Disputes go through leadership mediation—no public flame wars.",
+        "Zero-tolerance for toxicity, personal attacks, or sabotage.",
+      ],
+      whyTitle: "Why It’s Safe (and Profitable)",
+      why: [
+        "Stable farming and growth: less loss, faster upgrades.",
+        "Predictable rotations: fair access to power structures.",
+        "Clean coordination: faster response in SvS and events.",
+        "Better retention: drama-free communities last longer.",
+      ],
+      alliesTitle: "Our Valued Allies",
+      sharedTitle: "Shared Power",
+      sharedDesc: "Rotations and distribution keep top alliances strong without internal rivalries.",
+    },
+    reasons: {
+      kicker: "Why Join",
+      title: "What We Offer",
+      items: [
+        { title: "Stable Growth", desc: "Build power without internal wars draining your resources." },
+        { title: "Clean Leadership", desc: "Clear rules, rotations, and consistent enforcement." },
+        { title: "SvS Ready", desc: "We plan, coordinate, and show up disciplined for every phase." },
+        { title: "International Friendly", desc: "English primary, global players welcome and supported." },
+        { title: "Drama-Free Culture", desc: "We keep comms respectful and focused on winning." },
+        { title: "Event Optimized", desc: "Structured times, shared sheets, and rally standards." },
+      ],
+    },
+    alliances: {
+      kicker: "Alliances",
+      title: "Organized Teams. Clear Identity.",
+      subtitle: "Pick a lane: competitive, balanced, or growth-focused—each with clear expectations.",
+      cards: [
+        {
+          tag: "Competitive",
+          name: "KOR",
+          motto: "Discipline. Execution. Victory.",
+          languages: "Korean + English",
+          scheduleTitle: "Activity Windows",
+          schedule: [{ label: "Main Push", time: "UTC 13:00–19:00" }],
+          coordsTitle: "Region",
+          coords: "Core Zone",
+          reqTitle: "Ideal Members",
+          requirements: ["FC4+", "Daily activity", "Discord required", "Team-first mindset"],
+          description: "For active players who want strict coordination and strong results in every major event.",
+        },
+        {
+          tag: "Balanced",
+          name: "AFK",
+          motto: "Steady growth, steady wins.",
+          languages: "English",
+          scheduleTitle: "Activity Windows",
+          schedule: [{ label: "Key Events", time: "UTC 14:00–19:00" }],
+          coordsTitle: "Region",
+          coords: "Support Zone",
+          reqTitle: "Ideal Members",
+          requirements: ["FC3+", "Active in events", "Discord recommended", "Mature & respectful"],
+          description: "A strong home for consistent players who want structure without hardcore intensity.",
+        },
+      ],
+    },
+    apply: {
+      kicker: "Transfer",
+      title: "Ready to Join a Team of Winners?",
+      desc:
+        "Apply below and our leadership will reach out with next steps. We prioritize mature, reliable players who want long-term stability.",
+      formTitle: "Application Form",
+      fields: {
+        name: "In-Game Name",
+        id: "Player ID",
+        furnace: "Furnace Level",
+        language: "Preferred Language",
+        timezone: "Timezone",
+        notes: "Notes (power, goals, schedule)",
+      },
+      placeholders: {
+        name: "e.g., Raven",
+        id: "e.g., 123456789",
+        furnace: "e.g., FC4",
+        timezone: "e.g., UTC+2",
+        notes: "Anything we should know—SvS experience, event times, what you’re looking for…",
+      },
+      submit: "Submit Application",
+      hint: "This form is a UI demo—wire it to your backend / Google Form / Discord bot.",
+      reco: "Recommended: FC4+ • Daily active • Discord",
+      contactTitle: "Prefer In-Game Contact?",
+      contactDesc: "Message our leader for details and screening.",
+      contactCta: "Coordinates: X:589  Y:461",
+      quickTitle: "Quick Requirements",
+      quick: ["Furnace Level: FC4+", "Daily active in major events", "Discord coordination", "Positive & mature"],
+      tip: "Tip: Add a Discord invite button here once you’re ready.",
+    },
+    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Built for strategy, stability, and clean wins." },
+  },
 
-  --gold: #fbbf24;
-  --gold2: rgba(251, 191, 36, 0.55);
-  --line: rgba(251, 191, 36, 0.15);
-  --blue: rgba(59, 130, 246, 0.18);
+  KOR: {
+    nav: { about: "국가 소개", nap: "NAP", reasons: "장점", alliances: "연맹", apply: "지원" },
+    hero: {
+      title: "STATE 2528",
+      subtitle: "안정과 팀워크",
+      blurb:
+        "안정과 협력으로 단단히 구축된 국가—SvS 완전 제패를 위한 시스템입니다. 함께 성장하고 함께 승리하며, 내부 분쟁은 최소화합니다.",
+      badges: ["체계적 운영", "드라마 없는 문화", "이벤트 최적화", "국제 멤버 환영"],
+      cta: "이주 지원하기",
+      secondary: "구조 살펴보기",
+    },
+    one: {
+      title: "승리를 함께 빚어낸다.",
+      desc: "전략가와 활동적인 전사들의 팀. 전략과 팀워크, 성숙한 분위기 속에서 성장과 지배를 추구합니다.",
+      scheduleTitle: "이벤트 일정 (UTC)",
+      bt3: "BT3 보유",
+      contactTitle: "연락 / 좌표",
+      contactDesc: "자세한 내용은 인게임에서 리더에게 문의하세요.",
+      requireHint: "요약: FC4+ • 일일 활동 • 디스코드 필수",
+    },
+    about: {
+      kicker: "국가",
+      title: "승자를 위한 안정적인 제국",
+      desc:
+        "2528은 내부 갈등보다 성장과 외부 위협 대응을 우선합니다. 팀워크와 조율, 성숙한 플레이가 보상받는 환경입니다.",
+      svsTitle: "SvS 운영 방향",
+      svsPrep: "준비 단계: 점수 플랜, 자원/역할 배분, 협업 루트 설계.",
+      svsBattle: "전투 단계: 규율 있는 집결, 명확한 콜, 목표 집중.",
+      govTitle: "운영",
+      govDesc: "안정적인 NAP, 투명한 로테이션, 명확한 규정. 내부 혼란 대신 외부 목표에 집중합니다.",
+      govPill1: "국가 단위 팀워크",
+      govPill2: "낮은 내부 분쟁",
+      stats: [
+        { label: "핵심 원칙", value: "권한 공유" },
+        { label: "문화", value: "존중 • 성숙" },
+        { label: "주 언어", value: "영어 (국제 멤버 환영)" },
+      ],
+      commsTitle: "커뮤니케이션",
+      commsDesc: "디스코드는 지휘 센터입니다: 가이드, 집결 시트, SvS 플랜, 빠른 조율.",
+    },
+    nap: {
+      kicker: "국가 규약",
+      title: "공정한 NAP • 공동 성장",
+      desc:
+        "안정적인 NAP 아래 국가가 하나로 움직입니다. 내부 싸움에 자원을 낭비하지 않고 함께 성장합니다.",
+      rulesTitle: "NAP 규칙",
+      rules: [
+        "NAP 연맹 간 도시 공격/자원 괴롭힘 금지.",
+        "성/요새 등 주요 목표는 일정 기반으로 투명하게 로테이션.",
+        "분쟁은 운영진 중재로 해결—공개 싸움 금지.",
+        "독성/인신공격/방해 행위는 무관용.",
+      ],
+      whyTitle: "왜 안전하고 이득인가요?",
+      why: ["안정적인 성장", "예측 가능한 로테이션", "깔끔한 조율", "드라마 없는 커뮤니티"],
+      alliesTitle: "우호 연맹",
+      sharedTitle: "권한 공유",
+      sharedDesc: "로테이션과 분배로 최상위 연맹이 내부 경쟁 없이 강해집니다.",
+    },
+    reasons: {
+      kicker: "장점",
+      title: "우리가 제공하는 것",
+      items: [
+        { title: "안정적인 성장", desc: "내전으로 자원을 낭비하지 않습니다." },
+        { title: "명확한 운영", desc: "규칙과 로테이션, 집행이 투명합니다." },
+        { title: "SvS 준비", desc: "매 фазе 계획과 조율로 강하게 참여합니다." },
+        { title: "국제 멤버 환영", desc: "영어 중심, 글로벌 플레이어 지원." },
+        { title: "드라마 최소", desc: "존중 기반 커뮤니케이션." },
+        { title: "이벤트 최적화", desc: "구조화된 시간/기준/집결 운영." },
+      ],
+    },
+    alliances: {
+      kicker: "연맹",
+      title: "정돈된 팀 • 명확한 정체성",
+      subtitle: "경쟁/밸런스/성장형 등 역할이 분명합니다.",
+      cards: [
+        {
+          tag: "경쟁",
+          name: "KOR",
+          motto: "규율, 실행, 승리.",
+          languages: "한국어 + 영어",
+          scheduleTitle: "활동 시간",
+          schedule: [{ label: "메인", time: "UTC 13:00–19:00" }],
+          coordsTitle: "지역",
+          coords: "핵심 구역",
+          reqTitle: "추천 대상",
+          requirements: ["FC4+", "일일 활동", "디스코드 필수", "팀 우선"],
+          description: "강한 조율로 주요 이벤트에서 성과를 내고 싶은 액티브 유저를 위한 팀입니다.",
+        },
+        {
+          tag: "밸런스",
+          name: "AFK",
+          motto: "꾸준한 성장, 꾸준한 승리.",
+          languages: "영어",
+          scheduleTitle: "활동 시간",
+          schedule: [{ label: "주요 이벤트", time: "UTC 14:00–19:00" }],
+          coordsTitle: "지역",
+          coords: "지원 구역",
+          reqTitle: "추천 대상",
+          requirements: ["FC3+", "이벤트 참여", "디스코드 권장", "성숙/존중"],
+          description: "하드코어까진 아니지만 체계적인 환경에서 안정적으로 성장하고 싶은 유저에게 추천합니다.",
+        },
+      ],
+    },
+    apply: {
+      kicker: "지원",
+      title: "승자 팀에 합류할 준비 되셨나요?",
+      desc: "아래 지원서를 작성하면 운영진이 다음 단계로 안내드립니다.",
+      formTitle: "지원서",
+      fields: {
+        name: "인게임 닉네임",
+        id: "플레이어 ID",
+        furnace: "난로 레벨",
+        language: "희망 언어",
+        timezone: "타임존",
+        notes: "메모 (전투력/목표/활동 시간)",
+      },
+      placeholders: {
+        name: "예: Raven",
+        id: "예: 123456789",
+        furnace: "예: FC4",
+        timezone: "예: UTC+9",
+        notes: "SvS 경험, 활동 시간, 원하는 스타일 등을 적어주세요…",
+      },
+      submit: "제출",
+      hint: "UI 데모입니다. 백엔드/Google Form/Discord 봇으로 연동하세요.",
+      reco: "추천: FC4+ • 일일 활동 • 디스코드",
+      contactTitle: "인게임으로 먼저 연락할까요?",
+      contactDesc: "리더에게 메시지 후 진행 방법을 안내받으세요.",
+      contactCta: "좌표: X:589  Y:461",
+      quickTitle: "요구사항",
+      quick: ["FC4+ 이상", "주요 이벤트 일일 참여", "디스코드 조율", "긍정적이고 성숙한 태도"],
+      tip: "팁: 준비되면 여기 디스코드 초대 버튼을 추가하세요.",
+    },
+    footer: { line: "STATE 2528 • 골든 엠파이어 프로토콜", small: "전략, 안정, 그리고 깔끔한 승리를 위해." },
+  },
+};
 
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  --radius: 18px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-}
+const state = {
+  lang: "EN",
+  reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+};
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-a { color: inherit; text-decoration: none; }
-ul { margin: 0; padding: 0; list-style: none; }
-
-.container {
-  width: min(1120px, 100%);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ---------- Cinematic background ---------- */
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  overflow: hidden;
-}
-
-.bg__base {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(251,191,36,0.09), transparent 52%),
-    radial-gradient(circle at 10% 72%, rgba(59,130,246,0.06), transparent 55%),
-    linear-gradient(180deg, rgba(20,10,6,1), rgba(5,10,22,1));
-}
-
-.bg__layer {
-  position: absolute;
-  inset: -96px;
-  will-change: transform;
-  transform: translate3d(0,0,0);
-}
-
-.bg__layer--slow {
-  opacity: .75;
-  background:
-    radial-gradient(circle at 18% 18%, rgba(251,191,36,0.16), transparent 58%),
-    radial-gradient(circle at 82% 26%, rgba(251,191,36,0.09), transparent 62%);
-}
-
-.bg__layer--mid {
-  opacity: .65;
-  background:
-    radial-gradient(circle at 76% 74%, rgba(59,130,246,0.07), transparent 62%),
-    radial-gradient(circle at 24% 78%, rgba(251,191,36,0.07), transparent 64%);
-}
-
-.bg__layer--fast {
-  opacity: .35;
-  mix-blend-mode: screen;
-  background-image: radial-gradient(rgba(251,191,36,0.16) 1px, transparent 1px);
-  background-size: 26px 26px;
-}
-
-.bg__grid {
-  position: absolute; inset: 0;
-  opacity: .55;
-  mix-blend-mode: screen;
-  background-image:
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 52px 52px;
-}
-
-.bg__dust { position: absolute; inset: 0; pointer-events: none; }
-.bg__dust span{
-  position: absolute;
-  border-radius: 999px;
-  background: rgba(253, 230, 138, 0.8);
-  box-shadow: 0 0 18px rgba(251,191,36,0.18);
-  will-change: transform, opacity;
-}
-
-.bg__vignette {
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 35%, transparent 45%, rgba(0,0,0,0.55) 100%);
-}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .bg__layer { transform: none !important; }
-  .bg__dust span { animation: none !important; }
-  .reveal { opacity: 1 !important; transform: none !important; }
-}
-
-/* ---------- Topbar ---------- */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  border-bottom: 1px solid transparent;
-  backdrop-filter: blur(10px);
-  background: rgba(20,10,6,0.55);
-  transition: box-shadow .25s var(--ease), border-color .25s var(--ease);
-}
-.topbar.is-scrolled {
-  border-bottom-color: rgba(251,191,36,0.10);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
-}
-.topbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 14px 0;
-}
-.brand { display: flex; align-items: center; gap: 10px; }
-.brand__badge{
-  width: 36px; height: 36px;
-  display: grid; place-items: center;
-  border-radius: 12px;
-  border: 1px solid rgba(251,191,36,0.25);
-  background: rgba(3,7,18,0.35);
-  box-shadow: 0 0 26px rgba(251,191,36,0.12);
-}
-.brand__num{
-  font-weight: 700;
-  letter-spacing: .18em;
-  color: rgba(253,230,138,0.95);
-  font-size: 13px;
-}
-.brand__sub{
-  margin-top: -2px;
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-}
-
-.nav { display:flex; align-items:center; gap: 22px; }
-.nav__link { color: rgba(255,255,255,0.75); transition: color .2s var(--ease); }
-.nav__link:hover { color: rgba(253,230,138,0.95); }
-
-.topbar__actions { display:flex; align-items:center; gap: 10px; }
-.topbar__cta { display: none; }
-.nav__burger { display: inline-flex; }
-
-@media (min-width: 640px) {
-  .topbar__cta { display: inline-flex; }
-}
-@media (min-width: 768px) {
-  .nav__burger { display: none; }
-}
-
-.nav--desktop { display:none; }
-@media (min-width: 768px) { .nav--desktop { display:flex; } }
-
-/* Mobile nav drawer */
-.nav--mobile {
-  border-top: 1px solid rgba(251,191,36,0.10);
-}
-.nav__mobileInner{
-  display: grid;
-  gap: 12px;
-  padding: 14px 0 18px;
-}
-.nav__mobileCta { width: fit-content; }
-
-/* ---------- Buttons ---------- */
-.btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: 14px;
-  padding: 10px 14px;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: .08em;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: transform .25s var(--ease), filter .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
-}
-.btn:active { transform: translateY(1px); }
-.btn--chip{
-  border-color: rgba(251,191,36,0.20);
-  background: rgba(3,7,18,0.25);
-  color: rgba(255,255,255,0.85);
-}
-.btn--chip:hover { background: rgba(3,7,18,0.40); }
-.btn--primary{
-  border-color: rgba(251,191,36,0.45);
-  background: linear-gradient(180deg, rgba(253,230,138,1), rgba(251,191,36,1));
-  color: #1b1207;
-  box-shadow: 0 14px 35px rgba(251,191,36,0.18);
-}
-.btn--primary:hover { filter: brightness(1.07); }
-.btn--ghost{
-  border-color: rgba(251,191,36,0.25);
-  background: rgba(3,7,18,0.20);
-  color: rgba(255,255,255,0.85);
-}
-.btn--ghost:hover { background: rgba(3,7,18,0.35); }
-
-/* ---------- Sections ---------- */
-.kicker{
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.60);
-}
-.section { padding: 72px 0; }
-.section__head { margin-bottom: 26px; }
-.section__title{
-  margin: 10px 0 0;
-  font-family: Cinzel, serif;
-  letter-spacing: .06em;
-  font-weight: 700;
-  color: rgba(253,230,138,0.96);
-  text-shadow: 0 0 22px rgba(251,191,36,0.12);
-  font-size: clamp(24px, 2.6vw, 40px);
-}
-.section__sub{
-  margin: 12px 0 0;
-  max-width: 720px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.65;
-  font-size: 14.5px;
-}
-
-/* ---------- Hero ---------- */
-.hero{
-  position: relative;
-  padding: 74px 0 58px;
-  overflow: hidden;
-}
-.hero__fx{
-  position:absolute; inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 18% 18%, rgba(251,191,36,0.22), transparent 55%),
-    radial-gradient(circle at 85% 28%, rgba(251,191,36,0.14), transparent 60%),
-    radial-gradient(circle at 70% 78%, rgba(59,130,246,0.10), transparent 60%),
-    linear-gradient(180deg, rgba(6,3,0,0.65), rgba(10,6,2,0.75));
-}
-.hero__inner{
-  position: relative;
-  display: grid;
-  gap: 26px;
-  align-items: center;
-}
-@media (min-width: 900px) {
-  .hero__inner{ grid-template-columns: 1.1fr 0.9fr; gap: 34px; }
-}
-.hero__title{
-  margin: 14px 0 0;
-  font-family: Cinzel, serif;
-  font-weight: 700;
-  letter-spacing: .12em;
-  color: rgba(253,230,138,0.98);
-  text-shadow: 0 0 36px rgba(251,191,36,0.18);
-  font-size: clamp(40px, 5.2vw, 66px);
-}
-.hero__blurb{
-  margin: 14px 0 0;
-  max-width: 580px;
-  color: rgba(255,255,255,0.80);
-  line-height: 1.7;
-  font-size: 15px;
-}
-.pills{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 18px; }
-.pill{
-  display:inline-flex;
-  align-items:center;
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(251,191,36,0.25);
-  background: rgba(3,7,18,0.35);
-  color: rgba(255,255,255,0.80);
-  box-shadow: 0 0 28px rgba(251,191,36,0.08);
-  font-size: 12px;
-  letter-spacing: .06em;
-}
-.hero__buttons{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 18px; }
-
-/* ---------- Panels / Cards ---------- */
-.panel, .card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 22px;
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(7,16,34,0.55);
-  box-shadow: 0 25px 80px rgba(0,0,0,0.55);
-  backdrop-filter: blur(10px);
-}
-.panel { padding: 22px; }
-.panel__tag{
-  display:inline-flex;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(251,191,36,0.20);
-  background: rgba(3,7,18,0.25);
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.80);
-}
-.panel__title{
-  margin: 12px 0 0;
-  font-size: 22px;
-  font-weight: 700;
-}
-.panel__desc{ margin: 10px 0 0; color: rgba(255,255,255,0.75); line-height: 1.65; font-size: 14px; }
-.panel__grid{ display:grid; gap: 12px; margin-top: 16px; }
-@media (min-width: 640px){ .panel__grid{ grid-template-columns: 1fr 1fr; } }
-
-.panel__box{
-  border-radius: 18px;
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(3,7,18,0.22);
-  padding: 14px;
-}
-.panel__boxTitle{ font-weight: 800; font-size: 13px; color: rgba(255,255,255,0.90); }
-.panel__list{ margin-top: 10px; display:grid; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.75); }
-.panel__list li{ display:flex; justify-content: space-between; gap: 12px; }
-.panel__note{ margin-top: 10px; font-size: 12px; color: rgba(253,230,138,0.85); }
-.panel__mini{ margin: 10px 0 0; color: rgba(255,255,255,0.75); font-size: 13.5px; line-height: 1.6; }
-.panel__tiny{ margin-top: 12px; color: rgba(255,255,255,0.60); font-size: 12px; }
-
-.divider{
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(251,191,36,0.35), transparent);
-  margin: 16px 0;
-}
-.divider--wide{ margin: 0; }
-
-.card{
-  padding: 20px;
-  background: var(--card);
-  box-shadow: var(--shadow);
-  transition: transform .45s var(--ease);
-}
-.card:hover{ transform: translateY(-4px); }
-.card__title{ font-weight: 800; font-size: 13px; letter-spacing: .06em; }
-.card__h{ margin: 10px 0 0; font-size: 18px; font-weight: 800; }
-.card__eyebrow{ font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(253,230,138,0.85); }
-
-.text{ color: rgba(255,255,255,0.75); line-height: 1.7; font-size: 14.5px; }
-.muted{ color: rgba(255,255,255,0.75); margin-top: 10px; }
-.tiny{ font-size: 12px; }
-.goldText{ margin-top: 6px; color: rgba(253,230,138,0.85); font-weight: 700; }
-
-.list{ display:grid; gap: 10px; margin-top: 14px; }
-.check{ color: rgba(253,230,138,0.90); font-weight: 900; margin-right: 8px; }
-
-.cards{ display:grid; gap: 14px; }
-.cards--2{ grid-template-columns: 1fr; }
-.cards--3{ grid-template-columns: 1fr; }
-@media (min-width: 700px){ .cards--2{ grid-template-columns: 1fr 1fr; } }
-@media (min-width: 980px){ .cards--3{ grid-template-columns: 1fr 1fr 1fr; } }
-
-.grid{ display:grid; gap: 18px; }
-.grid--about{ grid-template-columns: 1fr; }
-.grid--nap{ grid-template-columns: 1fr; }
-.grid--apply{ grid-template-columns: 1fr; }
-@media (min-width: 980px){
-  .grid--about{ grid-template-columns: 2fr 1fr; }
-  .grid--nap{ grid-template-columns: 2fr 1fr; }
-  .grid--apply{ grid-template-columns: 2fr 1fr; }
+function get(path, langObj) {
+  // path: "hero.badges.0"
+  const parts = path.split(".");
+  let cur = langObj;
+  for (const p of parts) {
+    if (cur == null) return "";
+    cur = Array.isArray(cur) ? cur[Number(p)] : cur[p];
+  }
+  return cur ?? "";
 }
 
-.stack{ display:grid; gap: 14px; }
+function applyI18n() {
+  const dict = COPY[state.lang];
 
-.stat{
-  border-radius: 18px;
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(3,7,18,0.25);
-  padding: 14px;
-  box-shadow: 0 0 40px rgba(30,64,175,0.08);
-}
-.stat__label{ font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,0.60); }
-.stat__value{ margin-top: 8px; font-weight: 800; color: rgba(255,255,255,0.90); }
+  // text nodes
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const val = get(key, dict);
+    if (typeof val === "string") el.textContent = val;
+  });
 
-.note{
-  border-radius: 18px;
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(3,7,18,0.22);
-  padding: 14px;
-}
-.note--inCard{ margin-top: 14px; }
-.note__title{ font-weight: 800; font-size: 13px; }
+  // placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const val = get(key, dict);
+    if (typeof val === "string") el.setAttribute("placeholder", val);
+  });
 
-.chips{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 12px; }
-.chip{
-  border-radius: 999px;
-  border: 1px solid rgba(251,191,36,0.20);
-  background: rgba(3,7,18,0.20);
-  padding: 7px 10px;
-  font-weight: 800;
-  letter-spacing: .18em;
-  font-size: 12px;
-  color: rgba(255,255,255,0.80);
+  // update lang label + html lang
+  document.getElementById("langLabel").textContent = state.lang;
+  document.documentElement.setAttribute("lang", state.lang === "KOR" ? "ko" : "en");
 }
 
-.tag{
-  display:inline-flex;
-  border-radius: 999px;
-  border: 1px solid rgba(251,191,36,0.20);
-  background: rgba(3,7,18,0.20);
-  padding: 6px 10px;
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+function initLangSwitch() {
+  const btn = document.getElementById("langBtn");
+  btn.addEventListener("click", () => {
+    state.lang = state.lang === "EN" ? "KOR" : "EN";
+    applyI18n();
+  });
 }
 
-.miniGrid{ display:grid; gap: 12px; margin-top: 14px; }
-@media (min-width: 640px){ .miniGrid{ grid-template-columns: 1fr 1fr; } }
-.miniBox{
-  border-radius: 18px;
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(3,7,18,0.18);
-  padding: 14px;
-}
-.miniTitle{ font-weight: 900; font-size: 13px; color: rgba(255,255,255,0.90); }
-.miniTitle.mt{ margin-top: 14px; }
-.miniList{ margin-top: 10px; display:grid; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.75); }
-.miniList li{ display:flex; justify-content: space-between; gap: 12px; }
-
-.coord{
-  margin-top: 10px;
-  border-radius: 14px;
-  border: 1px solid rgba(251,191,36,0.20);
-  background: rgba(20,10,6,0.30);
-  padding: 10px 12px;
-  font-weight: 900;
-  color: rgba(253,230,138,0.92);
-  letter-spacing: .06em;
+function initStickyHeader() {
+  const bar = document.getElementById("topbar");
+  const onScroll = () => {
+    bar.classList.toggle("is-scrolled", window.scrollY > 8);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
-/* ---------- Form ---------- */
-.form{ margin-top: 16px; display:grid; gap: 14px; }
-.form__row{ display:grid; gap: 12px; grid-template-columns: 1fr; }
-.form__row--3{ grid-template-columns: 1fr; }
-@media (min-width: 720px){
-  .form__row{ grid-template-columns: 1fr 1fr; }
-  .form__row--3{ grid-template-columns: 1fr 1fr 1fr; }
-}
-.field{ display:grid; gap: 8px; }
-.label{ font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
-.input, .select, .textarea{
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(3,7,18,0.25);
-  color: rgba(255,255,255,0.90);
-  padding: 10px 12px;
-  outline: none;
-  transition: border-color .25s var(--ease);
-}
-.input::placeholder, .textarea::placeholder { color: rgba(255,255,255,0.35); }
-.input:focus, .select:focus, .textarea:focus { border-color: rgba(251,191,36,0.35); }
-.textarea{ min-height: 120px; resize: vertical; }
+function initMobileMenu() {
+  const burger = document.getElementById("burger");
+  const mobileNav = document.getElementById("mobileNav");
 
-.form__actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
+  function setOpen(open) {
+    burger.setAttribute("aria-expanded", String(open));
+    burger.textContent = open ? "✕" : "☰";
+    mobileNav.hidden = !open;
+  }
+
+  burger.addEventListener("click", () => {
+    const open = burger.getAttribute("aria-expanded") !== "true";
+    setOpen(open);
+  });
+
+  mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
+    a.addEventListener("click", () => setOpen(false));
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) setOpen(false);
+  });
 }
 
-.toast{
-  margin-top: 6px;
-  font-size: 13px;
-  color: rgba(253,230,138,0.90);
-  min-height: 18px;
+function initReveal() {
+  const els = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.classList.add("is-visible");
+      }
+    },
+    { threshold: 0.18 }
+  );
+  els.forEach((el) => io.observe(el));
 }
 
-/* ---------- Footer ---------- */
-.footer{ padding: 46px 0 54px; }
-.footer__row{
-  display:flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 16px;
+function clamp(n, min, max) {
+  return Math.min(max, Math.max(min, n));
 }
-@media (min-width: 700px){
-  .footer__row{ flex-direction: row; justify-content: space-between; align-items: center; }
-}
-.footer__brand{
-  font-weight: 900;
-  letter-spacing: .12em;
-  color: rgba(253,230,138,0.95);
-  font-size: 13px;
-}
-.footer__muted{ color: rgba(255,255,255,0.55); }
 
-/* ---------- Reveal animations ---------- */
-.reveal{
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
+function initParallax() {
+  if (state.reduceMotion) return;
+
+  const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
+    el,
+    rate: Number(el.getAttribute("data-parallax")) || 0,
+  }));
+
+  let raf = 0;
+  const onScroll = () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const y = window.scrollY;
+      for (const l of layers) {
+        const t = clamp(y * l.rate, -160, 320);
+        l.el.style.transform = `translate3d(0, ${t}px, 0)`;
+      }
+    });
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
-.reveal.is-visible{
-  opacity: 1;
-  transform: translateY(0);
+
+function hashToUnit(i) {
+  const x = Math.sin(i * 999.123 + 0.12345) * 43758.5453;
+  return x - Math.floor(x);
 }
+
+function initDust() {
+  const host = document.getElementById("dust");
+  const count = 26;
+
+  for (let i = 0; i < count; i++) {
+    const x = hashToUnit(i + 1);
+    const y = hashToUnit(i + 77);
+    const s = 0.6 + hashToUnit(i + 333) * 1.4;
+    const o = 0.18 + hashToUnit(i + 555) * 0.22;
+    const blur = 0.6 + hashToUnit(i + 222) * 1.6;
+    const dur = 7 + hashToUnit(i + 999) * 10;
+    const dx = (hashToUnit(i + 111) - 0.5) * 28;
+    const dy = (hashToUnit(i + 444) - 0.5) * 40;
+
+    const dot = document.createElement("span");
+    dot.style.left = `${x * 100}%`;
+    dot.style.top = `${y * 100}%`;
+    dot.style.width = `${2.2 * s}px`;
+    dot.style.height = `${2.2 * s}px`;
+    dot.style.opacity = o.toFixed(3);
+    dot.style.filter = `blur(${blur.toFixed(2)}px)`;
+
+    if (!state.reduceMotion) {
+      dot.animate(
+        [
+          { transform: "translate3d(0,0,0)", opacity: o * 0.6 },
+          { transform: `translate3d(${dx}px, ${dy}px, 0)`, opacity: o },
+          { transform: "translate3d(0,0,0)", opacity: o * 0.7 },
+        ],
+        { duration: dur * 1000, iterations: Infinity, direction: "alternate", easing: "ease-in-out" }
+      );
+    }
+
+    host.appendChild(dot);
+  }
+}
+
+function initForm() {
+  const form = document.getElementById("applyForm");
+  const toast = document.getElementById("toast");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    toast.textContent = state.lang === "KOR" ? "제출 완료 (데모)" : "Submitted (demo)";
+    setTimeout(() => (toast.textContent = ""), 2400);
+    form.reset();
+  });
+}
+
+function init() {
+  applyI18n();
+  initLangSwitch();
+  initStickyHeader();
+  initMobileMenu();
+  initReveal();
+  initParallax();
+  initDust();
+  initForm();
+}
+
+init();
