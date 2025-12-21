@@ -1,9 +1,9 @@
-/* STATE 2528 — app.js (UPDATED)
-   - i18n EN/KOR (real switching)
-   - Cinematic background: scroll + mouse parallax, golden dust, gold sweep (12–16s)
-   - Reveal on scroll (IntersectionObserver)
-   - Sticky header shadow
-   - Burger dropdown menu (compact, right aligned), open on click + optional hover
+/* STATE 2528 — app.js
+   - Dropdown ONLY on click (no hover)
+   - Dropdown positioned strictly under burger, aligned to burger right edge
+   - i18n EN/KOR
+   - Background: scroll + mouse parallax, golden dust, gold sweep
+   - Reveal animations
 */
 
 const COPY = {
@@ -17,16 +17,6 @@ const COPY = {
       badges: ["Organized Leadership", "Drama-Free Culture", "Event Optimized", "International Friendly"],
       cta: "Apply for Transfer",
       secondary: "Explore Our Structure",
-    },
-    one: {
-      title: "Forging Victory, Together.",
-      desc:
-        "A collective of strategists and active warriors committed to mutual growth and dominance—strategy, teamwork, and a mature environment.",
-      scheduleTitle: "Event Schedule (UTC)",
-      bt3: "Yes, we have BT3",
-      contactTitle: "Contact / Coordinates",
-      contactDesc: "Message our leader in-game for details.",
-      requireHint: "Requirement highlight: FC4+ • daily active • Discord.",
     },
     about: {
       kicker: "About the State",
@@ -68,6 +58,7 @@ const COPY = {
         "Better retention: drama-free communities last longer.",
       ],
       alliesTitle: "Our Valued Allies",
+      allies: ["KOR", "AFK", "GOD", "PPP", "GPR"],
       sharedTitle: "Shared Power",
       sharedDesc: "Rotations and distribution keep top alliances strong without internal rivalries.",
     },
@@ -94,15 +85,16 @@ const COPY = {
           motto: "Forging Victory, Together.",
           languages: "English (International Members Welcome)",
           scheduleTitle: "Event Schedule (UTC)",
-          schedule: [{ label: "Bear Hunt", time: "02:00 • 13:00 • 18:30", note: "Yes, we have BT3" }],
-          coordsTitle: "Coordinates",
-          reqTitle: "We Are Looking For",
-          requirements: [
-            "Furnace Level: FC4+",
-            "Daily active: participates in alliance & state events",
-            "Communication: must join Alliance Discord",
-            "Attitude: positive, respectful, mature",
+          schedule: [
+            { label: "Bear Hunt", time: "02:00 • 13:00 • 18:30", note: "Yes, we have BT3" },
+            { label: "Foundry & Canyon", time: "14:00 • 19:00" },
+            { label: "Crazy Joe", time: "15:00" },
+            { label: "Mercenaries", time: "15:00" },
           ],
+          coordsTitle: "Coordinates",
+          coords: "X:589  Y:461",
+          reqTitle: "We Are Looking For",
+          requirements: ["Furnace Level: FC4+", "Daily active in major events", "Discord coordination", "Positive & mature"],
           description:
             "[ONE] is a collective of strategists and active warriors committed to mutual growth and dominance. Strategy, teamwork, and a calm environment—so every member reaches full potential.",
         },
@@ -112,31 +104,12 @@ const COPY = {
           motto: "Precision, Discipline, Momentum.",
           languages: "Korean • English",
           scheduleTitle: "Activity Windows",
-          schedule: [
-            { label: "Prime Time", time: "11:00–15:00" },
-            { label: "Secondary", time: "18:00–22:00" },
-          ],
+          schedule: [{ label: "Prime Time", time: "11:00–15:00" }, { label: "Secondary", time: "18:00–22:00" }],
           coordsTitle: "Region",
           coords: "Central Zone (varies by rotation)",
           reqTitle: "Ideal Members",
           requirements: ["Consistent participation", "Team-first mindset", "Quick comms during rallies"],
           description: "A coordinated unit aligned with state standards. Strong turnout and fast execution during major objectives.",
-        },
-        {
-          tag: "Growth Alliance",
-          name: "AFK",
-          motto: "Build Fast. Show Up Strong.",
-          languages: "English",
-          scheduleTitle: "Activity Windows",
-          schedule: [
-            { label: "Daily Tasks", time: "Flexible" },
-            { label: "Key Events", time: "State-wide announcements" },
-          ],
-          coordsTitle: "Region",
-          coords: "Support Zone",
-          reqTitle: "Ideal Members",
-          requirements: ["New/returning players", "Willing to learn", "Discord optional"],
-          description: "A supportive home for consistent builders and future fighters. Learn the state’s standards and level up smoothly.",
         },
       ],
     },
@@ -146,20 +119,13 @@ const COPY = {
       desc:
         "Apply below and our leadership will reach out with next steps. We prioritize mature, reliable players who want long-term stability.",
       formTitle: "Application Form",
-      fields: {
-        name: "In-Game Name",
-        id: "Player ID",
-        furnace: "Furnace Level",
-        language: "Preferred Language",
-        timezone: "Timezone",
-        notes: "Notes (power, goals, schedule)",
-      },
+      fields: { name: "In-Game Name", id: "Player ID", furnace: "Furnace Level", language: "Preferred Language", timezone: "Timezone", notes: "Notes (power, goals, schedule)" },
       placeholders: {
         name: "e.g., Raven",
         id: "e.g., 123456789",
         furnace: "e.g., FC4",
         timezone: "e.g., UTC+2",
-        notes: "Anything we should know—SvS experience, event times, what you’re looking for…",
+        notes: "SvS experience, event times, what you’re looking for…",
       },
       submit: "Submit Application",
       hint: "This form is a UI demo—wire it to your backend / Google Form / Discord bot.",
@@ -185,15 +151,6 @@ const COPY = {
       cta: "이주 지원하기",
       secondary: "구조 살펴보기",
     },
-    one: {
-      title: "승리를 함께 빚어낸다.",
-      desc: "전략가와 활동적인 전사들의 팀. 전략과 팀워크, 성숙한 분위기 속에서 성장과 지배를 추구합니다.",
-      scheduleTitle: "이벤트 일정 (UTC)",
-      bt3: "BT3 보유",
-      contactTitle: "연락 / 좌표",
-      contactDesc: "자세한 내용은 인게임에서 리더에게 문의하세요.",
-      requireHint: "요약: FC4+ • 일일 활동 • 디스코드 필수",
-    },
     about: {
       kicker: "국가",
       title: "승자를 위한 안정적인 제국",
@@ -217,8 +174,7 @@ const COPY = {
     nap: {
       kicker: "국가 규약",
       title: "공정한 NAP • 공동 성장",
-      desc:
-        "안정적인 NAP 아래 국가가 하나로 움직입니다. 내부 싸움에 자원을 낭비하지 않고 함께 성장합니다.",
+      desc: "안정적인 NAP 아래 국가가 하나로 움직입니다. 내부 싸움에 자원을 낭비하지 않습니다.",
       rulesTitle: "NAP 규칙",
       rules: [
         "NAP 연맹 간 도시 공격/자원 괴롭힘 금지.",
@@ -227,13 +183,9 @@ const COPY = {
         "독성/인신공격/방해 행위는 무관용.",
       ],
       whyTitle: "왜 안전하고 이득인가",
-      why: [
-        "안정적인 성장: 손실 감소, 업그레이드 가속.",
-        "예측 가능한 로테이션: 주요 구조물 접근 공정.",
-        "정돈된 협업: SvS/이벤트 대응 속도 향상.",
-        "장기 유지: 드라마 없는 공동체는 오래 갑니다.",
-      ],
+      why: ["안정적인 성장: 손실 감소, 업그레이드 가속.", "예측 가능한 로테이션: 공정한 접근.", "정돈된 협업: 대응 속도 향상.", "장기 유지: 드라마 없는 공동체."],
       alliesTitle: "주요 우호 연맹",
+      allies: ["KOR", "AFK", "GOD", "PPP", "GPR"],
       sharedTitle: "권한 공유",
       sharedDesc: "로테이션/분배로 상위 연맹의 힘을 유지하며 내부 경쟁을 줄입니다.",
     },
@@ -260,12 +212,17 @@ const COPY = {
           motto: "승리를 함께 빚어낸다.",
           languages: "영어 (국제 멤버 환영)",
           scheduleTitle: "이벤트 일정 (UTC)",
-          schedule: [{ label: "Bear Hunt", time: "02:00 • 13:00 • 18:30", note: "BT3 보유" }],
+          schedule: [
+            { label: "Bear Hunt", time: "02:00 • 13:00 • 18:30", note: "BT3 보유" },
+            { label: "Foundry & Canyon", time: "14:00 • 19:00" },
+            { label: "Crazy Joe", time: "15:00" },
+            { label: "Mercenaries", time: "15:00" },
+          ],
           coordsTitle: "좌표",
+          coords: "X:589  Y:461",
           reqTitle: "모집 기준",
-          requirements: ["용광로 레벨: FC4+", "매일 활동 및 주요 이벤트 참여", "소통: 연맹 디스코드 필수", "태도: 긍정 • 존중 • 성숙"],
-          description:
-            "[ONE]은 전략가와 활동적인 전사들의 팀입니다. 전략과 팀워크, 차분한 분위기 속에서 모두가 최대 잠재력을 발휘합니다.",
+          requirements: ["FC4+ 이상", "주요 이벤트 일일 참여", "디스코드 조율", "긍정적이고 성숙한 태도"],
+          description: "[ONE]은 전략가와 활동적인 전사들의 팀입니다. 전략과 팀워크, 차분한 분위기 속에서 성장하세요.",
         },
         {
           tag: "우호 연맹",
@@ -273,50 +230,31 @@ const COPY = {
           motto: "정밀 • 규율 • 추진력",
           languages: "한국어 • 영어",
           scheduleTitle: "활동 시간",
-          schedule: [
-            { label: "프라임", time: "11:00–15:00" },
-            { label: "세컨", time: "18:00–22:00" },
-          ],
+          schedule: [{ label: "프라임", time: "11:00–15:00" }, { label: "세컨", time: "18:00–22:00" }],
           coordsTitle: "구역",
-          coords: "중앙권 (로테이션에 따라 변동)",
+          coords: "중앙권 (로테이션 변동)",
           reqTitle: "추천 인원",
-          requirements: ["꾸준한 참여", "팀 우선 마인드", "집결 시 빠른 콜"],
+          requirements: ["꾸준한 참여", "팀 우선", "집결 시 빠른 콜"],
           description: "국가 기준에 맞춘 협업 연맹. 주요 목표에서 높은 출석과 빠른 실행이 강점입니다.",
-        },
-        {
-          tag: "성장 연맹",
-          name: "AFK",
-          motto: "빠르게 성장, 강하게 참여",
-          languages: "영어",
-          scheduleTitle: "활동",
-          schedule: [
-            { label: "일일", time: "자유" },
-            { label: "핵심 이벤트", time: "국가 공지 기준" },
-          ],
-          coordsTitle: "구역",
-          coords: "지원권",
-          reqTitle: "추천 인원",
-          requirements: ["복귀/신규", "학습 의지", "디스코드 선택"],
-          description: "안정적으로 성장하고 전투에 합류할 준비를 하는 멤버를 위한 공간.",
         },
       ],
     },
     apply: {
       kicker: "이주",
       title: "승자의 팀에 합류할 준비 되셨나요?",
-      desc: "지원서를 작성하면 운영진이 안내드립니다. 장기적으로 안정된 국가를 찾는 성숙한 플레이어를 환영합니다.",
+      desc: "지원서를 작성하면 운영진이 안내드립니다. 장기적으로 안정된 국가를 찾는 성숙한 플레이어 환영.",
       formTitle: "지원서",
       fields: { name: "게임 닉네임", id: "플레이어 ID", furnace: "용광로 레벨", language: "선호 언어", timezone: "시간대", notes: "메모 (전력, 목표, 가능한 시간)" },
-      placeholders: { name: "예: Raven", id: "예: 123456789", furnace: "예: FC4", timezone: "예: UTC+2", notes: "SvS 경험, 이벤트 가능 시간, 원하는 분위기 등을 적어주세요…" },
+      placeholders: { name: "예: Raven", id: "예: 123456789", furnace: "예: FC4", timezone: "예: UTC+2", notes: "SvS 경험/가능 시간/원하는 분위기 등…" },
       submit: "지원서 제출",
-      hint: "현재는 UI 데모입니다. 백엔드/Google Form/Discord 봇으로 연동하세요.",
+      hint: "현재는 UI 데모입니다. 백엔드/Google Form/Discord 봇 연동하세요.",
       reco: "추천: FC4+ • 일일 활동 • 디스코드",
       contactTitle: "인게임으로 먼저 연락할까요?",
       contactDesc: "리더에게 메시지 후 진행 방법을 안내받으세요.",
       contactCta: "좌표: X:589  Y:461",
       quickTitle: "요구사항",
       quick: ["FC4+ 이상", "주요 이벤트 일일 참여", "디스코드 조율", "긍정적이고 성숙한 태도"],
-      tip: "팁: 준비되면 여기 디스코드 초대 버튼을 추가하세요.",
+      tip: "팁: 준비되면 여기에 디스코드 초대 버튼을 추가하세요.",
     },
     footer: { line: "STATE 2528 • 골든 엠파이어 프로토콜", small: "전략, 안정, 그리고 깔끔한 승리를 위해." },
   },
@@ -327,33 +265,35 @@ const state = {
   reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
 };
 
-/* ---------- helpers ---------- */
-function get(path, langObj) {
-  const parts = path.split(".");
-  let cur = langObj;
-  for (const p of parts) {
-    if (cur == null) return "";
-    cur = Array.isArray(cur) ? cur[Number(p)] : cur[p];
-  }
-  return cur ?? "";
-}
-
+/* ---------------- helpers ---------------- */
 function clamp(n, min, max) {
   return Math.min(max, Math.max(min, n));
 }
 
+function getByPath(obj, path) {
+  const parts = path.split(".");
+  let cur = obj;
+  for (const p of parts) {
+    if (cur == null) return "";
+    if (Array.isArray(cur)) cur = cur[Number(p)];
+    else cur = cur[p];
+  }
+  return cur ?? "";
+}
+
+/* ---------------- i18n ---------------- */
 function applyI18n() {
   const dict = COPY[state.lang];
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const val = get(key, dict);
+    const val = getByPath(dict, key);
     if (typeof val === "string") el.textContent = val;
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
-    const val = get(key, dict);
+    const val = getByPath(dict, key);
     if (typeof val === "string") el.setAttribute("placeholder", val);
   });
 
@@ -361,107 +301,130 @@ function applyI18n() {
   if (langLabel) langLabel.textContent = state.lang;
 
   document.documentElement.setAttribute("lang", state.lang === "KOR" ? "ko" : "en");
+
+  // Render dynamic lists
+  renderDynamicBlocks();
 }
 
-/* ---------- language ---------- */
 function initLangSwitch() {
   const btn = document.getElementById("langBtn");
   if (!btn) return;
-
   btn.addEventListener("click", () => {
     state.lang = state.lang === "EN" ? "KOR" : "EN";
     applyI18n();
   });
 }
 
-/* ---------- sticky header shadow ---------- */
+/* ---------------- sticky header shadow ---------------- */
 function initStickyHeader() {
   const bar = document.getElementById("topbar");
   if (!bar) return;
 
-  const onScroll = () => {
-    bar.classList.toggle("is-scrolled", window.scrollY > 8);
-  };
+  const onScroll = () => bar.classList.toggle("is-scrolled", window.scrollY > 8);
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
-/* ---------- burger dropdown menu ---------- */
-function initMobileMenu() {
+/* ---------------- Dropdown: ONLY click + positioned under burger ---------------- */
+function initDropdown() {
   const burger = document.getElementById("burger");
   const mobileNav = document.getElementById("mobileNav");
   if (!burger || !mobileNav) return;
 
-  let open = false;
-  let hoverTimer = null;
+  let isOpen = false;
 
-  function setOpen(next) {
-    open = next;
+  function placeDropdown() {
+    // Align right edge of dropdown to right edge of burger
+    const r = burger.getBoundingClientRect();
+    const gap = 10;
 
-    burger.setAttribute("aria-expanded", String(open));
-    burger.textContent = open ? "✕" : "☰";
+    // desired width (same as CSS earlier)
+    const desired = Math.min(320, window.innerWidth - 40);
+    const width = desired;
 
-    if (open) {
-      mobileNav.hidden = false;
-      requestAnimationFrame(() => mobileNav.classList.add("is-open"));
-    } else {
-      mobileNav.classList.remove("is-open");
-      setTimeout(() => {
-        if (!open) mobileNav.hidden = true;
-      }, 230);
-    }
+    let left = r.right - width; // right aligned
+    let top = r.bottom + gap;
+
+    // Clamp inside viewport
+    left = clamp(left, 12, window.innerWidth - width - 12);
+    top = clamp(top, 8, window.innerHeight - 12);
+
+    mobileNav.style.width = `${width}px`;
+    mobileNav.style.left = `${left}px`;
+    mobileNav.style.top = `${top}px`;
   }
 
-  // click toggle
-  burger.addEventListener("click", () => setOpen(!open));
+  function openMenu() {
+    if (isOpen) return;
+    isOpen = true;
 
-  // close on menu link click
+    burger.setAttribute("aria-expanded", "true");
+    burger.textContent = "✕";
+
+    placeDropdown();
+    mobileNav.hidden = false;
+    requestAnimationFrame(() => mobileNav.classList.add("is-open"));
+  }
+
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+
+    burger.setAttribute("aria-expanded", "false");
+    burger.textContent = "☰";
+
+    mobileNav.classList.remove("is-open");
+    setTimeout(() => {
+      if (!isOpen) mobileNav.hidden = true;
+    }, 230);
+  }
+
+  function toggleMenu() {
+    if (isOpen) closeMenu();
+    else openMenu();
+  }
+
+  burger.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Prevent inside clicks from closing
+  mobileNav.addEventListener("click", (e) => e.stopPropagation());
+
+  // Close on link
   mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
-    a.addEventListener("click", () => setOpen(false));
+    a.addEventListener("click", () => closeMenu());
   });
 
-  // close on outside click
-  document.addEventListener("click", (e) => {
-    if (!open) return;
-    const t = e.target;
-    if (mobileNav.contains(t) || burger.contains(t)) return;
-    setOpen(false);
-  });
+  // Close on outside click
+  document.addEventListener("click", () => closeMenu());
 
-  // OPTIONAL: hover open on desktop
-  burger.addEventListener("mouseenter", () => {
-    if (window.innerWidth < 768) return;
-    if (hoverTimer) clearTimeout(hoverTimer);
-    setOpen(true);
-  });
-
-  function scheduleClose() {
-    if (window.innerWidth < 768) return;
-    if (hoverTimer) clearTimeout(hoverTimer);
-    hoverTimer = setTimeout(() => setOpen(false), 220);
-  }
-
-  burger.addEventListener("mouseleave", scheduleClose);
-  mobileNav.addEventListener("mouseenter", () => {
-    if (hoverTimer) clearTimeout(hoverTimer);
-  });
-  mobileNav.addEventListener("mouseleave", scheduleClose);
-
-  // If user hits ESC — close
+  // ESC closes
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
+    if (e.key === "Escape") closeMenu();
   });
 
-  // Ensure closed on larger changes if desired (keeping current behavior)
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 1200 && open) {
-      // optional: keep it open on desktop; comment next line if you want it to persist
-      // setOpen(false);
-    }
-  });
+  // Keep it under the button on resize/scroll if open
+  window.addEventListener(
+    "resize",
+    () => {
+      if (isOpen) placeDropdown();
+    },
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (isOpen) placeDropdown();
+    },
+    { passive: true }
+  );
 }
 
-/* ---------- reveal on scroll ---------- */
+/* ---------------- reveal ---------------- */
 function initReveal() {
   const els = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
@@ -470,73 +433,55 @@ function initReveal() {
   }
 
   const io = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
-      }
-    },
+    (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("is-visible")),
     { threshold: 0.18 }
   );
-
   els.forEach((el) => io.observe(el));
 }
 
-/* ---------- parallax: scroll + mouse (subtle) ---------- */
+/* ---------------- parallax: scroll + subtle mouse ---------------- */
 function initParallax() {
   const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
     el,
     rate: Number(el.getAttribute("data-parallax")) || 0,
   }));
-
-  if (layers.length === 0) return;
+  if (!layers.length) return;
 
   const mouse = { x: 0, y: 0 };
   const target = { x: 0, y: 0 };
 
-  const MAX_PX = 12;     // total max mouse shift on fastest layer
-  const SMOOTH = 0.08;   // smoothing factor
+  const MAX_PX = 10; // very small amplitude (premium)
+  const SMOOTH = 0.08;
 
   function onPointerMove(e) {
     if (state.reduceMotion) return;
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 2;
-    const nx = (e.clientX - cx) / cx;
-    const ny = (e.clientY - cy) / cy;
-    target.x = clamp(nx, -1, 1);
-    target.y = clamp(ny, -1, 1);
+    target.x = clamp((e.clientX - cx) / cx, -1, 1);
+    target.y = clamp((e.clientY - cy) / cy, -1, 1);
   }
 
   let scrollY = window.scrollY;
-  window.addEventListener(
-    "scroll",
-    () => {
-      scrollY = window.scrollY;
-    },
-    { passive: true }
-  );
-
+  window.addEventListener("scroll", () => (scrollY = window.scrollY), { passive: true });
   window.addEventListener("pointermove", onPointerMove, { passive: true });
   window.addEventListener("blur", () => {
     target.x = 0;
     target.y = 0;
   });
 
-  function scaleForRate(rate) {
-    // Normalize to the fastest layer rate (0.18)
+  function scale(rate) {
     const base = 0.18;
     const k = base ? rate / base : 0;
-    return clamp(k, 0.15, 1); // keep slow layers from feeling frozen
+    return clamp(k, 0.18, 1);
   }
 
   function render() {
-    // smooth mouse towards target
     mouse.x += (target.x - mouse.x) * SMOOTH;
     mouse.y += (target.y - mouse.y) * SMOOTH;
 
     for (const l of layers) {
       const scrollOffset = state.reduceMotion ? 0 : clamp(scrollY * l.rate, -160, 320);
-      const k = scaleForRate(l.rate);
-
+      const k = scale(l.rate);
       const mx = state.reduceMotion ? 0 : mouse.x * (MAX_PX * k);
       const my = state.reduceMotion ? 0 : mouse.y * (MAX_PX * k);
 
@@ -549,7 +494,7 @@ function initParallax() {
   requestAnimationFrame(render);
 }
 
-/* ---------- golden dust (deterministic) ---------- */
+/* ---------------- golden dust ---------------- */
 function hashToUnit(i) {
   const x = Math.sin(i * 999.123 + 0.12345) * 43758.5453;
   return x - Math.floor(x);
@@ -560,7 +505,6 @@ function initDust() {
   if (!host) return;
 
   const count = 26;
-
   for (let i = 0; i < count; i++) {
     const x = hashToUnit(i + 1);
     const y = hashToUnit(i + 77);
@@ -594,18 +538,17 @@ function initDust() {
   }
 }
 
-/* ---------- Gold light sweep (12–16s) ---------- */
+/* ---------------- gold sweep (12–16 sec) ---------------- */
 function initGoldSweep() {
   const sweep = document.getElementById("sweep");
   if (!sweep || state.reduceMotion) return;
 
   function nextDelay() {
-    return 12000 + Math.random() * 4000; // 12–16 sec
+    return 12000 + Math.random() * 4000;
   }
 
   function runOnce() {
     sweep.classList.add("is-on");
-
     sweep.animate(
       [
         { transform: "translate3d(-30%, 20%, 0)", opacity: 0.0 },
@@ -614,11 +557,7 @@ function initGoldSweep() {
         { transform: "translate3d(30%, -10%, 0)", opacity: 0.18 },
         { transform: "translate3d(55%, -20%, 0)", opacity: 0.0 },
       ],
-      {
-        duration: 2200,
-        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-        fill: "forwards",
-      }
+      { duration: 2200, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" }
     );
 
     setTimeout(() => sweep.classList.remove("is-on"), 2300);
@@ -628,7 +567,120 @@ function initGoldSweep() {
   setTimeout(runOnce, 1800);
 }
 
-/* ---------- form demo ---------- */
+/* ---------------- dynamic content render ---------------- */
+function renderDynamicBlocks() {
+  const t = COPY[state.lang];
+
+  // NAP lists
+  const napRules = document.getElementById("napRules");
+  const napWhy = document.getElementById("napWhy");
+  const napAllies = document.getElementById("napAllies");
+
+  if (napRules) {
+    napRules.innerHTML = "";
+    t.nap.rules.forEach((r) => {
+      const li = document.createElement("li");
+      li.className = "text";
+      li.innerHTML = `<span class="check">✓</span><span>${r}</span>`;
+      napRules.appendChild(li);
+    });
+  }
+
+  if (napWhy) {
+    napWhy.innerHTML = "";
+    t.nap.why.forEach((r) => {
+      const li = document.createElement("li");
+      li.className = "text";
+      li.innerHTML = `<span class="check">✓</span><span>${r}</span>`;
+      napWhy.appendChild(li);
+    });
+  }
+
+  if (napAllies) {
+    napAllies.innerHTML = "";
+    t.nap.allies.forEach((a) => {
+      const span = document.createElement("span");
+      span.className = "chip";
+      span.textContent = a;
+      napAllies.appendChild(span);
+    });
+  }
+
+  // Reasons
+  const reasonsGrid = document.getElementById("reasonsGrid");
+  if (reasonsGrid) {
+    reasonsGrid.innerHTML = "";
+    t.reasons.items.forEach((it) => {
+      const card = document.createElement("div");
+      card.className = "card reveal";
+      card.innerHTML = `
+        <div class="card__eyebrow">Benefit</div>
+        <div style="margin-top:10px;font-weight:900;font-size:18px;color:rgba(255,255,255,.95)">${it.title}</div>
+        <p class="text" style="margin-top:8px">${it.desc}</p>
+      `;
+      reasonsGrid.appendChild(card);
+    });
+  }
+
+  // Alliances
+  const alliancesGrid = document.getElementById("alliancesGrid");
+  if (alliancesGrid) {
+    alliancesGrid.innerHTML = "";
+    t.alliances.cards.forEach((c) => {
+      const card = document.createElement("div");
+      card.className = "card reveal";
+      const scheduleHtml = c.schedule
+        .map((s) => `<li><span>${s.label}</span><span>${s.time}</span></li>`)
+        .join("");
+
+      const reqHtml = c.requirements.map((r) => `<li class="text"><span class="check">✓</span><span>${r}</span></li>`).join("");
+
+      card.innerHTML = `
+        <div class="tag">${c.tag}</div>
+        <div style="margin-top:10px;font-weight:900;font-size:22px;color:rgba(255,255,255,.95)">${c.name}</div>
+        <div style="margin-top:4px;font-weight:800;color:rgba(253,230,138,.85)">${c.motto}</div>
+        <div class="muted tiny" style="margin-top:8px">${c.languages}</div>
+        <p class="text" style="margin-top:10px">${c.description}</p>
+
+        <div class="divider"></div>
+
+        <div class="panel__grid" style="margin-top:0">
+          <div class="panel__box">
+            <div class="panel__boxTitle">${c.scheduleTitle}</div>
+            <ul class="panel__list">${scheduleHtml}</ul>
+            ${c.schedule.find((x) => x.note) ? `<div class="panel__note">${c.schedule.find((x) => x.note).note}</div>` : ""}
+          </div>
+
+          <div class="panel__box">
+            <div class="panel__boxTitle">${c.coordsTitle}</div>
+            <div class="coord">${c.coords}</div>
+
+            <div class="panel__boxTitle" style="margin-top:12px">${c.reqTitle}</div>
+            <ul class="list" style="margin-top:10px">${reqHtml}</ul>
+          </div>
+        </div>
+      `;
+      alliancesGrid.appendChild(card);
+    });
+  }
+
+  // Apply quick list
+  const applyQuick = document.getElementById("applyQuick");
+  if (applyQuick) {
+    applyQuick.innerHTML = "";
+    t.apply.quick.forEach((q) => {
+      const li = document.createElement("li");
+      li.className = "text";
+      li.innerHTML = `<span class="check">✓</span><span>${q}</span>`;
+      applyQuick.appendChild(li);
+    });
+  }
+
+  // Re-init reveal observer because we injected new .reveal nodes
+  initReveal();
+}
+
+/* ---------------- form demo ---------------- */
 function initForm() {
   const form = document.getElementById("applyForm");
   const toast = document.getElementById("toast");
@@ -642,16 +694,19 @@ function initForm() {
   });
 }
 
-/* ---------- boot ---------- */
+/* ---------------- boot ---------------- */
 function boot() {
   applyI18n();
   initLangSwitch();
   initStickyHeader();
-  initMobileMenu();
+
+  initDropdown();  // <-- dropdown ONLY click + exact positioning
   initReveal();
+
   initParallax();
   initDust();
   initGoldSweep();
+
   initForm();
 }
 
