@@ -346,13 +346,15 @@ function initStickyHeader() {
 function initMobileMenu() {
   const burger = document.getElementById("burger");
   const mobileNav = document.getElementById("mobileNav");
+if (!burger || !mobileNav) return;
 
   function setOpen(open) {
     burger.setAttribute("aria-expanded", String(open));
     burger.textContent = open ? "✕" : "☰";
     mobileNav.hidden = !open;
   }
-
+setOpen(false);
+   
   burger.addEventListener("click", () => {
     const open = burger.getAttribute("aria-expanded") !== "true";
     setOpen(open);
