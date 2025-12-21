@@ -6,6 +6,7 @@
    - Sticky header shadow
    - Mobile menu
 */
+console.log("✅ app.js loaded");
 
 const COPY = {
   EN: {
@@ -551,4 +552,4 @@ function init() {
   initForm();
 }
 
-init();
+window.addEventListener("DOMContentLoaded", init);
