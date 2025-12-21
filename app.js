@@ -29,27 +29,21 @@ const COPY = {
       contactTitle: "Contact / Coordinates",
       contactDesc: "Message our leader in-game for details.",
       requireHint: "Requirement highlight: FC4+ • daily active • Discord.",
-    },
     about: {
-      kicker: "About the State",
-      title: "A Stable Empire Built for Winners",
-      desc:
-        "State 2528 prioritizes growth and external threats over costly internal conflicts. Our structure rewards teamwork, coordination, and mature play—so winners can thrive.",
-      svsTitle: "SvS Performance Focus",
-      svsPrep: "Preparation Phase: coordinated scoring plans, resource routing, and role assignments.",
-      svsBattle: "Battle Phase: disciplined rallies, clean comms, and focused objectives.",
-      govTitle: "Governance",
-      govDesc: "Stable NAP, transparent rotations, and clear enforcement. We focus on external threats—not internal chaos.",
-      govPill1: "Statewide teamwork",
-      govPill2: "Low conflict",
-      stats: [
-        { label: "Core Principle", value: "Shared Power" },
-        { label: "Culture", value: "Respectful • Mature" },
-        { label: "Primary Language", value: "English (International Welcome)" },
-      ],
-      commsTitle: "Communication Standard",
-      commsDesc: "Discord is our command center: guides, rally sheets, SvS plans, and rapid coordination.",
-    },
+  kicker: "About the State",
+  title: "A Stable, United State",
+  shortIntro:
+    "State 2528 is a stable, multinational state with an active NAP6 and strong inter-alliance coordination. We focus on strategy, unity, and respectful play to succeed in all global events.",
+  shortApproach:
+    "Our approach emphasizes joint preparation, clear roles, and consistent execution across the state.",
+  points: [
+    "Shared Strength",
+    "Experienced Leadership",
+    "Alliance Coordination",
+    "Friendly Environment",
+    "Multinational Community",
+  ],
+},
     nap: {
       kicker: "NAP Protocol",
       title: "Fair Play & Shared Power",
@@ -198,25 +192,20 @@ const COPY = {
       requireHint: "요약: FC4+ • 일일 활동 • 디스코드 필수",
     },
     about: {
-      kicker: "국가",
-      title: "승자를 위한 안정적인 제국",
-      desc:
-        "2528은 내부 갈등보다 성장과 외부 위협 대응을 우선합니다. 팀워크와 조율, 성숙한 플레이가 보상받는 환경입니다.",
-      svsTitle: "SvS 운영 방향",
-      svsPrep: "준비 단계: 점수 플랜, 자원/역할 배분, 협업 루트 설계.",
-      svsBattle: "전투 단계: 규율 있는 집결, 명확한 콜, 목표 집중.",
-      govTitle: "운영",
-      govDesc: "안정적인 NAP, 투명한 로테이션, 명확한 규정. 내부 혼란 대신 외부 목표에 집중합니다.",
-      govPill1: "국가 단위 팀워크",
-      govPill2: "낮은 내부 분쟁",
-      stats: [
-        { label: "핵심 원칙", value: "권한 공유" },
-        { label: "문화", value: "존중 • 성숙" },
-        { label: "주 언어", value: "영어 (국제 멤버 환영)" },
-      ],
-      commsTitle: "커뮤니케이션",
-      commsDesc: "디스코드는 지휘 센터입니다: 가이드, 집결 시트, SvS 플랜, 빠른 조율.",
-    },
+  kicker: "국가 소개",
+  title: "안정적이고 단합된 국가",
+  shortIntro:
+    "State 2528은 안정적인 다국적 국가이며, 활성화된 NAP6와 강력한 연맹 간 협업 체계를 갖추고 있습니다. 우리는 전략, 단합, 그리고 존중 문화를 바탕으로 모든 글로벌 이벤트에서 성과를 냅니다.",
+  shortApproach:
+    "국가 전체가 함께 준비하고, 역할을 명확히 하며, 일관된 실행으로 결과를 만들어냅니다.",
+  points: [
+    "공동의 힘",
+    "경험 있는 운영진",
+    "연맹 간 조율",
+    "친화적 환경",
+    "다국적 커뮤니티",
+  ],
+},
     nap: {
       kicker: "국가 규약",
       title: "공정한 NAP • 공동 성장",
