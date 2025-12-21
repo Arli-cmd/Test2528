@@ -144,7 +144,7 @@ const COPY = {
       kicker: "Transfer",
       title: "Ready to Join a Team of Winners?",
       desc:
-        "Apply below and our leadership will reach out with next steps. We prioritize mature, reliable players who want long-term stability.",
+        "Apply below and our leadership will reach out with next steps.",
       formTitle: "Application Form",
       fields: {
         name: "In-Game Name",
@@ -162,7 +162,6 @@ const COPY = {
         notes: "Anything we should know—SvS experience, event times, what you’re looking for…",
       },
       submit: "Submit Application",
-      hint: "This form is a UI demo—wire it to your backend / Google Form / Discord bot.",
       reco: "Recommended: FC4+ • Daily active • Discord",
       contactTitle: "Prefer In-Game Contact?",
       contactDesc: "Message our leader for details and screening.",
