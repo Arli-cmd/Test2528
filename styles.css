@@ -526,3 +526,38 @@ ul { margin: 0; padding: 0; list-style: none; }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ---------- Gold light sweep (cinematic, subtle) ---------- */
+.bg__sweep {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  /* Узкий диагональный “луч” + очень мягкое золото по краям */
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(251,191,36,0.00) 35%,
+      rgba(251,191,36,0.10) 45%,
+      rgba(251,191,36,0.22) 50%,
+      rgba(251,191,36,0.10) 55%,
+      rgba(251,191,36,0.00) 65%,
+      transparent 100%
+    );
+  filter: blur(10px);
+  transform: translate3d(-30%, 20%, 0) rotate(0.001deg);
+  will-change: transform, opacity;
+}
+
+/* Когда “свип” активен — чуть ярче, но все ещё премиально */
+.bg__sweep.is-on {
+  opacity: 1;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg__sweep { display: none; }
+}
+
