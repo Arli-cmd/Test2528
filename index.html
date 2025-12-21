@@ -1,446 +1,375 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>STATE 2528 — Golden Empire</title>
-    <meta
-      name="description"
-      content="STATE 2528 — a stable, organized, elite game state built for teamwork and SvS domination. EN/KOR, NAP, alliances, and transfer application."
-    />
-
-    <!-- Fonts (optional). If you want completely offline: remove these and keep system fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-
-  <body>
-    <!-- Cinematic background layers -->
-    <div class="bg" aria-hidden="true">
-      <div class="bg__base"></div>
-      <div class="bg__layer bg__layer--slow" data-parallax="0.06"></div>
-      <div class="bg__layer bg__layer--mid" data-parallax="0.12"></div>
-      <div class="bg__layer bg__layer--fast" data-parallax="0.18"></div>
-      <div class="bg__grid"></div>
-      <div class="bg__dust" id="dust"></div>
-      <div class="bg__vignette"></div>
-    </div>
-
-    <!-- Header -->
-    <header class="topbar" id="topbar">
-      <div class="container topbar__inner">
-        <a class="brand" href="#top">
-          <div class="brand__badge" aria-hidden="true">♛</div>
-          <div class="brand__text">
-            <div class="brand__num">2528</div>
-            <div class="brand__sub">Golden Empire</div>
-          </div>
-        </a>
-
-        <nav class="nav nav--desktop" aria-label="Primary navigation">
-          <a class="nav__link" href="#about" data-i18n="nav.about">State</a>
-          <a class="nav__link" href="#nap" data-i18n="nav.nap">NAP</a>
-          <a class="nav__link" href="#reasons" data-i18n="nav.reasons">Why Us</a>
-          <a class="nav__link" href="#alliances" data-i18n="nav.alliances">Alliances</a>
-          <a class="nav__link" href="#apply" data-i18n="nav.apply">Apply</a>
-        </nav>
-
-        <div class="topbar__actions">
-          <button class="btn btn--chip" id="langBtn" type="button" aria-label="Switch language">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>STATE 2528 — Golden Empire</title>
+<meta content="STATE 2528 — a stable, organized, elite game state built for teamwork and SvS domination. EN/KOR, NAP, alliances, and transfer application." name="description"/>
+<!-- Fonts (optional). If you want completely offline: remove these and keep system fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cinematic background layers -->
+<div aria-hidden="true" class="bg">
+<div class="bg__base"></div>
+<div class="bg__layer bg__layer--slow" data-parallax="0.06"></div>
+<div class="bg__layer bg__layer--mid" data-parallax="0.12"></div>
+<div class="bg__layer bg__layer--fast" data-parallax="0.18"></div>
+<div class="bg__grid"></div>
+<div class="bg__dust" id="dust"></div>
+<div class="bg__vignette"></div>
+</div>
+<!-- Header -->
+<header class="topbar" id="topbar">
+<div class="container topbar__inner">
+<a class="brand" href="#top">
+<div aria-hidden="true" class="brand__badge">♛</div>
+<div class="brand__text">
+<div class="brand__num">2528</div>
+<div class="brand__sub">Golden Empire</div>
+</div>
+</a>
+<nav aria-label="Primary navigation" class="nav nav--desktop">
+<a class="nav__link" data-i18n="nav.about" href="#about">State</a>
+<a class="nav__link" data-i18n="nav.nap" href="#nap">NAP</a>
+<a class="nav__link" data-i18n="nav.reasons" href="#reasons">Why Us</a>
+<a class="nav__link" data-i18n="nav.alliances" href="#alliances">Alliances</a>
+<a class="nav__link" data-i18n="nav.apply" href="#apply">Apply</a>
+</nav>
+<div class="topbar__actions">
+<button aria-label="Switch language" class="btn btn--chip" id="langBtn" type="button">
             🌐 <span id="langLabel">EN</span>
-          </button>
-
-          <a class="btn btn--primary" id="topCta" data-i18n="nav.apply"></a>
-
-          <div class="menuWrap" id="menuWrap">
-            <button
-              class="btn btn--chip nav__burger"
-              id="burger"
-              type="button"
-              aria-label="Open menu"
-              aria-controls="mobileNav"
-              aria-expanded="false"
-            >
+</button>
+<a class="btn btn--primary" data-i18n="nav.apply" href="#apply" id="topCta"></a>
+<div class="menuWrap" id="menuWrap">
+<button aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu" class="btn btn--chip nav__burger" id="burger" type="button">
               ☰
             </button>
+<!-- Mobile nav (dropdown under burger) -->
+<div class="nav nav--mobile" hidden="" id="mobileNav">
+<div class="nav__mobileInner">
+<a class="nav__link" data-close-menu="" data-i18n="nav.about" href="#about">State</a>
+<a class="nav__link" data-close-menu="" data-i18n="nav.nap" href="#nap">NAP</a>
+<a class="nav__link" data-close-menu="" data-i18n="nav.reasons" href="#reasons">Why Us</a>
+<a class="nav__link" data-close-menu="" data-i18n="nav.alliances" href="#alliances">Alliances</a>
+<a class="nav__link" data-close-menu="" data-i18n="nav.apply" href="#apply">Apply</a>
 
-            <!-- Mobile nav (dropdown under burger) -->
-            <div class="nav nav--mobile" id="mobileNav" hidden>
-              <div class="nav__mobileInner">
-                <a class="nav__link" href="#about" data-close-menu data-i18n="nav.about">State</a>
-                <a class="nav__link" href="#nap" data-close-menu data-i18n="nav.nap">NAP</a>
-                <a class="nav__link" href="#reasons" data-close-menu data-i18n="nav.reasons">Why Us</a>
-                <a class="nav__link" href="#alliances" data-close-menu data-i18n="nav.alliances">Alliances</a>
-                <a class="nav__link" href="#apply" data-close-menu data-i18n="nav.apply">Apply</a>
-                <a class="btn btn--primary nav__mobileCta" href="#apply" data-close-menu data-i18n="hero.cta"
-                  >Apply for Transfer</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main id="top">
-      <!-- HERO -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main id="top">
+<!-- HERO -->
 <section class="hero">
-  <div class="hero__fx" aria-hidden="true"></div>
-  <div class="container hero__inner">
-    <div class="hero__left">
-      <div class="kicker reveal" data-i18n="hero.subtitle">Stability &amp; Teamwork</div>
-      <h1 class="hero__title reveal" data-i18n="hero.title">STATE 2528</h1>
-      <p class="hero__blurb reveal" data-i18n="hero.blurb">
+<div aria-hidden="true" class="hero__fx"></div>
+<div class="container hero__inner">
+<div class="hero__left">
+<div class="kicker reveal" data-i18n="hero.subtitle">Stability &amp; Teamwork</div>
+<h1 class="hero__title reveal" data-i18n="hero.title">STATE 2528</h1>
+<p class="hero__blurb reveal" data-i18n="hero.blurb">
         A state forged in stability and teamwork—engineered for total SvS domination.
       </p>
-
-      <div class="pills reveal">
-        <span class="pill" data-i18n="hero.badges.0">Organized Leadership</span>
-        <span class="pill" data-i18n="hero.badges.1">Drama-Free Culture</span>
-        <span class="pill" data-i18n="hero.badges.2">Event Optimized</span>
-        <span class="pill" data-i18n="hero.badges.3">International Friendly</span>
-      </div>
-    </div>
-
-    <!-- Decorative right block (fills the right side on desktop) -->
-    <div class="hero__sig" aria-hidden="true">
-      <div class="sig__ring"></div>
-      <div class="sig__crest">♛</div>
-      <div class="sig__num">2528</div>
-      <div class="sig__sub">Golden Empire</div>
-    </div>
-  </div>
+<div class="pills reveal">
+<span class="pill" data-i18n="hero.badges.0">Organized Leadership</span>
+<span class="pill" data-i18n="hero.badges.1">Drama-Free Culture</span>
+<span class="pill" data-i18n="hero.badges.2">Event Optimized</span>
+<span class="pill" data-i18n="hero.badges.3">International Friendly</span>
+</div>
+</div>
+<!-- Decorative right block (fills the right side on desktop) -->
+<div aria-hidden="true" class="hero__sig">
+<div class="sig__ring"></div>
+<div class="sig__crest">♛</div>
+<div class="sig__num">2528</div>
+<div class="sig__sub">Golden Empire</div>
+</div>
+</div>
 </section>
-
-      <div class="container"><div class="divider divider--wide"></div></div>
-
-      <!-- ABOUT -->
-      <section class="section" id="about">
-  <div class="container">
-    <div class="section__head">
-      <div class="kicker" data-i18n="about.kicker">About the State</div>
-      <h2 class="section__title" data-i18n="about.title">A Stable, United State</h2>
-    </div>
-
-    <div class="grid grid--about">
-      <div class="stack">
-        <p class="text reveal" data-i18n="about.shortIntro">
+<div class="container"><div class="divider divider--wide"></div></div>
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="container">
+<div class="section__head">
+<div class="kicker" data-i18n="about.kicker">About the State</div>
+<h2 class="section__title" data-i18n="about.title">A Stable, United State</h2>
+</div>
+<div class="grid grid--about">
+<div class="stack">
+<p class="text reveal" data-i18n="about.shortIntro">
           State 2528 is a stable, multinational state with an active NAP6 and strong inter-alliance coordination.
           We focus on strategy, unity, and respectful play to succeed in all global events.
         </p>
-
-        <p class="text reveal" data-i18n="about.shortApproach">
+<p class="text reveal" data-i18n="about.shortApproach">
           Our approach emphasizes joint preparation, clear roles, and consistent execution across the state.
         </p>
-
-        <div class="chips reveal">
-          <span class="chip" data-i18n="about.points.0">Shared Strength</span>
-          <span class="chip" data-i18n="about.points.1">Experienced Leadership</span>
-          <span class="chip" data-i18n="about.points.2">Alliance Coordination</span>
-          <span class="chip" data-i18n="about.points.3">Friendly Environment</span>
-          <span class="chip" data-i18n="about.points.4">Multinational Community</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="chips reveal">
+<span class="chip" data-i18n="about.points.0">Shared Strength</span>
+<span class="chip" data-i18n="about.points.1">Experienced Leadership</span>
+<span class="chip" data-i18n="about.points.2">Alliance Coordination</span>
+<span class="chip" data-i18n="about.points.3">Friendly Environment</span>
+<span class="chip" data-i18n="about.points.4">Multinational Community</span>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-
-      <div class="container"><div class="divider divider--wide"></div></div>
-
-      <!-- NAP -->
-      <section class="section" id="nap">
-  <div class="container">
-    <div class="section__head">
-      <div class="kicker" data-i18n="nap.kicker">NAP Protocol</div>
-      <h2 class="section__title" data-i18n="nap.title">Fair Play & Shared Power</h2>
-      <p class="section__sub" data-i18n="nap.desc">
+<div class="container"><div class="divider divider--wide"></div></div>
+<!-- NAP -->
+<section class="section" id="nap">
+<div class="container">
+<div class="section__head">
+<div class="kicker" data-i18n="nap.kicker">NAP Protocol</div>
+<h2 class="section__title" data-i18n="nap.title">Fair Play &amp; Shared Power</h2>
+<p class="section__sub" data-i18n="nap.desc">
         Our state operates under a stable NAP, built on cooperation and mutual respect between alliances.
         We don’t waste resources fighting each other — we grow stronger together.
       </p>
+</div>
+<div class="grid grid--nap">
+<!-- LEFT: NAP RULES + ALLIANCES -->
+<div class="card">
+<div class="card__title" data-i18n="nap.rulesTitle">NAP Rules</div>
+<ul class="list">
+<li><span class="check">✓</span><span data-i18n="nap.rules.0"></span></li>
+<li><span class="check">✓</span><span data-i18n="nap.rules.1"></span></li>
+<li><span class="check">✓</span><span data-i18n="nap.rules.2"></span></li>
+<li><span class="check">✓</span><span data-i18n="nap.rules.3"></span></li>
+</ul>
+<div class="divider"></div>
+<div aria-label="NAP Alliances" class="chips">
+<span class="chip">KOR</span>
+<span class="chip">ONE</span>
+<span class="chip">AFK</span>
+<span class="chip">GOD</span>
+<span class="chip">GPR</span>
+<span class="chip">PPP</span>
+</div>
+</div>
+<!-- RIGHT: CASTLE & FORT ROTATIONS -->
+<div class="card">
+<div class="card__title" data-i18n="nap.rotationTitle">
+      Castle &amp; Fort Rotations
     </div>
-
-    <div class="grid grid--nap">
-  <!-- LEFT: NAP RULES + ALLIANCES -->
-  <div class="card">
-    <div class="card__title" data-i18n="nap.rulesTitle">NAP Rules</div>
-
-    <ul class="list">
-      <li><span class="check">✓</span><span data-i18n="nap.rules.0"></span></li>
-      <li><span class="check">✓</span><span data-i18n="nap.rules.1"></span></li>
-      <li><span class="check">✓</span><span data-i18n="nap.rules.2"></span></li>
-      <li><span class="check">✓</span><span data-i18n="nap.rules.3"></span></li>
-    </ul>
-
-    <div class="divider"></div>
-
-    <div class="chips" aria-label="NAP Alliances">
-      <span class="chip">KOR</span>
-      <span class="chip">ONE</span>
-      <span class="chip">AFK</span>
-      <span class="chip">GOD</span>
-      <span class="chip">GPR</span>
-      <span class="chip">PPP</span>
-    </div>
-  </div>
-
-  <!-- RIGHT: CASTLE & FORT ROTATIONS -->
-  <div class="card">
-    <div class="card__title" data-i18n="nap.rotationTitle">
-      Castle & Fort Rotations
-    </div>
-
-    <p class="text" data-i18n="nap.rotationDesc"></p>
-    <p class="text" data-i18n="nap.fortsDesc"></p>
-  </div>
+<p class="text" data-i18n="nap.rotationDesc"></p>
+<p class="text" data-i18n="nap.fortsDesc"></p>
+</div>
+</div>
+</div></section>
+<div class="container"><div class="divider divider--wide"></div></div>
+<!-- REASONS -->
+<section class="section" id="reasons">
+<div class="container">
+<div class="section__head">
+<div class="kicker" data-i18n="reasons.kicker">Why Join</div>
+<h2 class="section__title" data-i18n="reasons.title">What We Offer</h2>
+</div>
+<div class="cards cards--3">
+<article class="card reveal">
+<div class="card__eyebrow">Benefit</div>
+<h3 class="card__h" data-i18n="reasons.items.0.title"></h3>
+<p class="text" data-i18n="reasons.items.0.desc"></p>
+</article>
+<article class="card reveal">
+<div class="card__eyebrow">Benefit</div>
+<h3 class="card__h" data-i18n="reasons.items.1.title"></h3>
+<p class="text" data-i18n="reasons.items.1.desc"></p>
+</article>
+<article class="card reveal">
+<div class="card__eyebrow">Benefit</div>
+<h3 class="card__h" data-i18n="reasons.items.2.title"></h3>
+<p class="text" data-i18n="reasons.items.2.desc"></p>
+</article>
+<article class="card reveal">
+<div class="card__eyebrow">Benefit</div>
+<h3 class="card__h" data-i18n="reasons.items.3.title"></h3>
+<p class="text" data-i18n="reasons.items.3.desc"></p>
+</article>
+<article class="card reveal">
+<div class="card__eyebrow">Benefit</div>
+<h3 class="card__h" data-i18n="reasons.items.4.title"></h3>
+<p class="text" data-i18n="reasons.items.4.desc"></p>
+</article>
+<article class="card reveal">
+<div class="card__eyebrow">Benefit</div>
+<h3 class="card__h" data-i18n="reasons.items.5.title"></h3>
+<p class="text" data-i18n="reasons.items.5.desc"></p>
+</article>
+</div>
 </div>
 </section>
-
-      <div class="container"><div class="divider divider--wide"></div></div>
-
-      <!-- REASONS -->
-      <section class="section" id="reasons">
-        <div class="container">
-          <div class="section__head">
-            <div class="kicker" data-i18n="reasons.kicker">Why Join</div>
-            <h2 class="section__title" data-i18n="reasons.title">What We Offer</h2>
-          </div>
-
-          <div class="cards cards--3">
-            <article class="card reveal">
-              <div class="card__eyebrow">Benefit</div>
-              <h3 class="card__h" data-i18n="reasons.items.0.title"></h3>
-              <p class="text" data-i18n="reasons.items.0.desc"></p>
-            </article>
-            <article class="card reveal">
-              <div class="card__eyebrow">Benefit</div>
-              <h3 class="card__h" data-i18n="reasons.items.1.title"></h3>
-              <p class="text" data-i18n="reasons.items.1.desc"></p>
-            </article>
-            <article class="card reveal">
-              <div class="card__eyebrow">Benefit</div>
-              <h3 class="card__h" data-i18n="reasons.items.2.title"></h3>
-              <p class="text" data-i18n="reasons.items.2.desc"></p>
-            </article>
-            <article class="card reveal">
-              <div class="card__eyebrow">Benefit</div>
-              <h3 class="card__h" data-i18n="reasons.items.3.title"></h3>
-              <p class="text" data-i18n="reasons.items.3.desc"></p>
-            </article>
-            <article class="card reveal">
-              <div class="card__eyebrow">Benefit</div>
-              <h3 class="card__h" data-i18n="reasons.items.4.title"></h3>
-              <p class="text" data-i18n="reasons.items.4.desc"></p>
-            </article>
-            <article class="card reveal">
-              <div class="card__eyebrow">Benefit</div>
-              <h3 class="card__h" data-i18n="reasons.items.5.title"></h3>
-              <p class="text" data-i18n="reasons.items.5.desc"></p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <div class="container"><div class="divider divider--wide"></div></div>
-
-      <!-- ALLIANCES -->
+<div class="container"><div class="divider divider--wide"></div></div>
+<!-- ALLIANCES -->
 <section class="section" id="alliances">
-  <div class="container">
-    <div class="section__head">
-      <div class="kicker" data-i18n="alliances.kicker">Alliances</div>
-      <h2 class="section__title" data-i18n="alliances.title">Organized Teams. Clear Identity.</h2>
-      <p class="section__sub" data-i18n="alliances.subtitle"></p>
-    </div>
-
-    <div class="cards cards--3">
-      <!-- Card 0 -->
-      <article class="card reveal">
-        <div class="tag" data-i18n="alliances.cards.0.tag"></div>
-        <h3 class="card__h" data-i18n="alliances.cards.0.name"></h3>
-        <div class="goldText" data-i18n="alliances.cards.0.motto"></div>
-        <div class="muted" data-i18n="alliances.cards.0.languages"></div>
-        <p class="text" data-i18n="alliances.cards.0.description"></p>
-
-        <div class="miniGrid">
-          <div class="miniBox">
-            <div class="miniTitle" data-i18n="alliances.cards.0.scheduleTitle"></div>
-            <ul class="miniList">
-              <li><span>Bear Hunt</span><span>02:00 • 13:00 • 18:30</span></li>
-              <li><span>Foundry &amp; Canyon</span><span>14:00 • 19:00</span></li>
-              <li><span>Crazy Joe</span><span>15:00</span></li>
-              <li><span>Mercenaries</span><span>15:00</span></li>
-            </ul>
-            <div class="panel__note" data-i18n="alliances.cards.0.note"></div>
-          </div>
-
-          <div class="miniBox">
-            <div class="miniTitle" data-i18n="alliances.cards.0.coordsTitle"></div>
-            <div class="coord" data-i18n="alliances.cards.0.coords"></div>
-
-            <div class="miniTitle mt" data-i18n="alliances.cards.0.reqTitle"></div>
-            <ul class="list">
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.0"></span></li>
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.1"></span></li>
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.2"></span></li>
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.3"></span></li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 1 -->
-      <article class="card reveal">
-        <div class="tag" data-i18n="alliances.cards.1.tag"></div>
-        <h3 class="card__h" data-i18n="alliances.cards.1.name"></h3>
-        <div class="goldText" data-i18n="alliances.cards.1.motto"></div>
-        <div class="muted" data-i18n="alliances.cards.1.languages"></div>
-        <p class="text" data-i18n="alliances.cards.1.description"></p>
-
-        <div class="miniGrid">
-          <div class="miniBox">
-            <div class="miniTitle" data-i18n="alliances.cards.1.scheduleTitle"></div>
-            <ul class="miniList">
-              <li><span data-i18n="alliances.cards.1.schedule.0.label"></span><span data-i18n="alliances.cards.1.schedule.0.time"></span></li>
-              <li><span data-i18n="alliances.cards.1.schedule.1.label"></span><span data-i18n="alliances.cards.1.schedule.1.time"></span></li>
-            </ul>
-            <div class="panel__note" data-i18n="alliances.cards.1.note"></div>
-          </div>
-
-          <div class="miniBox">
-            <div class="miniTitle" data-i18n="alliances.cards.1.coordsTitle"></div>
-            <div class="coord" data-i18n="alliances.cards.1.coords"></div>
-
-            <div class="miniTitle mt" data-i18n="alliances.cards.1.reqTitle"></div>
-            <ul class="list">
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.1.requirements.0"></span></li>
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.1.requirements.1"></span></li>
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.1.requirements.2"></span></li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="card reveal">
-        <div class="tag" data-i18n="alliances.cards.2.tag"></div>
-        <h3 class="card__h" data-i18n="alliances.cards.2.name"></h3>
-        <div class="goldText" data-i18n="alliances.cards.2.motto"></div>
-        <div class="muted" data-i18n="alliances.cards.2.languages"></div>
-        <p class="text" data-i18n="alliances.cards.2.description"></p>
-
-        <div class="miniGrid">
-          <div class="miniBox">
-            <div class="miniTitle" data-i18n="alliances.cards.2.scheduleTitle"></div>
-            <ul class="miniList">
-              <li><span data-i18n="alliances.cards.2.schedule.0.label"></span><span data-i18n="alliances.cards.2.schedule.0.time"></span></li>
-            </ul>
-            <div class="panel__note" data-i18n="alliances.cards.2.note"></div>
-          </div>
-
-          <div class="miniBox">
-            <div class="miniTitle" data-i18n="alliances.cards.2.coordsTitle"></div>
-            <div class="coord" data-i18n="alliances.cards.2.coords"></div>
-
-            <div class="miniTitle mt" data-i18n="alliances.cards.2.reqTitle"></div>
-            <ul class="list">
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.2.requirements.0"></span></li>
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.2.requirements.1"></span></li>
-              <li><span class="check">✓</span> <span data-i18n="alliances.cards.2.requirements.2"></span></li>
-            </ul>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-
-      <div class="container"><div class="divider divider--wide"></div></div>
-
-      <!-- APPLY -->
-      <section class="section" id="apply">
-        <div class="container">
-          <div class="section__head">
-            <div class="kicker" data-i18n="apply.kicker">Transfer</div>
-            <h2 class="section__title" data-i18n="apply.title">Ready to Join a Team of Winners?</h2>
-            <p class="section__sub" data-i18n="apply.desc"></p>
-          </div>
-
-          <div class="grid grid--apply">
-            <article class="card reveal">
-              <div class="card__title" data-i18n="apply.formTitle">Application Form</div>
-              <p class="tiny muted" data-i18n="apply.hint"></p>
-
-              <form class="form" id="applyForm" novalidate>
-                <div class="form__row">
-                  <div class="field">
-                    <label class="label" data-i18n="apply.fields.name">In-Game Name</label>
-                    <input class="input" name="name" required data-i18n-placeholder="apply.placeholders.name" />
-                  </div>
-                  <div class="field">
-                    <label class="label" data-i18n="apply.fields.id">Player ID</label>
-                    <input class="input" name="id" inputmode="numeric" required data-i18n-placeholder="apply.placeholders.id" />
-                  </div>
-                </div>
-
-                <div class="form__row form__row--3">
-                  <div class="field">
-                    <label class="label" data-i18n="apply.fields.furnace">Furnace Level</label>
-                    <input class="input" name="furnace" data-i18n-placeholder="apply.placeholders.furnace" />
-                  </div>
-
-                  <div class="field">
-                    <label class="label" data-i18n="apply.fields.language">Preferred Language</label>
-                    <select class="select" name="prefLang">
-                      <option value="EN">English</option>
-                      <option value="KOR">한국어</option>
-                    </select>
-                  </div>
-
-                  <div class="field">
-                    <label class="label" data-i18n="apply.fields.timezone">Timezone</label>
-                    <input class="input" name="timezone" data-i18n-placeholder="apply.placeholders.timezone" />
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label class="label" data-i18n="apply.fields.notes">Notes</label>
-                  <textarea class="textarea" name="notes" data-i18n-placeholder="apply.placeholders.notes"></textarea>
-                </div>
-
-                <div class="form__actions">
-                  <button class="btn btn--primary" type="submit">
-                    <span data-i18n="apply.submit">Submit Application</span> →
-                  </button>
-                  <div class="tiny muted" data-i18n="apply.reco">Recommended: FC4+ • Daily active • Discord</div>
-                </div>
-
-                <div class="toast" id="toast" role="status" aria-live="polite"></div>
-              </form>
-            </article>
+<div class="container">
+<div class="section__head">
+<div class="kicker" data-i18n="alliances.kicker">Alliances</div>
+<h2 class="section__title" data-i18n="alliances.title">Organized Teams. Clear Identity.</h2>
+<p class="section__sub" data-i18n="alliances.subtitle"></p>
 </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="footer">
-        <div class="container">
-          <div class="divider divider--wide"></div>
-          <div class="footer__row">
-            <div class="footer__brand" data-i18n="footer.line"></div>
-            <div class="tiny muted" data-i18n="footer.small"></div>
-          </div>
-        </div>
-      </footer>
-    </main>
-
-    <script src="app.js" defer></script>
-  </body>
+<div class="cards cards--3">
+<!-- Card 0 -->
+<article class="card reveal">
+<div class="tag" data-i18n="alliances.cards.0.tag"></div>
+<h3 class="card__h" data-i18n="alliances.cards.0.name"></h3>
+<div class="goldText" data-i18n="alliances.cards.0.motto"></div>
+<div class="muted" data-i18n="alliances.cards.0.languages"></div>
+<p class="text" data-i18n="alliances.cards.0.description"></p>
+<div class="miniGrid">
+<div class="miniBox">
+<div class="miniTitle" data-i18n="alliances.cards.0.scheduleTitle"></div>
+<ul class="miniList">
+<li><span>Bear Hunt</span><span>02:00 • 13:00 • 18:30</span></li>
+<li><span>Foundry &amp; Canyon</span><span>14:00 • 19:00</span></li>
+<li><span>Crazy Joe</span><span>15:00</span></li>
+<li><span>Mercenaries</span><span>15:00</span></li>
+</ul>
+<div class="panel__note" data-i18n="alliances.cards.0.note"></div>
+</div>
+<div class="miniBox">
+<div class="miniTitle" data-i18n="alliances.cards.0.coordsTitle"></div>
+<div class="coord" data-i18n="alliances.cards.0.coords"></div>
+<div class="miniTitle mt" data-i18n="alliances.cards.0.reqTitle"></div>
+<ul class="list">
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.0"></span></li>
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.1"></span></li>
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.2"></span></li>
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.0.requirements.3"></span></li>
+</ul>
+</div>
+</div>
+</article>
+<!-- Card 1 -->
+<article class="card reveal">
+<div class="tag" data-i18n="alliances.cards.1.tag"></div>
+<h3 class="card__h" data-i18n="alliances.cards.1.name"></h3>
+<div class="goldText" data-i18n="alliances.cards.1.motto"></div>
+<div class="muted" data-i18n="alliances.cards.1.languages"></div>
+<p class="text" data-i18n="alliances.cards.1.description"></p>
+<div class="miniGrid">
+<div class="miniBox">
+<div class="miniTitle" data-i18n="alliances.cards.1.scheduleTitle"></div>
+<ul class="miniList">
+<li><span data-i18n="alliances.cards.1.schedule.0.label"></span><span data-i18n="alliances.cards.1.schedule.0.time"></span></li>
+<li><span data-i18n="alliances.cards.1.schedule.1.label"></span><span data-i18n="alliances.cards.1.schedule.1.time"></span></li>
+</ul>
+<div class="panel__note" data-i18n="alliances.cards.1.note"></div>
+</div>
+<div class="miniBox">
+<div class="miniTitle" data-i18n="alliances.cards.1.coordsTitle"></div>
+<div class="coord" data-i18n="alliances.cards.1.coords"></div>
+<div class="miniTitle mt" data-i18n="alliances.cards.1.reqTitle"></div>
+<ul class="list">
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.1.requirements.0"></span></li>
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.1.requirements.1"></span></li>
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.1.requirements.2"></span></li>
+</ul>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="card reveal">
+<div class="tag" data-i18n="alliances.cards.2.tag"></div>
+<h3 class="card__h" data-i18n="alliances.cards.2.name"></h3>
+<div class="goldText" data-i18n="alliances.cards.2.motto"></div>
+<div class="muted" data-i18n="alliances.cards.2.languages"></div>
+<p class="text" data-i18n="alliances.cards.2.description"></p>
+<div class="miniGrid">
+<div class="miniBox">
+<div class="miniTitle" data-i18n="alliances.cards.2.scheduleTitle"></div>
+<ul class="miniList">
+<li><span data-i18n="alliances.cards.2.schedule.0.label"></span><span data-i18n="alliances.cards.2.schedule.0.time"></span></li>
+</ul>
+<div class="panel__note" data-i18n="alliances.cards.2.note"></div>
+</div>
+<div class="miniBox">
+<div class="miniTitle" data-i18n="alliances.cards.2.coordsTitle"></div>
+<div class="coord" data-i18n="alliances.cards.2.coords"></div>
+<div class="miniTitle mt" data-i18n="alliances.cards.2.reqTitle"></div>
+<ul class="list">
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.2.requirements.0"></span></li>
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.2.requirements.1"></span></li>
+<li><span class="check">✓</span> <span data-i18n="alliances.cards.2.requirements.2"></span></li>
+</ul>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<div class="container"><div class="divider divider--wide"></div></div>
+<!-- APPLY -->
+<section class="section" id="apply">
+<div class="container">
+<div class="section__head">
+<div class="kicker" data-i18n="apply.kicker">Transfer</div>
+<h2 class="section__title" data-i18n="apply.title">Ready to Join a Team of Winners?</h2>
+<p class="section__sub" data-i18n="apply.desc"></p>
+</div>
+<div class="grid grid--apply">
+<article class="card reveal">
+<div class="card__title" data-i18n="apply.formTitle">Application Form</div>
+<p class="tiny muted" data-i18n="apply.hint"></p>
+<form class="form" id="applyForm" novalidate="">
+<div class="form__row">
+<div class="field">
+<label class="label" data-i18n="apply.fields.name">In-Game Name</label>
+<input class="input" data-i18n-placeholder="apply.placeholders.name" name="name" required=""/>
+</div>
+<div class="field">
+<label class="label" data-i18n="apply.fields.id">Player ID</label>
+<input class="input" data-i18n-placeholder="apply.placeholders.id" inputmode="numeric" name="id" required=""/>
+</div>
+</div>
+<div class="form__row form__row--3">
+<div class="field">
+<label class="label" data-i18n="apply.fields.furnace">Furnace Level</label>
+<input class="input" data-i18n-placeholder="apply.placeholders.furnace" name="furnace"/>
+</div>
+<div class="field">
+<label class="label" data-i18n="apply.fields.language">Preferred Language</label>
+<select class="select" name="prefLang">
+<option value="EN">English</option>
+<option value="KOR">한국어</option>
+</select>
+</div>
+<div class="field">
+<label class="label" data-i18n="apply.fields.timezone">Timezone</label>
+<input class="input" data-i18n-placeholder="apply.placeholders.timezone" name="timezone"/>
+</div>
+</div>
+<div class="field">
+<label class="label" data-i18n="apply.fields.notes">Notes</label>
+<textarea class="textarea" data-i18n-placeholder="apply.placeholders.notes" name="notes"></textarea>
+</div>
+<div class="form__actions">
+<button class="btn btn--primary" type="submit">
+<span data-i18n="apply.submit">Submit Application</span> →
+                  </button>
+<div class="tiny muted" data-i18n="apply.reco">Recommended: FC4+ • Daily active • Discord</div>
+</div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+</form>
+</article>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="divider divider--wide"></div>
+<div class="footer__row">
+<div class="footer__brand" data-i18n="footer.line"></div>
+<div class="tiny muted" data-i18n="footer.small"></div>
+</div>
+</div>
+</footer>
+</main>
+<script defer="" src="app.js"></script>
+</body>
 </html>
