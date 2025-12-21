@@ -163,53 +163,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .topbar__actions { display:flex; align-items:center; gap: 10px; }
 .topbar__cta { display: none; }
-.nav__burger { display: inline-flex; }
 
 @media (min-width: 640px) {
   .topbar__cta { display: inline-flex; }
 }
 @media (min-width: 768px) {
-  .nav__burger { display: none; }
 }
 
 .nav--desktop { display:none; }
 @media (min-width: 768px) { .nav--desktop { display:flex; } }
-
-
-/* Mobile nav dropdown (click-only) */
-.menuWrap{
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-#burger{
-  position: relative;
-  z-index: 100;
-}
-
-/* Dropdown strictly under burger, aligned to burger's right edge */
-.nav--mobile{
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  z-index: 60;
-  width: min(300px, calc(100vw - 40px));
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(7,16,34,0.85);
-  box-shadow: 0 25px 80px rgba(0,0,0,0.55);
-  backdrop-filter: blur(12px);
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.nav__mobileInner{
-  display: grid;
-  gap: 12px;
-  padding: 14px;
-}
-
-.nav__mobileCta { width: fit-content; }
 
 
 /* ---------- Buttons ---------- */
