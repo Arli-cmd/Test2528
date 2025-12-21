@@ -283,46 +283,15 @@
 <article class="card reveal">
 <div class="card__title" data-i18n="apply.formTitle">Application Form</div>
 <p class="tiny muted" data-i18n="apply.hint"></p>
-<form class="form" id="applyForm" novalidate="">
-<div class="form__row">
-<div class="field">
-<label class="label" data-i18n="apply.fields.name">In-Game Name</label>
-<input class="input" data-i18n-placeholder="apply.placeholders.name" name="name" required=""/>
+<div class="form">
+  <a class="btn btn--primary" href="https://www.Form.com" target="_blank" rel="noopener">
+    Open Application Form →
+  </a>
+
+  <div class="tiny muted" data-i18n="apply.reco">
+    Recommended: FC4+ • Daily active • Discord
+  </div>
 </div>
-<div class="field">
-<label class="label" data-i18n="apply.fields.id">Player ID</label>
-<input class="input" data-i18n-placeholder="apply.placeholders.id" inputmode="numeric" name="id" required=""/>
-</div>
-</div>
-<div class="form__row form__row--3">
-<div class="field">
-<label class="label" data-i18n="apply.fields.furnace">Furnace Level</label>
-<input class="input" data-i18n-placeholder="apply.placeholders.furnace" name="furnace"/>
-</div>
-<div class="field">
-<label class="label" data-i18n="apply.fields.language">Preferred Language</label>
-<select class="select" name="prefLang">
-<option value="EN">English</option>
-<option value="KOR">한국어</option>
-</select>
-</div>
-<div class="field">
-<label class="label" data-i18n="apply.fields.timezone">Timezone</label>
-<input class="input" data-i18n-placeholder="apply.placeholders.timezone" name="timezone"/>
-</div>
-</div>
-<div class="field">
-<label class="label" data-i18n="apply.fields.notes">Notes</label>
-<textarea class="textarea" data-i18n-placeholder="apply.placeholders.notes" name="notes"></textarea>
-</div>
-<div class="form__actions">
-<button class="btn btn--primary" type="submit">
-<span data-i18n="apply.submit">Submit Application</span> →
-                  </button>
-<div class="tiny muted" data-i18n="apply.reco">Recommended: FC4+ • Daily active • Discord</div>
-</div>
-<div aria-live="polite" class="toast" id="toast" role="status"></div>
-</form>
 </article>
 </div>
 </div>
