@@ -1,13 +1,3 @@
-/* STATE 2528 — app.js
-   - i18n EN/KOR (real switching)
-   - Parallax background layers (scroll-based)
-   - Golden dust (light, cinematic)
-   - Reveal on scroll (IntersectionObserver)
-   - Sticky header shadow
-   - Mobile menu (click only)
-*/
-console.log("✅ app.js loaded");
-
 const COPY = {
   EN: {
     nav: { about: "State", nap: "NAP", reasons: "Why Us", alliances: "Alliances", apply: "Apply" },
@@ -31,54 +21,56 @@ const COPY = {
     },
 
     nap: {
-  kicker: "NAP Protocol",
-  title: "Fair Play & Shared Power",
-  desc:
-    "Our state operates under a stable NAP, built on cooperation and mutual respect between alliances. We don’t waste resources fighting each other — we grow stronger together.",
+      kicker: "NAP Protocol",
+      title: "Fair Play & Shared Power",
+      desc:
+        "Our state operates under a stable NAP, built on cooperation and mutual respect between alliances. We don’t waste resources fighting each other — we grow stronger together.",
 
-  rulesTitle: "NAP Rules",
-  rules: [
-    "No city attacks or scouting within NAP alliances.",
-    "Scheduled and transparent castle and fort rotations.",
-    "Disputes are handled by leadership — no public conflicts.",
-    "Zero tolerance for toxicity, sabotage, or harassment.",
-  ],
+      rulesTitle: "NAP Rules",
+      rules: [
+        "No city attacks or scouting within NAP alliances.",
+        "Scheduled and transparent castle and fort rotations.",
+        "Disputes are handled by leadership — no public conflicts.",
+        "Zero tolerance for toxicity, sabotage, or harassment.",
+      ],
 
-  rotationTitle: "Castle & Fort Rotations",
-  rotationDesc:
-    "Sunfire Castle is rotated on a scheduled and transparent basis, ensuring fair access to leadership and long-term state stability.",
-  fortsDesc:
-    "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives.",
+      rotationTitle: "Castle & Fort Rotations",
+      rotationDesc:
+        "Sunfire Castle is rotated on a scheduled and transparent basis, ensuring fair access to leadership and long-term state stability.",
+      fortsDesc:
+        "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives.",
+    },
 
     reasons: {
       kicker: "Why Join",
       title: "What We Offer",
       items: [
-  {
-    title: "International & Inclusive",
-    desc: "Players from all over the world in a comfortable, respectful environment—regardless of culture or time zone.",
-  },
-  {
-    title: "Experienced Leadership",
-    desc: "Veteran leaders who manage growth, events, and SvS without chaos or unnecessary pressure.",
-  },
-  {
-    title: "Official State Discord",
-    desc: "A unified state Discord for coordination, announcements, events, and transparent communication between alliances.",
-  },
-  {
-    title: "Structured State Management",
-    desc: "Clear rules, aligned decisions, and organized cooperation between alliances across the state.",
-  },
-  {
-    title: "SvS-Oriented State",
-    desc: "Strong focus on preparation, discipline, and teamwork to achieve consistent SvS results.",
-  },
-  {
-    title: "Drama-Free & Mature Community",
-    desc: "Zero tolerance for toxicity, conflicts, or personal attacks. Calm, mature, goal-focused environment.",
-  },
-],
+        {
+          title: "International & Inclusive",
+          desc: "Players from all over the world in a comfortable, respectful environment—regardless of culture or time zone.",
+        },
+        {
+          title: "Experienced Leadership",
+          desc: "Veteran leaders who manage growth, events, and SvS without chaos or unnecessary pressure.",
+        },
+        {
+          title: "Official State Discord",
+          desc: "A unified state Discord for coordination, announcements, events, and transparent communication between alliances.",
+        },
+        {
+          title: "Structured State Management",
+          desc: "Clear rules, aligned decisions, and organized cooperation between alliances across the state.",
+        },
+        {
+          title: "SvS-Oriented State",
+          desc: "Strong focus on preparation, discipline, and teamwork to achieve consistent SvS results.",
+        },
+        {
+          title: "Drama-Free & Mature Community",
+          desc: "Zero tolerance for toxicity, conflicts, or personal attacks. Calm, mature, goal-focused environment.",
+        },
+      ],
+    },
 
     alliances: {
       kicker: "Alliances",
@@ -194,55 +186,57 @@ const COPY = {
       points: ["공동의 힘", "경험 있는 운영진", "연맹 간 조율", "친화적 환경", "다국적 커뮤니티"],
     },
 
-   nap: {
-  kicker: "NAP 규약",
-  title: "공정한 운영 · 공동 권한",
-  desc:
-    "State 2528은 연맹 간 협력과 상호 존중을 기반으로 한 안정적인 NAP 체계를 운영합니다. 내부 전투에 자원을 낭비하지 않고 함께 성장합니다.",
+    nap: {
+      kicker: "NAP 규약",
+      title: "공정한 운영 · 공동 권한",
+      desc:
+        "State 2528은 연맹 간 협력과 상호 존중을 기반으로 한 안정적인 NAP 체계를 운영합니다. 내부 전투에 자원을 낭비하지 않고 함께 성장합니다.",
 
-  rulesTitle: "NAP 규칙",
-  rules: [
-    "NAP 연맹 간 도시 공격 및 정찰 금지.",
-    "성 및 요새 로테이션은 일정 기반으로 투명하게 진행.",
-    "분쟁은 운영진이 중재하며 공개 충돌은 금지.",
-    "독성 행동, 방해, 괴롭힘은 무관용 원칙.",
-  ],
+      rulesTitle: "NAP 규칙",
+      rules: [
+        "NAP 연맹 간 도시 공격 및 정찰 금지.",
+        "성 및 요새 로테이션은 일정 기반으로 투명하게 진행.",
+        "분쟁은 운영진이 중재하며 공개 충돌은 금지.",
+        "독성 행동, 방해, 괴롭힘은 무관용 원칙.",
+      ],
 
-  rotationTitle: "성 · 요새 로테이션",
-  rotationDesc:
-    "Sunfire Castle은 정해진 일정에 따라 공정하게 로테이션되며, 장기적인 국가 안정과 리더십 균형을 보장합니다.",
-  fortsDesc:
-    "요새 및 거점은 SvS 준비 단계 기여도를 기준으로 공정하게 분배됩니다.",
-     
+      rotationTitle: "성 · 요새 로테이션",
+      rotationDesc:
+        "Sunfire Castle은 정해진 일정에 따라 공정하게 로테이션되며, 장기적인 국가 안정과 리더십 균형을 보장합니다.",
+      fortsDesc:
+        "요새 및 거점은 SvS 준비 단계 기여도를 기준으로 공정하게 분배됩니다.",
+    },
+
     reasons: {
       kicker: "장점",
       title: "우리가 제공하는 것",
-     items: [
-  {
-    title: "국제적 · 포용적인 환경",
-    desc: "문화와 타임존에 상관없이 전 세계 유저들이 편안하고 존중받는 분위기에서 함께합니다.",
-  },
-  {
-    title: "경험 많은 운영진",
-    desc: "혼란이나 불필요한 압박 없이 성장, 이벤트, SvS를 안정적으로 운영하는 베테랑 리더십.",
-  },
-  {
-    title: "공식 국가 디스코드",
-    desc: "국가 단위 디스코드에서 공지, 이벤트, 조율을 통합하고 연맹 간 소통을 투명하게 유지합니다.",
-  },
-  {
-    title: "체계적인 국가 운영",
-    desc: "명확한 규칙과 일관된 결정, 그리고 연맹 간 조직적인 협업으로 국가가 함께 움직입니다.",
-  },
-  {
-    title: "SvS 중심 국가",
-    desc: "준비, 규율, 팀워크에 집중하여 꾸준한 SvS 성과를 만들어냅니다.",
-  },
-  {
-    title: "드라마 없는 성숙한 커뮤니티",
-    desc: "독성, 분쟁, 인신공격 무관용. 차분하고 성숙하며 목표 지향적인 환경.",
-  },
-],
+      items: [
+        {
+          title: "국제적 · 포용적인 환경",
+          desc: "문화와 타임존에 상관없이 전 세계 유저들이 편안하고 존중받는 분위기에서 함께합니다.",
+        },
+        {
+          title: "경험 많은 운영진",
+          desc: "혼란이나 불필요한 압박 없이 성장, 이벤트, SvS를 안정적으로 운영하는 베테랑 리더십.",
+        },
+        {
+          title: "공식 국가 디스코드",
+          desc: "국가 단위 디스코드에서 공지, 이벤트, 조율을 통합하고 연맹 간 소통을 투명하게 유지합니다.",
+        },
+        {
+          title: "체계적인 국가 운영",
+          desc: "명확한 규칙과 일관된 결정, 그리고 연맹 간 조직적인 협업으로 국가가 함께 움직입니다.",
+        },
+        {
+          title: "SvS 중심 국가",
+          desc: "준비, 규율, 팀워크에 집중하여 꾸준한 SvS 성과를 만들어냅니다.",
+        },
+        {
+          title: "드라마 없는 성숙한 커뮤니티",
+          desc: "독성, 분쟁, 인신공격 무관용. 차분하고 성숙하며 목표 지향적인 환경.",
+        },
+      ],
+    },
 
     alliances: {
       kicker: "동맹",
@@ -331,220 +325,3 @@ const COPY = {
     footer: { line: "STATE 2528 • 골든 엠파이어 프로토콜", small: "전략, 안정, 그리고 깔끔한 승리를 위해." },
   },
 };
-
-const state = {
-  lang: "EN",
-  reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-};
-
-function get(path, langObj) {
-  const parts = path.split(".");
-  let cur = langObj;
-  for (const p of parts) {
-    if (cur == null) return "";
-    cur = Array.isArray(cur) ? cur[Number(p)] : cur[p];
-  }
-  return cur ?? "";
-}
-
-function applyI18n() {
-  const dict = COPY[state.lang];
-
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const val = get(key, dict);
-    if (typeof val === "string") el.textContent = val;
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    const val = get(key, dict);
-    if (typeof val === "string") el.setAttribute("placeholder", val);
-  });
-
-  const label = document.getElementById("langLabel");
-  if (label) label.textContent = state.lang;
-  document.documentElement.setAttribute("lang", state.lang === "KOR" ? "ko" : "en");
-}
-
-function initLangSwitch() {
-  const btn = document.getElementById("langBtn");
-  if (!btn) return;
-  btn.addEventListener("click", () => {
-    state.lang = state.lang === "EN" ? "KOR" : "EN";
-    applyI18n();
-  });
-}
-
-function initStickyHeader() {
-  const bar = document.getElementById("topbar");
-  if (!bar) return;
-  const onScroll = () => {
-    bar.classList.toggle("is-scrolled", window.scrollY > 8);
-  };
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-}
-
-function initMobileMenu() {
-  const wrap = document.getElementById("menuWrap");
-  const burger = document.getElementById("burger");
-  const mobileNav = document.getElementById("mobileNav");
-
-  if (!wrap || !burger || !mobileNav) return;
-
-  function setOpen(open) {
-    wrap.classList.toggle("is-open", open);
-    burger.setAttribute("aria-expanded", String(open));
-    burger.textContent = open ? "✕" : "☰";
-    mobileNav.hidden = !open;
-  }
-
-  // default closed
-  setOpen(false);
-
-  burger.addEventListener("click", (e) => {
-    e.preventDefault();
-    const open = burger.getAttribute("aria-expanded") !== "true";
-    setOpen(open);
-  });
-
-  // Close when clicking/tapping outside
-  document.addEventListener(
-    "pointerdown",
-    (e) => {
-      if (!wrap.contains(e.target)) setOpen(false);
-    },
-    { passive: true }
-  );
-
-  // ESC closes
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
-  });
-
-  // Clicking a link closes
-  mobileNav.querySelectorAll("[data-close-menu]").forEach((a) => {
-    a.addEventListener("click", () => setOpen(false));
-  });
-
-  // When switching to desktop layout, close
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768) setOpen(false);
-  });
-}
-
-function initReveal() {
-  const els = document.querySelectorAll(".reveal");
-  if (!("IntersectionObserver" in window)) {
-    els.forEach((el) => el.classList.add("is-visible"));
-    return;
-  }
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
-      }
-    },
-    { threshold: 0.18 }
-  );
-  els.forEach((el) => io.observe(el));
-}
-
-function clamp(n, min, max) {
-  return Math.min(max, Math.max(min, n));
-}
-
-function initParallax() {
-  if (state.reduceMotion) return;
-
-  const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
-    el,
-    rate: Number(el.getAttribute("data-parallax")) || 0,
-  }));
-
-  let raf = 0;
-  const onScroll = () => {
-    if (raf) return;
-    raf = requestAnimationFrame(() => {
-      raf = 0;
-      const y = window.scrollY;
-      for (const l of layers) {
-        const t = clamp(y * l.rate, -160, 320);
-        l.el.style.transform = `translate3d(0, ${t}px, 0)`;
-      }
-    });
-  };
-
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-}
-
-function hashToUnit(i) {
-  const x = Math.sin(i * 999.123 + 0.12345) * 43758.5453;
-  return x - Math.floor(x);
-}
-
-function initDust() {
-  const host = document.getElementById("dust");
-  if (!host) return;
-  const count = 26;
-
-  for (let i = 0; i < count; i++) {
-    const x = hashToUnit(i + 1);
-    const y = hashToUnit(i + 77);
-    const s = 0.6 + hashToUnit(i + 333) * 1.4;
-    const o = 0.18 + hashToUnit(i + 555) * 0.22;
-    const blur = 0.6 + hashToUnit(i + 222) * 1.6;
-    const dur = 7 + hashToUnit(i + 999) * 10;
-    const dx = (hashToUnit(i + 111) - 0.5) * 28;
-    const dy = (hashToUnit(i + 444) - 0.5) * 40;
-
-    const dot = document.createElement("span");
-    dot.style.left = `${x * 100}%`;
-    dot.style.top = `${y * 100}%`;
-    dot.style.width = `${2.2 * s}px`;
-    dot.style.height = `${2.2 * s}px`;
-    dot.style.opacity = o.toFixed(3);
-    dot.style.filter = `blur(${blur.toFixed(2)}px)`;
-
-    if (!state.reduceMotion) {
-      dot.animate(
-        [
-          { transform: "translate3d(0,0,0)", opacity: o * 0.6 },
-          { transform: `translate3d(${dx}px, ${dy}px, 0)`, opacity: o },
-          { transform: "translate3d(0,0,0)", opacity: o * 0.7 },
-        ],
-        { duration: dur * 1000, iterations: Infinity, direction: "alternate", easing: "ease-in-out" }
-      );
-    }
-
-    host.appendChild(dot);
-  }
-}
-
-function initForm() {
-  const form = document.getElementById("applyForm");
-  const toast = document.getElementById("toast");
-  if (!form || !toast) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    toast.textContent = state.lang === "KOR" ? "제출 완료 (데모)" : "Submitted (demo)";
-    setTimeout(() => (toast.textContent = ""), 2400);
-    form.reset();
-  });
-}
-
-function init() {
-  applyI18n();
-  initLangSwitch();
-  initStickyHeader();
-  initMobileMenu();
-  initReveal();
-  initParallax();
-  initDust();
-  initForm();
-}
-
-window.addEventListener("DOMContentLoaded", init);
