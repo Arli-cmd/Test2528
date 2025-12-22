@@ -209,7 +209,11 @@ ul{margin:0;padding:0;list-style:none}
 .sig__sub{position:absolute;top:64%;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.65)}
 @media (min-width: 900px){ .hero__sig{display:block} }
 
-.divider{height:1px;background:linear-gradient(90deg, transparent, rgba(251,191,36,.35), transparent);margin:16px 0}
+.divider{
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(251,191,36,.35), transparent);
+  margin:16px 0 24px; /* ↑ увеличен нижний отступ */
+}
 .divider--wide{margin:0}
 
 /* ---------- Cards / grids ---------- */
