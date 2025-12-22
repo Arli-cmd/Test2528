@@ -18,6 +18,14 @@ body{
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   overflow-x:hidden;
 }
+
+/* Sharper text + less scroll jank on iOS/Android */
+html{ -webkit-text-size-adjust:100%; }
+body{
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
 a{color:inherit;text-decoration:none}
 ul{margin:0;padding:0;list-style:none}
 .container{width:min(1120px,100%);margin:0 auto;padding:0 20px}
@@ -406,4 +414,50 @@ ul{margin:0;padding:0;list-style:none}
 /* Footer */
 .footer{padding:46px 0 54px}
 .footer__brand{font-weight:900;letter-spacing:.14em;color:rgba(253,230,138,.92)}
+
+/* ---------- Performance + responsive polish ---------- */
+
+/* Reduce heavy effects on low-power devices (JS adds .low-power on <html>) */
+.low-power .bg__layer--fast,
+.low-power .bg__grid,
+.low-power .bg__dust{display:none}
+.low-power .panel,
+.low-power .card,
+.low-power .topbar{backdrop-filter:none}
+
+/* Tap + overscroll */
+*{-webkit-tap-highlight-color:transparent}
+body{overscroll-behavior-y:none}
+
+@media (max-width: 900px){
+  .section{padding:64px 0}
+  .hero{padding:62px 0 50px}
+}
+
+@media (max-width: 768px){
+  .container{padding:0 16px}
+  .section{padding:56px 0}
+  .hero{padding:54px 0 42px}
+
+  /* Cheaper blur/shadows on mobile */
+  .topbar{backdrop-filter:blur(8px)}
+  .panel,.card{backdrop-filter:blur(8px)}
+  .panel,.card{box-shadow:0 18px 50px rgba(0,0,0,.42)}
+
+  /* Reduce background cost */
+  .bg__layer--fast{display:none}
+  .bg__grid{opacity:.32}
+}
+
+@media (max-width: 480px){
+  .section__title{letter-spacing:.04em}
+  .hero__title{letter-spacing:.08em}
+  .pills{gap:6px}
+  .pill{font-size:11px;padding:6px 9px}
+}
+
+/* Let the browser skip work for offscreen sections */
+@supports (content-visibility: auto){
+  .section{content-visibility:auto;contain-intrinsic-size:800px}
+}
 
