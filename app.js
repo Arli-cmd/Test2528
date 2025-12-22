@@ -1,3 +1,4 @@
+
 /* STATE 2528 — app.js
    - i18n: ENG / RUS / KOR / CHI / DEU (real switching)
    - Language menu: click-only dropdown, closes on outside click / ESC
@@ -18,7 +19,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "Stability & Teamwork",
-},
+    },
 
     about: {
       kicker: "About the State",
@@ -94,7 +95,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "Стабильность и командная игра",
-},
+    },
 
     about: {
       kicker: "О государстве",
@@ -168,7 +169,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "안정과 팀워크",
-},
+    },
     about: {
       kicker: "국가 소개",
       title: "안정적이고 단합된 국가",
@@ -232,7 +233,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "稳定与团队",
-},
+    },
     about: {
       kicker: "关于国家",
       title: "稳定、团结的国家",
@@ -290,7 +291,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "Stabilität & Teamplay",
-},
+    },
     about: {
       kicker: "Über den Staat",
       title: "Ein stabiler, vereinter Staat",
