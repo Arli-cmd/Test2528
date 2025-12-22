@@ -359,36 +359,3 @@ ul{margin:0;padding:0;list-style:none}
 .footer{padding:46px 0 54px}
 .footer__brand{font-weight:900;letter-spacing:.14em;color:rgba(253,230,138,.92)}
 
-
-/* --- Hero + About (combined premium block) --- */
-.hero__left{
-  position: relative;
-}
-.hero__about{
-  margin-top: 26px;
-  padding: 22px;
-  border-radius: 22px;
-  border: 1px solid rgba(251,191,36,0.14);
-  background: linear-gradient(180deg, rgba(7,16,34,0.42), rgba(7,16,34,0.28));
-  box-shadow: 0 22px 70px rgba(0,0,0,0.42);
-  backdrop-filter: blur(10px);
-  max-width: 760px;
-}
-.hero__aboutTitle{
-  margin: 10px 0 0;
-  font-family: Cinzel, serif;
-  letter-spacing: .06em;
-  font-weight: 700;
-  color: rgba(253,230,138,0.96);
-  text-shadow: 0 0 22px rgba(251,191,36,0.12);
-  font-size: clamp(26px, 2.8vw, 42px);
-}
-.hero__aboutPills{
-  margin-top: 16px;
-}
-
-/* tighten the big divider spacing under combined block */
-.hero .divider--wide{
-  margin-top: 26px;
-}
-
