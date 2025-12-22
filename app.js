@@ -18,10 +18,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "Stability & Teamwork",
-      blurb:
-        "A state forged in stability and teamwork—engineered for total SvS domination. We grow together, win together, and keep internal drama at zero.",
-      badges: ["Organized Leadership", "Drama-Free Culture", "Event Optimized", "International Friendly"],
-    },
+},
 
     about: {
       kicker: "About the State",
@@ -97,10 +94,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "Стабильность и командная игра",
-      blurb:
-        "Государство, построенное на стабильности и командной работе — для сильных результатов в SvS. Растём вместе, побеждаем вместе, без внутренней драмы.",
-      badges: ["Организованное руководство", "Без драмы", "Оптимизация событий", "Международное сообщество"],
-    },
+},
 
     about: {
       kicker: "О государстве",
@@ -174,10 +168,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "안정과 팀워크",
-      blurb:
-        "안정과 협력으로 구축된 국가 — SvS에서 강한 성과를 위한 시스템입니다. 함께 성장하고 함께 승리하며, 내부 분쟁은 최소화합니다.",
-      badges: ["체계적 운영", "드라마 없는 문화", "이벤트 최적화", "국제 멤버 환영"],
-    },
+},
     about: {
       kicker: "국가 소개",
       title: "안정적이고 단합된 국가",
@@ -241,9 +232,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "稳定与团队",
-      blurb: "以稳定与团队协作为核心打造的国家——为SvS强势表现而生。一起成长，一起获胜，拒绝内耗。",
-      badges: ["管理有序", "无内斗文化", "活动优化", "欢迎国际玩家"],
-    },
+},
     about: {
       kicker: "关于国家",
       title: "稳定、团结的国家",
@@ -301,9 +290,7 @@ const COPY = {
     hero: {
       title: "STATE 2528",
       subtitle: "Stabilität & Teamplay",
-      blurb: "Ein Staat, gebaut auf Stabilität und Teamwork — für starke SvS-Ergebnisse. Gemeinsam wachsen, gemeinsam gewinnen, ohne internes Drama.",
-      badges: ["Organisierte Führung", "Drama-freie Kultur", "Event-optimiert", "International freundlich"],
-    },
+},
     about: {
       kicker: "Über den Staat",
       title: "Ein stabiler, vereinter Staat",
