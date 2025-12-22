@@ -9,6 +9,27 @@
 
 console.log("✅ app.js loaded");
 
+/* ---------- Device / performance guards ---------- */
+function detectLowPower(){
+  try{
+    const mem = Number(navigator.deviceMemory || 0); // GB
+    const cores = Number(navigator.hardwareConcurrency || 0);
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const saveData = !!(conn && conn.saveData);
+    const effectiveType = (conn && conn.effectiveType) ? String(conn.effectiveType) : "";
+    const slowNet = /(^2g$|^slow-2g$)/.test(effectiveType);
+    const smallScreen = window.matchMedia("(max-width: 768px)").matches;
+
+    // Conservative: phones + low memory/cores or Save-Data -> low power mode
+    if (saveData || slowNet) return true;
+    if (smallScreen && (mem && mem <= 4)) return true;
+    if (smallScreen && (cores && cores <= 4)) return true;
+    return false;
+  }catch(_){
+    return false;
+  }
+}
+
 const LANG_ORDER = ["ENG", "RUS", "KOR", "CHI", "DEU"];
 
 const COPY = {
@@ -347,7 +368,11 @@ const COPY = {
 const state = {
   lang: safeLang(localStorage.getItem("lang") || "ENG"),
   reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  lowPower: detectLowPower(),
 };
+
+// Let CSS disable heavy effects on weaker devices
+document.documentElement.classList.toggle("low-power", state.lowPower);
 
 function safeLang(code) {
   return LANG_ORDER.includes(code) ? code : "ENG";
@@ -573,7 +598,7 @@ function clamp(n, min, max) {
 }
 
 function initParallax() {
-  if (state.reduceMotion) return;
+  if (state.reduceMotion || state.lowPower) return;
 
   const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
     el,
@@ -607,6 +632,7 @@ function hashToUnit(i) {
 function initDust() {
   const host = document.getElementById("dust");
   if (!host) return;
+  if (state.lowPower) return;
   if (host.dataset.ready === "1") return;
   host.dataset.ready = "1";
 
@@ -644,6 +670,15 @@ function initDust() {
   }
 }
 
+function initDustDeferred(){
+  if (state.reduceMotion || state.lowPower) return;
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(() => initDust(), { timeout: 1200 });
+  } else {
+    setTimeout(() => initDust(), 250);
+  }
+}
+
 function init() {
   state.lang = safeLang(state.lang);
   applyI18n();
@@ -651,7 +686,7 @@ function init() {
   initStickyHeader();
   initReveal();
   initParallax();
-  initDust();
+  initDustDeferred();
 }
 
 window.addEventListener("DOMContentLoaded", init);
