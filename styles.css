@@ -1,4 +1,3 @@
-
 /* STATE 2528 — styles.css */
 :root{
   --bg:#140a06;
@@ -185,48 +184,6 @@ ul{margin:0;padding:0;list-style:none}
   font-size:clamp(40px,5.2vw,66px);
 }
 .hero__blurb{margin:14px 0 0;max-width:580px;color:rgba(255,255,255,.80);line-height:1.7;font-size:15px}
-
-/* Premium intro slab + embedded About card */
-.hero__left{ position: relative; }
-.hero.intro .hero__left::before{
-  content:"";
-  position:absolute;
-  left:-22px; right:-22px;
-  top:-22px; bottom:-22px;
-  border-radius:26px;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(251,191,36,0.10), transparent 60%),
-    radial-gradient(circle at 75% 40%, rgba(59,130,246,0.06), transparent 62%),
-    rgba(7,16,34,0.14);
-  border:1px solid rgba(251,191,36,0.12);
-  box-shadow: 0 30px 110px rgba(0,0,0,0.40);
-  backdrop-filter: blur(10px);
-  z-index:-1;
-}
-@media (max-width: 899px){
-  .hero.intro .hero__left::before{ left:-14px; right:-14px; }
-}
-
-.aboutCard{
-  margin-top: 22px;
-  padding: 18px;
-  border-radius: 22px;
-  border: 1px solid rgba(251,191,36,0.15);
-  background: rgba(7,16,34,0.42);
-  box-shadow: 0 22px 70px rgba(0,0,0,0.40);
-  backdrop-filter: blur(10px);
-}
-.aboutCard__title{
-  margin: 10px 0 0;
-  font-family: Cinzel, serif;
-  letter-spacing: .06em;
-  font-weight: 700;
-  color: rgba(253,230,138,0.96);
-  text-shadow: 0 0 22px rgba(251,191,36,0.12);
-  font-size: clamp(22px, 2.2vw, 34px);
-}
-.aboutCard .text{ margin-top: 12px; }
-
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .pill{
   display:inline-flex;align-items:center;
@@ -401,4 +358,37 @@ ul{margin:0;padding:0;list-style:none}
 /* Footer */
 .footer{padding:46px 0 54px}
 .footer__brand{font-weight:900;letter-spacing:.14em;color:rgba(253,230,138,.92)}
+
+
+/* --- Hero + About (combined premium block) --- */
+.hero__left{
+  position: relative;
+}
+.hero__about{
+  margin-top: 26px;
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(251,191,36,0.14);
+  background: linear-gradient(180deg, rgba(7,16,34,0.42), rgba(7,16,34,0.28));
+  box-shadow: 0 22px 70px rgba(0,0,0,0.42);
+  backdrop-filter: blur(10px);
+  max-width: 760px;
+}
+.hero__aboutTitle{
+  margin: 10px 0 0;
+  font-family: Cinzel, serif;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: rgba(253,230,138,0.96);
+  text-shadow: 0 0 22px rgba(251,191,36,0.12);
+  font-size: clamp(26px, 2.8vw, 42px);
+}
+.hero__aboutPills{
+  margin-top: 16px;
+}
+
+/* tighten the big divider spacing under combined block */
+.hero .divider--wide{
+  margin-top: 26px;
+}
 
