@@ -1,4 +1,3 @@
-
 /* STATE 2528 — app.js
    - i18n: ENG / RUS / KOR / CHI / DEU (real switching)
    - Language menu: click-only dropdown, closes on outside click / ESC
@@ -28,7 +27,6 @@ const COPY = {
         "State 2528 is a stable, multinational state with an active NAP6 and strong inter-alliance coordination. We focus on strategy, unity, and respectful play to succeed in all global events.",
       shortApproach:
         "Our approach emphasizes joint preparation, clear roles, and consistent execution across the state.",
-      points: ["Shared Strength", "Experienced Leadership", "Alliance Coordination", "Friendly Environment", "Multinational Community"],
     },
 
     nap: {
@@ -104,7 +102,6 @@ const COPY = {
         "State 2528 — стабильное многонациональное государство с активным NAP6 и сильной координацией между альянсами. Ставим на стратегию, единство и уважительное общение.",
       shortApproach:
         "Готовимся вместе, распределяем роли и стабильно выполняем план по всему государству.",
-      points: ["Общая сила", "Опытное руководство", "Координация альянсов", "Дружелюбная атмосфера", "Международное комьюнити"],
     },
 
     nap: {
@@ -175,7 +172,6 @@ const COPY = {
       title: "안정적이고 단합된 국가",
       shortIntro: "State 2528은 안정적인 다국적 국가이며 활성화된 NAP6와 강력한 연맹 간 협업 체계를 갖추고 있습니다.",
       shortApproach: "함께 준비하고 역할을 명확히 하며 일관된 실행으로 결과를 만들어냅니다.",
-      points: ["공동의 힘", "경험 있는 운영진", "연맹 간 조율", "친화적 환경", "다국적 커뮤니티"],
     },
     nap: {
       kicker: "NAP 규약",
@@ -239,7 +235,6 @@ const COPY = {
       title: "稳定、团结的国家",
       shortIntro: "State 2528 是一个稳定的多国玩家国家，拥有活跃的 NAP6 与强大的联盟协作。",
       shortApproach: "共同备战、明确分工、持续执行，整个国家一起拿结果。",
-      points: ["共同实力", "经验管理", "联盟协作", "友好环境", "多国社区"],
     },
     nap: {
       kicker: "NAP 规则",
@@ -297,7 +292,6 @@ const COPY = {
       title: "Ein stabiler, vereinter Staat",
       shortIntro: "State 2528 ist ein stabiler, multinationaler Staat mit aktivem NAP6 und starker Allianz-Koordination.",
       shortApproach: "Gemeinsam vorbereiten, klare Rollen, konsequente Umsetzung im ganzen Staat.",
-      points: ["Gemeinsame Stärke", "Erfahrene Führung", "Allianz-Koordination", "Freundliches Umfeld", "Multinationale Community"],
     },
     nap: {
       kicker: "NAP Protokoll",
