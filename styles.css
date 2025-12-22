@@ -214,7 +214,9 @@ ul{margin:0;padding:0;list-style:none}
   background:linear-gradient(90deg, transparent, rgba(251,191,36,.35), transparent);
   margin:16px 0 24px; /* ↑ увеличен нижний отступ */
 }
-.divider--wide{margin:0}
+.divider--wide{
+  margin:16px 0 28px;
+}
 
 /* ---------- Cards / grids ---------- */
 .card{
