@@ -108,7 +108,14 @@ ul{margin:0;padding:0;list-style:none}
 .nav__link:hover{color:rgba(253,230,138,.95)}
 @media (min-width: 900px){ .nav{display:flex} }
 .topbar__actions{display:flex;align-items:center;gap:10px}
-
+.brand__crown {
+  font-size: 18px;
+  color: rgba(253,230,138,.95);
+  text-shadow:
+    0 0 8px rgba(251,191,36,.6),
+    0 0 18px rgba(251,191,36,.35);
+  line-height: 1;
+}
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
