@@ -2,7 +2,7 @@
 :root{
   --bg:#140a06;
   --ink:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.78);
+  --muted:rgba(255,255,255,.74);
   --card:rgba(11,21,48,.55);
   --gold:#fbbf24;
   --shadow:0 20px 60px rgba(0,0,0,.45);
@@ -16,6 +16,7 @@ body{
   background:var(--bg);
   color:var(--ink);
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size:16px;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -23,7 +24,7 @@ body{
 }
 a{color:inherit;text-decoration:none}
 ul{margin:0;padding:0;list-style:none}
-.container{width:min(1120px,100%);margin:0 auto;padding:0 20px}
+.container{width:min(1080px,100%);margin:0 auto;padding:0 20px}
 
 /* Better keyboard UX */
 :focus-visible{
@@ -95,9 +96,9 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- Topbar ---------- */
 .topbar{
   position:sticky;top:0;z-index:40;
-  border-bottom:1px solid transparent;
+  border-bottom:1px solid rgba(251,191,36,.06);
   backdrop-filter:blur(10px);
-  background:rgba(20,10,6,.55);
+  background:rgba(20,10,6,.62);
   transition:box-shadow .25s var(--ease), border-color .25s var(--ease);
 }
 .topbar.is-scrolled{
@@ -117,8 +118,25 @@ ul{margin:0;padding:0;list-style:none}
   margin-top:-2px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55)
 }
 .nav{display:none;align-items:center;gap:22px}
-.nav__link{color:rgba(255,255,255,.75);transition:color .2s var(--ease)}
+
+.nav__link{
+  position:relative;
+  color:rgba(255,255,255,.75);
+  transition:color .2s var(--ease);
+}
+.nav__link::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-10px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(251,191,36,.55), transparent);
+  opacity:0;
+  transform:translateY(4px);
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
 .nav__link:hover{color:rgba(253,230,138,.95)}
+.nav__link:hover::after{opacity:1;transform:none}
+
 @media (min-width: 900px){ .nav{display:flex} }
 .topbar__actions{display:flex;align-items:center;gap:10px}
 .brand__crown {
@@ -134,8 +152,8 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  border-radius:14px;padding:10px 14px;
-  font-weight:700;font-size:13px;letter-spacing:.08em;
+  border-radius:14px;padding:11px 15px;
+  font-weight:800;font-size:13px;letter-spacing:.08em;
   border:1px solid transparent;cursor:pointer;
   transition:transform .25s var(--ease), filter .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
 }
@@ -172,8 +190,8 @@ ul{margin:0;padding:0;list-style:none}
   margin:12px 0 0;
   max-width:720px;
   color:rgba(255,255,255,.78);
-  line-height:1.75;
-  font-size:15.5px;
+  line-height:1.72;
+  font-size:15px;
 }
 
 /* ---------- Hero ---------- */
@@ -204,7 +222,7 @@ ul{margin:0;padding:0;list-style:none}
   padding: 18px 22px 16px;
   border-radius: 18px;
   border: 1px solid rgba(251,191,36,0.12);
-  background: rgba(20,10,6,0.22);
+  background: linear-gradient(180deg, rgba(20,10,6,0.28), rgba(7,16,34,0.22));
   backdrop-filter: blur(10px);
   box-shadow: 0 18px 55px rgba(0,0,0,0.35);
 }
@@ -285,8 +303,23 @@ ul{margin:0;padding:0;list-style:none}
   box-shadow:0 25px 80px rgba(0,0,0,.55);
   backdrop-filter:blur(10px);
   padding:22px;
+  isolation:isolate;
   transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
 }
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    inset 0 0 42px rgba(251,191,36,.04);
+  mix-blend-mode:screen;
+  opacity:.9;
+  z-index:0;
+}
+.card > *{position:relative; z-index:1}
 .card__h{margin:10px 0 0;font-size:18px;font-weight:800}
 .card__eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,230,138,.85)}
 .text{
@@ -309,7 +342,7 @@ ul{margin:0;padding:0;list-style:none}
 
 .card--placeholder{
   padding:18px 22px;
-  min-height:170px;
+  min-height:176px;
 }
 
 .cards{display:grid;gap:14px}
@@ -423,6 +456,7 @@ ul{margin:0;padding:0;list-style:none}
   flex-wrap:wrap;
   gap:10px;
   margin-top:12px;
+  align-items:center;
 }
 
 /* Footer */
