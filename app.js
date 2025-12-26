@@ -53,6 +53,7 @@ const COPY = {
       desc:
         "We play smart and keep it peaceful inside the state. NAP means no wasted resources on internal fights — just steady growth and stronger showings in every event.",
       rulesTitle: "NAP Rules",
+      napAlliancesTitle: "NAP Alliances",
       rules: [
         "No city attacks or scouting between NAP alliances.",
         "Castle and forts rotate on a clear, posted schedule.",
@@ -72,7 +73,7 @@ const COPY = {
       items: [
         { title: "International & Inclusive", desc: "A global mix of players, one respectful vibe — whatever your time zone, you’ll fit in." },
         { title: "Experienced Leadership", desc: "Leaders who keep things calm, organized, and effective — especially during SvS." },
-        { title: "Official State Discord", desc: "One shared Discord for announcements, planning, and clean coordination between alliances." },
+        { title: "State Coordination Hub", desc: "A clean coordination hub for announcements, planning, and inter-alliance alignment." },
         { title: "Structured State Management", desc: "Clear rules, aligned decisions, and state-wide cooperation that actually works." },
         { title: "SvS-Oriented State", desc: "We’re SvS-minded: prep, discipline, and teamwork for consistent results." },
         { title: "Drama-Free & Mature Community", desc: "No drama policy. Calm, mature players who focus on goals — not arguments." },
@@ -125,6 +126,7 @@ const COPY = {
       desc:
         "В государстве действует стабильный NAP на основе сотрудничества и взаимного уважения. Никаких внутренних войн и лишних потерь — только рост и сильные выступления на событиях.",
       rulesTitle: "Правила NAP",
+      napAlliancesTitle: "Альянсы в NAP",
       rules: [
         "Запрещены атаки/разведка городов между NAP-альянсами.",
         "Ротации замка и фортов — по расписанию и прозрачно.",
@@ -144,7 +146,7 @@ const COPY = {
       items: [
         { title: "Международно и комфортно", desc: "Игроки со всего мира в спокойной и уважительной атмосфере — независимо от культуры и таймзоны." },
         { title: "Опытное руководство", desc: "Лидеры, которые ведут рост, события и SvS без хаоса и лишнего давления." },
-        { title: "Официальный Discord государства", desc: "Единый Discord для координации, объявлений и прозрачной коммуникации между альянсами." },
+        { title: "Координационный центр государства", desc: "Единый центр координации: объявления, планирование и прозрачная связь между альянсами." },
         { title: "Структурное управление", desc: "Чёткие правила, согласованные решения и организованная совместная работа по всему государству." },
         { title: "Фокус на SvS", desc: "Подготовка, дисциплина и командная игра для стабильных результатов в SvS." },
         { title: "Без драмы, зрелое комьюнити", desc: "Нулевая терпимость к токсичности и конфликтам. Спокойная среда с фокусом на цели." },
@@ -191,6 +193,7 @@ const COPY = {
       desc:
         "연맹 간 협력과 상호 존중을 기반으로 한 안정적인 NAP 체계를 운영합니다. 내부 전투에 자원을 낭비하지 않고 함께 성장합니다.",
       rulesTitle: "NAP 규칙",
+      napAlliancesTitle: "NAP 연맹",
       rules: [
         "NAP 연맹 간 도시 공격 및 정찰 금지.",
         "성/요새 로테이션은 일정 기반으로 투명하게 진행.",
@@ -207,7 +210,7 @@ const COPY = {
       items: [
         { title: "국제적 · 포용적인 환경", desc: "문화/타임존 상관없이 편안하고 존중받는 분위기." },
         { title: "경험 많은 운영진", desc: "혼란 없이 성장, 이벤트, SvS를 안정적으로 운영." },
-        { title: "공식 국가 디스코드", desc: "공지/조율/이벤트를 통합하고 소통은 투명하게." },
+        { title: "국가 조율 허브", desc: "공지/조율/이벤트를 통합하고 소통은 투명하게." },
         { title: "체계적인 국가 운영", desc: "명확한 규칙과 일관된 결정, 연맹 간 조직적 협업." },
         { title: "SvS 중심 국가", desc: "준비·규율·팀워크로 꾸준한 SvS 성과." },
         { title: "드라마 없는 성숙한 커뮤니티", desc: "독성/분쟁 무관용. 차분하고 목표 지향적인 환경." },
@@ -250,6 +253,7 @@ const COPY = {
       title: "公平与秩序",
       desc: "稳定的 NAP 建立在合作与相互尊重之上。我们不把资源浪费在内战上，而是一起变强。",
       rulesTitle: "NAP 规则",
+      napAlliancesTitle: "NAP 联盟",
       rules: ["NAP 联盟之间禁止攻城/侦察。", "城堡与要塞轮换公开透明、按计划执行。", "纠纷由管理层处理，禁止公开争吵。", "对毒性/破坏/骚扰零容忍。"],
       rotationTitle: "城堡与要塞轮换",
       rotationDesc: "Sunfire Castle 按计划透明轮换，保证公平与长期稳定。",
@@ -261,7 +265,7 @@ const COPY = {
       items: [
         { title: "国际化、包容", desc: "来自世界各地的玩家，在尊重友好的环境中一起玩。" },
         { title: "经验丰富的管理", desc: "成长、活动、SvS 有序推进，不混乱、不施压。" },
-        { title: "官方国家 Discord", desc: "统一协调、公告与活动安排，联盟沟通透明。" },
+        { title: "国家协调中心", desc: "统一协调、公告与活动安排，联盟沟通透明。" },
         { title: "结构化管理", desc: "规则清晰、决策一致、联盟协作有组织。" },
         { title: "SvS 导向", desc: "重视备战、纪律与团队配合，稳定出成绩。" },
         { title: "成熟无内斗", desc: "对毒性与冲突零容忍，氛围冷静目标明确。" },
@@ -304,6 +308,7 @@ const COPY = {
       title: "Fair Play & Ordnung",
       desc: "Ein stabiler NAP basiert auf Zusammenarbeit und Respekt. Wir verschwenden keine Ressourcen in internen Kämpfen — wir werden gemeinsam stärker.",
       rulesTitle: "NAP Regeln",
+      napAlliancesTitle: "NAP-Allianzen",
       rules: [
         "Keine Stadtangriffe oder Spionage innerhalb der NAP-Allianzen.",
         "Geplante und transparente Burg- und Fort-Rotationen.",
@@ -320,7 +325,7 @@ const COPY = {
       items: [
         { title: "International & inklusiv", desc: "Spieler aus aller Welt — respektvoll, entspannt, unabhängig von Zeitzonen." },
         { title: "Erfahrene Führung", desc: "Wachstum, Events und SvS ohne Chaos oder unnötigen Druck." },
-        { title: "Offizieller State-Discord", desc: "Koordination, Ankündigungen und transparente Kommunikation zwischen Allianzen." },
+        { title: "State-Koordinationshub", desc: "Koordination, Ankündigungen und transparente Kommunikation zwischen Allianzen." },
         { title: "Strukturiertes Management", desc: "Klare Regeln, abgestimmte Entscheidungen und organisierte Zusammenarbeit." },
         { title: "SvS-orientiert", desc: "Fokus auf Vorbereitung, Disziplin und Teamwork für konstante Ergebnisse." },
         { title: "Reife, drama-freie Community", desc: "Null Toleranz für Toxizität oder persönliche Angriffe." },
