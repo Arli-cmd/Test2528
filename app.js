@@ -536,7 +536,9 @@ function buildLangMenu() {
       localStorage.setItem("lang", state.lang);
       applyI18n();
       
-  initShimmerOnce();
+  
+  initHeroMotion();
+initShimmerOnce();
   initActiveNav();
 closeLangMenu();
     });
@@ -790,4 +792,17 @@ function initActiveNav(){
   }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.15, 0.25, 0.4] });
 
   sections.forEach(s => io.observe(s));
+}
+
+
+/* ---------- Hero motion: 10–15s cinematic intro, then stops ---------- */
+function initHeroMotion(){
+  try{
+    if (state.reduceMotion || state.lowPower) return;
+    // Run once per load, then remove to save battery/GPU.
+    document.documentElement.classList.add("hero-motion");
+    window.setTimeout(() => {
+      document.documentElement.classList.remove("hero-motion");
+    }, 15000);
+  }catch(_){}
 }
