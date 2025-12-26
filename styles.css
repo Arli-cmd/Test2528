@@ -644,3 +644,159 @@ body{overscroll-behavior-y:none}
 
 /* Apply CTA card polish */
 .applyCard{padding:22px 24px}
+
+
+/* === MAX DESIGN UPGRADE (non-destructive, alliances are equal) === */
+
+/* Topbar micro-shrink */
+.topbar.is-scrolled .brand__badge{ transform:scale(.96); transition:transform .25s var(--ease); }
+.topbar.is-scrolled .brand__sub{ opacity:.65; }
+.topbar.is-scrolled::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-1px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(251,191,36,.55), transparent);
+  opacity:.8;
+  pointer-events:none;
+}
+
+/* Hero slogan */
+.hero__slogan{
+  margin:10px 0 0;
+  font-size:12px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.78);
+}
+
+/* One-time shimmer on title (JS adds .shimmer) */
+.shimmer{
+  background: linear-gradient(90deg, rgba(253,230,138,0.92), rgba(255,255,255,0.95), rgba(251,191,36,0.92));
+  background-size: 200% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation: shimmerSweep 3.8s var(--ease) 1;
+}
+@keyframes shimmerSweep{
+  0%{background-position:0% 50%}
+  100%{background-position:200% 50%}
+}
+@media (prefers-reduced-motion: reduce){ .shimmer{animation:none} }
+
+/* Tactical corner marks for premium feel */
+.card, .hero__aboutCard{
+  position:relative;
+}
+.card::before, .hero__aboutCard::after{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:18px;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(251,191,36,.22), rgba(251,191,36,.22)) left top/18px 1px no-repeat,
+    linear-gradient(rgba(251,191,36,.22), rgba(251,191,36,.22)) left top/1px 18px no-repeat,
+    linear-gradient(rgba(251,191,36,.18), rgba(251,191,36,.18)) right top/18px 1px no-repeat,
+    linear-gradient(rgba(251,191,36,.18), rgba(251,191,36,.18)) right top/1px 18px no-repeat,
+    linear-gradient(rgba(251,191,36,.16), rgba(251,191,36,.16)) left bottom/18px 1px no-repeat,
+    linear-gradient(rgba(251,191,36,.16), rgba(251,191,36,.16)) left bottom/1px 18px no-repeat,
+    linear-gradient(rgba(251,191,36,.16), rgba(251,191,36,.16)) right bottom/18px 1px no-repeat,
+    linear-gradient(rgba(251,191,36,.16), rgba(251,191,36,.16)) right bottom/1px 18px no-repeat;
+  opacity:.55;
+}
+
+/* Subtle scanline overlay (cheap + premium) */
+.hero__aboutCard::after{
+  inset:0;
+  border-radius:22px;
+  opacity:.14;
+  background-image: linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 100% 44px;
+  mix-blend-mode: overlay;
+}
+
+/* NAP rule icons */
+.ruleIcon{
+  display:inline-grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  margin-right:10px;
+  border-radius:10px;
+  background:rgba(251,191,36,.10);
+  border:1px solid rgba(251,191,36,.20);
+  box-shadow:0 0 22px rgba(251,191,36,.10);
+  font-size:12px;
+}
+
+/* Status pills */
+.statusRow{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.statusPill{
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(251,191,36,.18);
+  background:rgba(3,7,18,.18);
+  color:rgba(253,230,138,.88);
+}
+
+/* Apply note */
+.apply__note{
+  margin:12px 0 0;
+  max-width:720px;
+  font-size:13px;
+  line-height:1.7;
+  color:rgba(255,255,255,.78);
+}
+
+/* Alliances meta (equal styling for all) */
+.allianceMeta{
+  margin-top:14px;
+  display:grid;
+  gap:8px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px){ .allianceMeta{ grid-template-columns: 1fr 1fr 1fr; } }
+.metaItem{
+  border-radius:16px;
+  border:1px solid rgba(251,191,36,.13);
+  background:rgba(3,7,18,.16);
+  padding:10px 12px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:14px;
+}
+.metaK{
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.62);
+  white-space:nowrap;
+}
+.metaV{
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(253,230,138,.88);
+  white-space:nowrap;
+}
+
+/* Neutralize any "featured" differences — all alliances equal */
+.allianceCard--featured{ border-color:rgba(251,191,36,.12)!important; }
+.allianceCode--featured{ color:rgba(253,230,138,.98)!important; text-shadow: none!important; }
+.allianceCard--featured .card__h{ text-shadow:none!important; }
+
+/* Nav active marker */
+.nav__link.is-active{ color:rgba(253,230,138,.95); }
+.nav__link.is-active::after{ opacity:1; transform:none; }
