@@ -119,13 +119,13 @@ ul{margin:0;padding:0;list-style:none}
 .brand__crown {
   font-size: 20px;
   line-height: 1;
-  color: #fcd34d; /* мягкое премиум-золото */
-
+  color: #fcd34d;
   text-shadow:
     0 0 6px rgba(251,191,36,0.85),
     0 0 14px rgba(251,191,36,0.55),
     0 0 28px rgba(251,191,36,0.35);
 }
+
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -277,11 +277,9 @@ ul{margin:0;padding:0;list-style:none}
 .divider{
   height:1px;
   background:linear-gradient(90deg, transparent, rgba(251,191,36,.35), transparent);
-  margin:16px 0 24px; /* ↑ увеличен нижний отступ */
+  margin:16px 0 24px;
 }
-.divider--wide{
-  margin:16px 0 28px;
-}
+.divider--wide{ margin:16px 0 28px; }
 
 /* ---------- Cards / grids ---------- */
 .card{
@@ -415,9 +413,18 @@ ul{margin:0;padding:0;list-style:none}
 .footer{padding:46px 0 54px}
 .footer__brand{font-weight:900;letter-spacing:.14em;color:rgba(253,230,138,.92)}
 
-/* ---------- Performance + responsive polish ---------- */
+/* ---------- Reveal animation (needed for JS reveal) ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .6s var(--ease), transform .6s var(--ease);
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
 
-/* Reduce heavy effects on low-power devices (JS adds .low-power on <html>) */
+/* ---------- Performance + responsive polish ---------- */
 .low-power .bg__layer--fast,
 .low-power .bg__grid,
 .low-power .bg__dust{display:none}
@@ -425,7 +432,6 @@ ul{margin:0;padding:0;list-style:none}
 .low-power .card,
 .low-power .topbar{backdrop-filter:none}
 
-/* Tap + overscroll */
 *{-webkit-tap-highlight-color:transparent}
 body{overscroll-behavior-y:none}
 
@@ -438,13 +444,9 @@ body{overscroll-behavior-y:none}
   .container{padding:0 16px}
   .section{padding:56px 0}
   .hero{padding:54px 0 42px}
-
-  /* Cheaper blur/shadows on mobile */
   .topbar{backdrop-filter:blur(8px)}
   .panel,.card{backdrop-filter:blur(8px)}
   .panel,.card{box-shadow:0 18px 50px rgba(0,0,0,.42)}
-
-  /* Reduce background cost */
   .bg__layer--fast{display:none}
   .bg__grid{opacity:.32}
 }
@@ -456,8 +458,6 @@ body{overscroll-behavior-y:none}
   .pill{font-size:11px;padding:6px 9px}
 }
 
-/* Let the browser skip work for offscreen sections */
 @supports (content-visibility: auto){
   .section{content-visibility:auto;contain-intrinsic-size:800px}
 }
-
