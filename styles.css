@@ -391,7 +391,12 @@ ul{margin:0;padding:0;list-style:none}
 .miniList li span:last-child{
   white-space:nowrap;
   opacity:.9;
-.miniList .nums{font-variant-numeric:tabular-nums; letter-spacing:.02em}
+}
+
+.miniList .nums{
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
 
 /* Requirements list */
 .reqList{
@@ -617,11 +622,6 @@ body{overscroll-behavior-y:none}
 }
 .btn--primary:hover::before{
   transform:translateX(70%) rotate(10deg);
-}
-
-@media (max-width: 420px){
-  .miniList li{grid-template-columns:96px 1fr}
-  .miniList{font-size:12px}
 }
 
 /* Chips */
