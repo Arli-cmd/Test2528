@@ -377,7 +377,8 @@ ul{margin:0;padding:0;list-style:none}
   color:rgba(255,255,255,.78);
   line-height:1.45;
 }
-.miniList li{display:flex;justify-content:space-between;gap:12px}
+.miniList li{display:grid;grid-template-columns:112px 1fr;align-items:baseline;gap:12px}
+.miniList li span:first-child{white-space:nowrap}
 .miniList .nums{font-variant-numeric:tabular-nums; letter-spacing:.02em}
 
 /* Requirements list */
@@ -596,3 +597,29 @@ body{overscroll-behavior-y:none}
 .btn--primary:hover::before{
   transform:translateX(70%) rotate(10deg);
 }
+
+@media (max-width: 420px){
+  .miniList li{grid-template-columns:96px 1fr}
+  .miniList{font-size:12px}
+}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.chip{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(251,191,36,.18);
+  background:rgba(3,7,18,.18);
+  color:rgba(253,230,138,.92);
+  font-weight:900;
+  letter-spacing:.10em;
+  font-size:12px;
+}
+
+.chips--nap .chip{
+  border-color: rgba(251,191,36,.24);
+  box-shadow: 0 0 18px rgba(251,191,36,.10);
+}
+
+/* Apply CTA card polish */
+.applyCard{padding:22px 24px}
