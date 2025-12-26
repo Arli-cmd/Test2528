@@ -800,3 +800,73 @@ body{overscroll-behavior-y:none}
 /* Nav active marker */
 .nav__link.is-active{ color:rgba(253,230,138,.95); }
 .nav__link.is-active::after{ opacity:1; transform:none; }
+
+
+/* === HERO MOTION (10–15s, lightweight, stops automatically) === */
+/* Enabled only when JS adds .hero-motion to <html>, and not in low-power mode */
+html.hero-motion:not(.low-power) .hero__fx{
+  animation: heroGlowSweep 12.5s var(--ease) 1;
+}
+
+@keyframes heroGlowSweep{
+  0%{
+    filter:saturate(1) brightness(1);
+    opacity:1;
+  }
+  30%{
+    filter:saturate(1.06) brightness(1.03);
+    opacity:1;
+  }
+  70%{
+    filter:saturate(1.02) brightness(1.01);
+    opacity:1;
+  }
+  100%{
+    filter:saturate(1) brightness(1);
+    opacity:1;
+  }
+}
+
+/* Subtle parallax shimmer of the signature ring (GPU transform only) */
+html.hero-motion:not(.low-power) .sig__ring{
+  animation: ringDrift 14s var(--ease) 1;
+  will-change: transform;
+}
+@keyframes ringDrift{
+  0%{ transform: translate3d(0,0,0) scale(1); opacity:1; }
+  35%{ transform: translate3d(0,-6px,0) scale(1.01); opacity:1; }
+  70%{ transform: translate3d(0,-2px,0) scale(1.005); opacity:1; }
+  100%{ transform: translate3d(0,0,0) scale(1); opacity:1; }
+}
+
+/* Micro “scan” across the about card (background-position only) */
+html.hero-motion:not(.low-power) .hero__aboutCard::after{
+  animation: dossierScan 11.5s linear 1;
+  background-size: 100% 44px;
+  will-change: background-position;
+}
+@keyframes dossierScan{
+  0%{ background-position: 0 0; opacity:.10; }
+  40%{ background-position: 0 120px; opacity:.16; }
+  100%{ background-position: 0 260px; opacity:.10; }
+}
+
+/* Tiny title shimmer (one pass) */
+html.hero-motion:not(.low-power) .hero__title{
+  animation: titlePulse 9.5s var(--ease) 1;
+}
+@keyframes titlePulse{
+  0%{ text-shadow: 0 0 36px rgba(251,191,36,.18); }
+  45%{ text-shadow: 0 0 54px rgba(251,191,36,.22); }
+  100%{ text-shadow: 0 0 36px rgba(251,191,36,.18); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html.hero-motion .hero__fx,
+  html.hero-motion .sig__ring,
+  html.hero-motion .hero__aboutCard::after,
+  html.hero-motion .hero__title{
+    animation:none !important;
+  }
+}
