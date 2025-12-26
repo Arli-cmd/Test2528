@@ -505,62 +505,94 @@ body{overscroll-behavior-y:none}
   .section{content-visibility:auto;contain-intrinsic-size:800px}
 }
 
+/* === Premium content polish (icons + alliances consistency) === */
 
-/* --- Premium polish add-ons (nav active, CTA shine, elite icons) --- */
+/* Offer icons (What We Offer) */
+.offerIcon{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  margin-bottom:12px;
+  background:rgba(251,191,36,.10);
+  border:1px solid rgba(251,191,36,.22);
+  box-shadow:0 0 30px rgba(251,191,36,.14);
+}
+.offerIcon::before{
+  content:"";
+  width:19px;
+  height:19px;
+  background:rgba(253,230,138,.96);
+  -webkit-mask: var(--icon) center/contain no-repeat;
+  mask: var(--icon) center/contain no-repeat;
+  filter: drop-shadow(0 0 10px rgba(251,191,36,.28));
+}
+.offerIcon--globe{ --icon:url("assets/icons/elite/icon-globe.svg"); }
+.offerIcon--crown{ --icon:url("assets/icons/elite/icon-crown.svg"); }
+.offerIcon--discord{ --icon:url("assets/icons/elite/icon-discord.svg"); }
+.offerIcon--shield{ --icon:url("assets/icons/elite/icon-shield.svg"); }
+.offerIcon--trophy{ --icon:url("assets/icons/elite/icon-trophy.svg"); }
+.offerIcon--handshake{ --icon:url("assets/icons/elite/icon-handshake.svg"); }
 
-/* Active section underline in top nav */
+.offerCard .card__h{ margin-top:6px; }
+
+/* Alliance cards: unified structure */
+.allianceCard{
+  padding:22px;
+}
+.allianceCode{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:.16em;
+  margin-bottom:10px;
+  text-transform:uppercase;
+  color:rgba(253,230,138,.98);
+  text-shadow:0 0 14px rgba(251,191,36,.18);
+}
+.allianceCode--featured{
+  text-shadow:
+    0 0 12px rgba(251,191,36,.40),
+    0 0 26px rgba(251,191,36,.22),
+    0 0 54px rgba(251,191,36,.10);
+}
+.miniList--placeholder span:last-child{ opacity:.55; }
+.reqList--placeholder li{ opacity:.7; }
+
+/* Make the 4 alliance cards feel equal in height on desktop */
+@media (min-width: 980px){
+  #alliances .cards--2 > .allianceCard{ min-height: 360px; }
+}
+
+/* Nav active underline (premium) */
 .nav__link{
-  position: relative;
-  padding: 8px 2px;
+  position:relative;
+  padding:8px 2px;
 }
 .nav__link::after{
   content:"";
-  position:absolute; left:0; right:0; bottom:-6px;
-  height:1px; opacity:0;
-  background: linear-gradient(90deg, transparent, rgba(251,191,36,.60), transparent);
-  transition: opacity .25s var(--ease);
+  position:absolute; left:0; right:0; bottom:-7px;
+  height:1px;
+  opacity:0;
+  background:linear-gradient(90deg, transparent, rgba(251,191,36,.62), transparent);
+  transition:opacity .25s var(--ease);
 }
 .nav__link:hover::after,
 .nav__link.is-active::after{ opacity:1; }
 
-/* Premium button shine */
-.btn--primary{ position: relative; overflow: hidden; }
+/* Premium shine on primary button */
+.btn--primary{
+  position:relative;
+  overflow:hidden;
+}
 .btn--primary::before{
   content:"";
-  position:absolute; inset:-40%;
-  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
-  transform: translateX(-60%) rotate(8deg);
-  transition: transform .65s var(--ease);
-  pointer-events:none;
-}
-.btn--primary:hover::before{ transform: translateX(60%) rotate(8deg); }
-
-/* Elite icons for "What We Offer" cards */
-.offerIcon{ position: relative; padding-top: 52px; }
-.offerIcon::before{
-  content:"";
   position:absolute;
-  left:20px; top:18px;
-  width:22px; height:22px;
-  background-repeat:no-repeat;
-  background-size:contain;
-  opacity:.92;
-  filter: drop-shadow(0 0 10px rgba(251,191,36,.25));
+  inset:-45%;
+  background:linear-gradient(120deg, transparent 38%, rgba(255,255,255,.20) 50%, transparent 62%);
+  transform:translateX(-70%) rotate(10deg);
+  transition:transform .65s var(--ease);
 }
-.offerIcon--1::before{ background-image:url("assets/icons/elite/icon-globe.svg"); }
-.offerIcon--2::before{ background-image:url("assets/icons/elite/icon-crown.svg"); }
-.offerIcon--3::before{ background-image:url("assets/icons/elite/icon-discord.svg"); }
-.offerIcon--4::before{ background-image:url("assets/icons/elite/icon-shield.svg"); }
-.offerIcon--5::before{ background-image:url("assets/icons/elite/icon-trophy.svg"); }
-.offerIcon--6::before{ background-image:url("assets/icons/elite/icon-handshake.svg"); }
-
-/* Subtle inner highlight (premium glass) */
-.card::after{
-  content:"";
-  position:absolute; inset:0;
-  border-radius:inherit;
-  pointer-events:none;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.03),
-    inset 0 0 48px rgba(251,191,36,.035);
+.btn--primary:hover::before{
+  transform:translateX(70%) rotate(10deg);
 }
