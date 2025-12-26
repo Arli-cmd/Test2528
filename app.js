@@ -51,17 +51,17 @@ const COPY = {
       kicker: "NAP Protocol",
       title: "Fair Play & Shared Power",
       desc:
-        "Our state operates under a stable NAP, built on cooperation and mutual respect between alliances. We don’t waste resources fighting each other — we grow stronger together.",
+        "We play smart and keep it peaceful inside the state. NAP means no wasted resources on internal fights — just steady growth and stronger showings in every event.",
       rulesTitle: "NAP Rules",
       rules: [
-        "No city attacks or scouting within NAP alliances.",
-        "Scheduled and transparent castle and fort rotations.",
-        "Disputes are handled by leadership — no public conflicts.",
-        "Zero tolerance for toxicity, sabotage, or harassment.",
+        "No city attacks or scouting between NAP alliances.",
+        "Castle and forts rotate on a clear, posted schedule.",
+        "If there’s an issue, leadership handles it — no public fights.",
+        "Toxicity, sabotage, or harassment: zero tolerance.",
       ],
       rotationTitle: "Castle & Fort Rotations",
       rotationDesc:
-        "Sunfire Castle is rotated on a scheduled and transparent basis, ensuring fair access to leadership and long-term state stability.",
+        "Sunfire Castle rotates on a clear schedule — fair access, smooth leadership transitions, and long-term stability for the state.",
       fortsDesc:
         "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives."
     },
@@ -70,24 +70,24 @@ const COPY = {
       kicker: "Why Join",
       title: "What We Offer",
       items: [
-        { title: "International & Inclusive", desc: "Players from all over the world in a comfortable, respectful environment—regardless of culture or time zone." },
-        { title: "Experienced Leadership", desc: "Veteran leaders who manage growth, events, and SvS without chaos or unnecessary pressure." },
-        { title: "Official State Discord", desc: "A unified state Discord for coordination, announcements, events, and transparent communication between alliances." },
-        { title: "Structured State Management", desc: "Clear rules, aligned decisions, and organized cooperation between alliances across the state." },
-        { title: "SvS-Oriented State", desc: "Strong focus on preparation, discipline, and teamwork to achieve consistent SvS results." },
-        { title: "Drama-Free & Mature Community", desc: "Zero tolerance for toxicity, conflicts, or personal attacks. Calm, mature, goal-focused environment." },
+        { title: "International & Inclusive", desc: "A global mix of players, one respectful vibe — whatever your time zone, you’ll fit in." },
+        { title: "Experienced Leadership", desc: "Leaders who keep things calm, organized, and effective — especially during SvS." },
+        { title: "Official State Discord", desc: "One shared Discord for announcements, planning, and clean coordination between alliances." },
+        { title: "Structured State Management", desc: "Clear rules, aligned decisions, and state-wide cooperation that actually works." },
+        { title: "SvS-Oriented State", desc: "We’re SvS-minded: prep, discipline, and teamwork for consistent results." },
+        { title: "Drama-Free & Mature Community", desc: "No drama policy. Calm, mature players who focus on goals — not arguments." },
       ]
     },
 
     alliances: {
       kicker: "Alliances",
-      title: "Alliances, same mission.",
-      subtitle: "Different groups, same goal — we stay organized and work as one state.",
-      placeholder: { title: "Info coming soon", desc: "This card will contain alliance details." },
+      title: "Alliances. One state. One standard.",
+      subtitle: "Different groups, same goal — organized, coordinated, and moving as one.",
+      placeholder: { title: "Details coming soon", desc: "We’re preparing this alliance profile — check back shortly." },
       one: {
         motto: "Forging Victory, Together.",
         desc:
-          "[ONE] is a calm, organized alliance focused on teamwork, growth, and clean wins—so every member reaches full potential.",
+          "[ONE] is calm, organized, and focused on teamwork, steady growth, and clean wins — so every member can play at their best.",
         scheduleTitle: "Event Schedule (UTC)",
         reqTitle: "We Are Looking For",
         req: ["Furnace Level: FC4+", "Daily active in alliance & state events", "Positive and respectful attitude"],
@@ -98,7 +98,7 @@ const COPY = {
     apply: {
       kicker: "Transfer",
       title: "Ready to Join a Team of Winners?",
-      desc: "Apply below and our leadership will reach out with next steps.",
+      desc: "Tap the button below — our leadership will reach out with the next steps.",
       button: "Open Application Form →"
 },
 
@@ -112,18 +112,18 @@ const COPY = {
 
     about: {
       kicker: "О государстве",
-      title: "Стабильное, объединённое государство",
+      title: "Стабильно, дружно и без лишней суеты",
       shortIntro:
-        "State 2528 — стабильное многонациональное государство с активным NAP6 и сильной координацией между альянсами. Ставим на стратегию, единство и уважительное общение.",
+        "State 2528 — дом для игроков со всего мира. У нас понятный NAP6, хорошая координация между альянсами и уважительная атмосфера — чтобы фокус оставался на победах в глобальных событиях.",
       shortApproach:
-        "Готовимся вместе, распределяем роли и стабильно выполняем план по всему государству."
+        "Если тебе нравится порядок без драмы: готовимся вместе, заранее распределяем роли и стабильно выполняем план по всему государству."
     },
 
     nap: {
       kicker: "NAP протокол",
       title: "Честная игра и общий порядок",
       desc:
-        "В государстве действует стабильный NAP на основе сотрудничества и взаимного уважения. Мы не тратим ресурсы на внутренние войны — мы усиливаемся вместе.",
+        "В государстве действует стабильный NAP на основе сотрудничества и взаимного уважения. Никаких внутренних войн и лишних потерь — только рост и сильные выступления на событиях.",
       rulesTitle: "Правила NAP",
       rules: [
         "Запрещены атаки/разведка городов между NAP-альянсами.",
@@ -155,7 +155,7 @@ const COPY = {
       kicker: "Альянсы",
       title: "Альянсы — одна цель.",
       subtitle: "Разные команды, одна цель — порядок, роли и командная работа по всему государству.",
-      placeholder: { title: "Скоро будет", desc: "Здесь будет информация об альянсе." },
+      placeholder: { title: "Скоро добавим детали", desc: "Мы готовим карточку альянса — скоро добавим подробности." },
       one: {
         motto: "Побеждаем вместе.",
         desc: "[ONE] — спокойный и организованный альянс с фокусом на командной игре, росте и чистых победах.",
@@ -169,7 +169,7 @@ const COPY = {
     apply: {
       kicker: "Переезд",
       title: "Готов вступить в команду победителей?",
-      desc: "Нажми ниже — руководство свяжется с тобой и подскажет следующие шаги.",
+      desc: "Нажми кнопку ниже — руководство свяжется с тобой и подскажет следующие шаги.",
       button: "Открыть форму →"
 },
 
@@ -672,10 +672,7 @@ function initDustDeferred(){
 function initActiveNav(){
   const links = [...document.querySelectorAll(".nav__link[href^='#']")];
   if (!links.length) return;
-
-  const sections = links
-    .map(a => document.querySelector(a.getAttribute("href")))
-    .filter(Boolean);
+  const sections = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
 
   const onScroll = () => {
     const y = window.scrollY + 140;
@@ -693,10 +690,10 @@ function init() {
   applyI18n();
   initLangSwitch();
   initStickyHeader();
-  initActiveNav();
   initReveal();
   initParallax();
   initDustDeferred();
+  initActiveNav();
 }
 
 window.addEventListener("DOMContentLoaded", init);
