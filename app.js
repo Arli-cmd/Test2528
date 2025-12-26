@@ -20,6 +20,7 @@ function detectLowPower(){
     const slowNet = /(^2g$|^slow-2g$)/.test(effectiveType);
     const smallScreen = window.matchMedia("(max-width: 768px)").matches;
 
+    // Conservative: phones + low memory/cores or Save-Data -> low power mode
     if (saveData || slowNet) return true;
     if (smallScreen && (mem && mem <= 4)) return true;
     if (smallScreen && (cores && cores <= 4)) return true;
@@ -34,7 +35,9 @@ const LANG_ORDER = ["ENG", "RUS", "KOR", "CHI", "DEU"];
 const COPY = {
   ENG: {
     nav: { about: "State", nap: "NAP", reasons: "Why Us", alliances: "Alliances", apply: "Apply" },
+
     hero: { title: "STATE 2528", subtitle: "Stability & Teamwork" },
+
     about: {
       kicker: "About the State",
       title: "A Stable, United State",
@@ -43,6 +46,7 @@ const COPY = {
       shortApproach:
         "Our approach emphasizes joint preparation, clear roles, and consistent execution across the state.",
     },
+
     nap: {
       kicker: "NAP Protocol",
       title: "Fair Play & Shared Power",
@@ -61,6 +65,7 @@ const COPY = {
       fortsDesc:
         "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives.",
     },
+
     reasons: {
       kicker: "Why Join",
       title: "What We Offer",
@@ -73,6 +78,7 @@ const COPY = {
         { title: "Drama-Free & Mature Community", desc: "Zero tolerance for toxicity, conflicts, or personal attacks. Calm, mature, goal-focused environment." },
       ],
     },
+
     alliances: {
       kicker: "Alliances",
       title: "Alliances, same mission.",
@@ -88,18 +94,24 @@ const COPY = {
         coordsTitle: "Coordinates",
       },
     },
+
     apply: {
       kicker: "Transfer",
       title: "Ready to Join a Team of Winners?",
       desc: "Apply below and our leadership will reach out with next steps.",
       button: "Open Application Form →",
+      secondary: "Contact Leadership →",
+      reco: "Tip: include your FC level, main timezone, and preferred alliance in your application.",
     },
+
     footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Built for strategy, stability, and clean wins." },
   },
 
   RUS: {
     nav: { about: "Государство", nap: "NAP", reasons: "Почему мы", alliances: "Альянсы", apply: "Заявка" },
+
     hero: { title: "STATE 2528", subtitle: "Стабильность и командная игра" },
+
     about: {
       kicker: "О государстве",
       title: "Стабильное, объединённое государство",
@@ -108,6 +120,7 @@ const COPY = {
       shortApproach:
         "Готовимся вместе, распределяем роли и стабильно выполняем план по всему государству.",
     },
+
     nap: {
       kicker: "NAP протокол",
       title: "Честная игра и общий порядок",
@@ -126,6 +139,7 @@ const COPY = {
       fortsDesc:
         "Ротации фортов и укреплений — по вкладу и подготовке к SvS (preparation).",
     },
+
     reasons: {
       kicker: "Почему мы",
       title: "Что у нас есть",
@@ -138,6 +152,7 @@ const COPY = {
         { title: "Без драмы, зрелое комьюнити", desc: "Нулевая терпимость к токсичности и конфликтам. Спокойная среда с фокусом на цели." },
       ],
     },
+
     alliances: {
       kicker: "Альянсы",
       title: "Альянсы — одна цель.",
@@ -152,12 +167,16 @@ const COPY = {
         coordsTitle: "Координаты",
       },
     },
+
     apply: {
       kicker: "Переезд",
       title: "Готов вступить в команду победителей?",
       desc: "Нажми ниже — руководство свяжется с тобой и подскажет следующие шаги.",
       button: "Открыть форму →",
+      secondary: "Связаться с лидерами →",
+      reco: "Совет: укажи FC уровень, таймзону и желаемый альянс — так мы ответим быстрее.",
     },
+
     footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Стратегия, стабильность и чистые победы." },
   },
 
@@ -217,6 +236,8 @@ const COPY = {
       title: "승자 팀에 합류할 준비 되셨나요?",
       desc: "아래 버튼으로 지원서를 열면 운영진이 다음 단계를 안내드립니다.",
       button: "지원서 열기 →",
+      secondary: "운영진 문의 →",
+      reco: "팁: FC 레벨, 주요 타임존, 희망 연맹을 함께 적어 주세요.",
     },
     footer: { line: "STATE 2528 • Golden Empire Protocol", small: "전략, 안정, 그리고 깔끔한 승리를 위해." },
   },
@@ -271,6 +292,8 @@ const COPY = {
       title: "准备加入赢家团队了吗？",
       desc: "点击下方按钮打开申请表，我们会联系你确认后续步骤。",
       button: "打开申请表 →",
+      secondary: "联系管理 →",
+      reco: "提示：建议填写 FC 等级、时区与意向联盟，方便我们更快回复。",
     },
     footer: { line: "STATE 2528 • Golden Empire Protocol", small: "为策略、稳定与胜利而建。" },
   },
@@ -330,6 +353,8 @@ const COPY = {
       title: "Bereit für ein Gewinner-Team?",
       desc: "Klicke unten — die Leitung meldet sich mit den nächsten Schritten.",
       button: "Bewerbungsformular öffnen →",
+      secondary: "Führung kontaktieren →",
+      reco: "Tipp: FC-Level, Zeitzone und Wunsch-Allianz angeben — so antworten wirIт мы быстрее.",
     },
     footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Gebaut für Strategie, Stabilität und saubere Siege." },
   },
@@ -467,6 +492,7 @@ function positionLangMenu(btn, menu) {
   const r = btn.getBoundingClientRect();
   const gap = 10;
 
+  // Align to the right edge of the button
   const left = Math.max(10, Math.min(window.innerWidth - menu.offsetWidth - 10, r.right - menu.offsetWidth));
   const top = Math.min(window.innerHeight - menu.offsetHeight - 10, r.bottom + gap);
 
@@ -501,6 +527,17 @@ function initLangSwitch() {
   injectLangMenuStyles();
   const menu = buildLangMenu();
 
+  // RAF-throttled reposition to prevent scroll jitter
+  let raf = 0;
+  const scheduleReposition = () => {
+    if (!menu.classList.contains("is-open")) return;
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      positionLangMenu(btn, menu);
+    });
+  };
+
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     const isOpen = menu.classList.contains("is-open");
@@ -521,16 +558,8 @@ function initLangSwitch() {
     if (e.key === "Escape") closeLangMenu();
   });
 
-  window.addEventListener("resize", () => {
-    if (menu.classList.contains("is-open")) positionLangMenu(btn, menu);
-  });
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (menu.classList.contains("is-open")) positionLangMenu(btn, menu);
-    },
-    { passive: true }
-  );
+  window.addEventListener("resize", scheduleReposition, { passive: true });
+  window.addEventListener("scroll", scheduleReposition, { passive: true });
 }
 
 /* ---------- Sticky header ---------- */
