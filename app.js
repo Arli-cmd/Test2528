@@ -44,7 +44,7 @@ const COPY = {
       shortIntro:
         "State 2528 is a stable, multinational state with an active NAP6 and strong inter-alliance coordination. We focus on strategy, unity, and respectful play to succeed in all global events.",
       shortApproach:
-        "Our approach emphasizes joint preparation, clear roles, and consistent execution across the state.",
+        "Our approach emphasizes joint preparation, clear roles, and consistent execution across the state."
     },
 
     nap: {
@@ -63,7 +63,7 @@ const COPY = {
       rotationDesc:
         "Sunfire Castle is rotated on a scheduled and transparent basis, ensuring fair access to leadership and long-term state stability.",
       fortsDesc:
-        "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives.",
+        "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives."
     },
 
     reasons: {
@@ -76,7 +76,7 @@ const COPY = {
         { title: "Structured State Management", desc: "Clear rules, aligned decisions, and organized cooperation between alliances across the state." },
         { title: "SvS-Oriented State", desc: "Strong focus on preparation, discipline, and teamwork to achieve consistent SvS results." },
         { title: "Drama-Free & Mature Community", desc: "Zero tolerance for toxicity, conflicts, or personal attacks. Calm, mature, goal-focused environment." },
-      ],
+      ]
     },
 
     alliances: {
@@ -91,20 +91,18 @@ const COPY = {
         scheduleTitle: "Event Schedule (UTC)",
         reqTitle: "We Are Looking For",
         req: ["Furnace Level: FC4+", "Daily active in alliance & state events", "Positive and respectful attitude"],
-        coordsTitle: "Coordinates",
-      },
+        coordsTitle: "Coordinates"
+      }
     },
 
     apply: {
       kicker: "Transfer",
       title: "Ready to Join a Team of Winners?",
       desc: "Apply below and our leadership will reach out with next steps.",
-      button: "Open Application Form →",
-      secondary: "Contact Leadership →",
-      reco: "Tip: include your FC level, main timezone, and preferred alliance in your application.",
-    },
+      button: "Open Application Form →"
+},
 
-    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Built for strategy, stability, and clean wins." },
+    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Built for strategy, stability, and clean wins." }
   },
 
   RUS: {
@@ -118,7 +116,7 @@ const COPY = {
       shortIntro:
         "State 2528 — стабильное многонациональное государство с активным NAP6 и сильной координацией между альянсами. Ставим на стратегию, единство и уважительное общение.",
       shortApproach:
-        "Готовимся вместе, распределяем роли и стабильно выполняем план по всему государству.",
+        "Готовимся вместе, распределяем роли и стабильно выполняем план по всему государству."
     },
 
     nap: {
@@ -137,7 +135,7 @@ const COPY = {
       rotationDesc:
         "Sunfire Castle ротируется по расписанию и прозрачно, чтобы обеспечить справедливый доступ к лидерству и долгосрочную стабильность.",
       fortsDesc:
-        "Ротации фортов и укреплений — по вкладу и подготовке к SvS (preparation).",
+        "Ротации фортов и укреплений — по вкладу и подготовке к SvS (preparation)."
     },
 
     reasons: {
@@ -150,7 +148,7 @@ const COPY = {
         { title: "Структурное управление", desc: "Чёткие правила, согласованные решения и организованная совместная работа по всему государству." },
         { title: "Фокус на SvS", desc: "Подготовка, дисциплина и командная игра для стабильных результатов в SvS." },
         { title: "Без драмы, зрелое комьюнити", desc: "Нулевая терпимость к токсичности и конфликтам. Спокойная среда с фокусом на цели." },
-      ],
+      ]
     },
 
     alliances: {
@@ -164,20 +162,18 @@ const COPY = {
         scheduleTitle: "Расписание событий (UTC)",
         reqTitle: "Мы ищем",
         req: ["Уровень печи: FC4+", "Ежедневная активность в альянсе и событиях", "Позитивный и уважительный настрой"],
-        coordsTitle: "Координаты",
-      },
+        coordsTitle: "Координаты"
+      }
     },
 
     apply: {
       kicker: "Переезд",
       title: "Готов вступить в команду победителей?",
       desc: "Нажми ниже — руководство свяжется с тобой и подскажет следующие шаги.",
-      button: "Открыть форму →",
-      secondary: "Связаться с лидерами →",
-      reco: "Совет: укажи FC уровень, таймзону и желаемый альянс — так мы ответим быстрее.",
-    },
+      button: "Открыть форму →"
+},
 
-    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Стратегия, стабильность и чистые победы." },
+    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Стратегия, стабильность и чистые победы." }
   },
 
   KOR: {
@@ -187,7 +183,7 @@ const COPY = {
       kicker: "국가 소개",
       title: "안정적이고 단합된 국가",
       shortIntro: "State 2528은 안정적인 다국적 국가이며 활성화된 NAP6와 강력한 연맹 간 협업 체계를 갖추고 있습니다.",
-      shortApproach: "함께 준비하고 역할을 명확히 하며 일관된 실행으로 결과를 만들어냅니다.",
+      shortApproach: "함께 준비하고 역할을 명확히 하며 일관된 실행으로 결과를 만들어냅니다."
     },
     nap: {
       kicker: "NAP 규약",
@@ -203,7 +199,7 @@ const COPY = {
       ],
       rotationTitle: "성 · 요새 로테이션",
       rotationDesc: "Sunfire Castle은 정해진 일정에 따라 공정하게 로테이션되며 장기적인 안정과 균형을 보장합니다.",
-      fortsDesc: "요새 및 거점은 SvS 준비 단계 기여도를 기준으로 공정하게 분배됩니다.",
+      fortsDesc: "요새 및 거점은 SvS 준비 단계 기여도를 기준으로 공정하게 분배됩니다."
     },
     reasons: {
       kicker: "장점",
@@ -215,7 +211,7 @@ const COPY = {
         { title: "체계적인 국가 운영", desc: "명확한 규칙과 일관된 결정, 연맹 간 조직적 협업." },
         { title: "SvS 중심 국가", desc: "준비·규율·팀워크로 꾸준한 SvS 성과." },
         { title: "드라마 없는 성숙한 커뮤니티", desc: "독성/분쟁 무관용. 차분하고 목표 지향적인 환경." },
-      ],
+      ]
     },
     alliances: {
       kicker: "연맹",
@@ -228,18 +224,16 @@ const COPY = {
         scheduleTitle: "이벤트 일정 (UTC)",
         reqTitle: "모집 기준",
         req: ["난로 레벨: FC4+", "연맹/국가 이벤트 일일 참여", "긍정적이고 존중하는 태도"],
-        coordsTitle: "좌표",
-      },
+        coordsTitle: "좌표"
+      }
     },
     apply: {
       kicker: "이동",
       title: "승자 팀에 합류할 준비 되셨나요?",
       desc: "아래 버튼으로 지원서를 열면 운영진이 다음 단계를 안내드립니다.",
-      button: "지원서 열기 →",
-      secondary: "운영진 문의 →",
-      reco: "팁: FC 레벨, 주요 타임존, 희망 연맹을 함께 적어 주세요.",
-    },
-    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "전략, 안정, 그리고 깔끔한 승리를 위해." },
+      button: "지원서 열기 →"
+},
+    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "전략, 안정, 그리고 깔끔한 승리를 위해." }
   },
 
   CHI: {
@@ -249,7 +243,7 @@ const COPY = {
       kicker: "关于国家",
       title: "稳定、团结的国家",
       shortIntro: "State 2528 是一个稳定的多国玩家国家，拥有活跃的 NAP6 与强大的联盟协作。",
-      shortApproach: "共同备战、明确分工、持续执行，整个国家一起拿结果。",
+      shortApproach: "共同备战、明确分工、持续执行，整个国家一起拿结果。"
     },
     nap: {
       kicker: "NAP 规则",
@@ -259,7 +253,7 @@ const COPY = {
       rules: ["NAP 联盟之间禁止攻城/侦察。", "城堡与要塞轮换公开透明、按计划执行。", "纠纷由管理层处理，禁止公开争吵。", "对毒性/破坏/骚扰零容忍。"],
       rotationTitle: "城堡与要塞轮换",
       rotationDesc: "Sunfire Castle 按计划透明轮换，保证公平与长期稳定。",
-      fortsDesc: "要塞/据点按贡献与SvS备战需求公平分配。",
+      fortsDesc: "要塞/据点按贡献与SvS备战需求公平分配。"
     },
     reasons: {
       kicker: "为什么加入",
@@ -271,7 +265,7 @@ const COPY = {
         { title: "结构化管理", desc: "规则清晰、决策一致、联盟协作有组织。" },
         { title: "SvS 导向", desc: "重视备战、纪律与团队配合，稳定出成绩。" },
         { title: "成熟无内斗", desc: "对毒性与冲突零容忍，氛围冷静目标明确。" },
-      ],
+      ]
     },
     alliances: {
       kicker: "联盟",
@@ -284,18 +278,16 @@ const COPY = {
         scheduleTitle: "活动时间 (UTC)",
         reqTitle: "招募要求",
         req: ["熔炉等级：FC4+", "每日活跃参与联盟/国家活动", "积极且尊重他人"],
-        coordsTitle: "坐标",
-      },
+        coordsTitle: "坐标"
+      }
     },
     apply: {
       kicker: "转服",
       title: "准备加入赢家团队了吗？",
       desc: "点击下方按钮打开申请表，我们会联系你确认后续步骤。",
-      button: "打开申请表 →",
-      secondary: "联系管理 →",
-      reco: "提示：建议填写 FC 等级、时区与意向联盟，方便我们更快回复。",
-    },
-    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "为策略、稳定与胜利而建。" },
+      button: "打开申请表 →"
+},
+    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "为策略、稳定与胜利而建。" }
   },
 
   DEU: {
@@ -305,7 +297,7 @@ const COPY = {
       kicker: "Über den Staat",
       title: "Ein stabiler, vereinter Staat",
       shortIntro: "State 2528 ist ein stabiler, multinationaler Staat mit aktivem NAP6 und starker Allianz-Koordination.",
-      shortApproach: "Gemeinsam vorbereiten, klare Rollen, konsequente Umsetzung im ganzen Staat.",
+      shortApproach: "Gemeinsam vorbereiten, klare Rollen, konsequente Umsetzung im ganzen Staat."
     },
     nap: {
       kicker: "NAP Protokoll",
@@ -320,7 +312,7 @@ const COPY = {
       ],
       rotationTitle: "Burg- & Fort-Rotationen",
       rotationDesc: "Sunfire Castle rotiert nach Plan und transparent — für fairen Zugang und langfristige Stabilität.",
-      fortsDesc: "Forts und Strongholds werden fair und beitragsbasiert verteilt (SvS-Preparation).",
+      fortsDesc: "Forts und Strongholds werden fair und beitragsbasiert verteilt (SvS-Preparation)."
     },
     reasons: {
       kicker: "Warum beitreten",
@@ -332,7 +324,7 @@ const COPY = {
         { title: "Strukturiertes Management", desc: "Klare Regeln, abgestimmte Entscheidungen und organisierte Zusammenarbeit." },
         { title: "SvS-orientiert", desc: "Fokus auf Vorbereitung, Disziplin und Teamwork für konstante Ergebnisse." },
         { title: "Reife, drama-freie Community", desc: "Null Toleranz für Toxizität oder persönliche Angriffe." },
-      ],
+      ]
     },
     alliances: {
       kicker: "Allianzen",
@@ -345,25 +337,23 @@ const COPY = {
         scheduleTitle: "Event-Zeiten (UTC)",
         reqTitle: "Wir suchen",
         req: ["Ofen-Level: FC4+", "Täglich aktiv in Allianz- & State-Events", "Positive & respektvolle Einstellung"],
-        coordsTitle: "Koordinaten",
-      },
+        coordsTitle: "Koordinaten"
+      }
     },
     apply: {
       kicker: "Transfer",
       title: "Bereit für ein Gewinner-Team?",
       desc: "Klicke unten — die Leitung meldet sich mit den nächsten Schritten.",
-      button: "Bewerbungsformular öffnen →",
-      secondary: "Führung kontaktieren →",
-      reco: "Tipp: FC-Level, Zeitzone und Wunsch-Allianz angeben — so antworten wirIт мы быстрее.",
-    },
-    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Gebaut für Strategie, Stabilität und saubere Siege." },
-  },
+      button: "Bewerbungsformular öffnen →"
+},
+    footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Gebaut für Strategie, Stabilität und saubere Siege." }
+  }
 };
 
 const state = {
   lang: safeLang(localStorage.getItem("lang") || "ENG"),
   reduceMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  lowPower: detectLowPower(),
+  lowPower: detectLowPower()
 };
 
 // Let CSS disable heavy effects on weaker devices
@@ -600,7 +590,7 @@ function initParallax() {
 
   const layers = [...document.querySelectorAll("[data-parallax]")].map((el) => ({
     el,
-    rate: Number(el.getAttribute("data-parallax")) || 0,
+    rate: Number(el.getAttribute("data-parallax")) || 0
   }));
   if (!layers.length) return;
 
