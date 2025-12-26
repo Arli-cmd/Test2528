@@ -127,32 +127,36 @@
           <h2 class="section__title" data-i18n="reasons.title">What We Offer</h2>
         </div>
 
-        <div class="cards cards--3">
-          <article class="card offerIcon offerIcon--1">
+        <div class="cards cards--3"><article class="card offerCard offerCard--globe">
+            <div class="offerIcon offerIcon--globe" aria-hidden="true"></div>
             <div class="card__h" data-i18n="reasons.items.0.title"></div>
             <p class="text" data-i18n="reasons.items.0.desc"></p>
           </article>
-          <article class="card offerIcon offerIcon--2">
+          <article class="card offerCard offerCard--crown">
+            <div class="offerIcon offerIcon--crown" aria-hidden="true"></div>
             <div class="card__h" data-i18n="reasons.items.1.title"></div>
             <p class="text" data-i18n="reasons.items.1.desc"></p>
           </article>
-          <article class="card offerIcon offerIcon--3">
+          <article class="card offerCard offerCard--discord">
+            <div class="offerIcon offerIcon--discord" aria-hidden="true"></div>
             <div class="card__h" data-i18n="reasons.items.2.title"></div>
             <p class="text" data-i18n="reasons.items.2.desc"></p>
           </article>
-          <article class="card offerIcon offerIcon--4">
+          <article class="card offerCard offerCard--shield">
+            <div class="offerIcon offerIcon--shield" aria-hidden="true"></div>
             <div class="card__h" data-i18n="reasons.items.3.title"></div>
             <p class="text" data-i18n="reasons.items.3.desc"></p>
           </article>
-          <article class="card offerIcon offerIcon--5">
+          <article class="card offerCard offerCard--trophy">
+            <div class="offerIcon offerIcon--trophy" aria-hidden="true"></div>
             <div class="card__h" data-i18n="reasons.items.4.title"></div>
             <p class="text" data-i18n="reasons.items.4.desc"></p>
           </article>
-          <article class="card offerIcon offerIcon--6">
+          <article class="card offerCard offerCard--handshake">
+            <div class="offerIcon offerIcon--handshake" aria-hidden="true"></div>
             <div class="card__h" data-i18n="reasons.items.5.title"></div>
             <p class="text" data-i18n="reasons.items.5.desc"></p>
-          </article>
-        </div>
+          </article></div>
       </div>
       <div class="divider divider--wide"></div>
     </section>
@@ -167,16 +171,39 @@
         </div>
 
         <div class="cards cards--2">
-          <!-- KOR placeholder -->
-          <article class="card card--placeholder">
-            <div class="card__eyebrow">KOR</div>
+          <article class="card allianceCard">
+            <div class="allianceCode">[KOR]</div>
             <div class="card__h" data-i18n="alliances.placeholder.title"></div>
             <p class="text" data-i18n="alliances.placeholder.desc"></p>
+
+            <div class="miniGrid">
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
+                <ul class="miniList miniList--placeholder">
+                  <li><span>Bear Hunt</span><span>—</span></li>
+                  <li><span>Foundry</span><span>—</span></li>
+                  <li><span>Canyon</span><span>—</span></li>
+                  <li><span>Crazy Joe</span><span>—</span></li>
+                  <li><span>Mercenaries</span><span>—</span></li>
+                </ul>
+              </div>
+
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.reqTitle"></div>
+                <ul class="reqList reqList--placeholder">
+                  <li>—</li>
+                  <li>—</li>
+                  <li>—</li>
+                </ul>
+
+                <div class="miniTitle mt smallTitle" data-i18n="alliances.one.coordsTitle"></div>
+                <div class="coord coord--small">X:&nbsp;—&nbsp;&nbsp;Y:&nbsp;—</div>
+              </div>
+            </div>
           </article>
 
-          <!-- ONE card -->
-          <article class="card">
-            <div class="allianceName glow">[ONE]</div>
+          <article class="card allianceCard allianceCard--featured">
+            <div class="allianceCode allianceCode--featured">[ONE]</div>
             <div class="card__h" data-i18n="alliances.one.motto"></div>
             <p class="text" data-i18n="alliances.one.desc"></p>
 
@@ -184,11 +211,11 @@
               <div class="miniBox">
                 <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
                 <ul class="miniList">
-                  <li><span>Bear Hunt</span><span class="nums">02:00 • 13:00 • 18:30</span></li>
-                  <li><span>Foundry</span><span class="nums">14:00 • 19:00</span></li>
-                  <li><span>Canyon</span><span class="nums">14:00 • 19:00</span></li>
-                  <li><span>Crazy Joe</span><span class="nums">15:00</span></li>
-                  <li><span>Mercenaries</span><span class="nums">15:00</span></li>
+                  <li><span>Bear Hunt</span><span>02:00 • 13:00 • 18:30</span></li>
+                  <li><span>Foundry</span><span>14:00 • 19:00</span></li>
+                  <li><span>Canyon</span><span>14:00 • 19:00</span></li>
+                  <li><span>Crazy Joe</span><span>15:00</span></li>
+                  <li><span>Mercenaries</span><span>15:00</span></li>
                 </ul>
               </div>
 
@@ -206,20 +233,67 @@
             </div>
           </article>
 
-          <!-- AFK placeholder -->
-          <article class="card card--placeholder">
-            <div class="card__eyebrow">AFK</div>
+          <article class="card allianceCard">
+            <div class="allianceCode">[AFK]</div>
             <div class="card__h" data-i18n="alliances.placeholder.title"></div>
             <p class="text" data-i18n="alliances.placeholder.desc"></p>
+
+            <div class="miniGrid">
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
+                <ul class="miniList miniList--placeholder">
+                  <li><span>Bear Hunt</span><span>—</span></li>
+                  <li><span>Foundry</span><span>—</span></li>
+                  <li><span>Canyon</span><span>—</span></li>
+                  <li><span>Crazy Joe</span><span>—</span></li>
+                  <li><span>Mercenaries</span><span>—</span></li>
+                </ul>
+              </div>
+
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.reqTitle"></div>
+                <ul class="reqList reqList--placeholder">
+                  <li>—</li>
+                  <li>—</li>
+                  <li>—</li>
+                </ul>
+
+                <div class="miniTitle mt smallTitle" data-i18n="alliances.one.coordsTitle"></div>
+                <div class="coord coord--small">X:&nbsp;—&nbsp;&nbsp;Y:&nbsp;—</div>
+              </div>
+            </div>
           </article>
 
-          <!-- GOD placeholder -->
-          <article class="card card--placeholder">
-            <div class="card__eyebrow">GOD</div>
+          <article class="card allianceCard">
+            <div class="allianceCode">[GOD]</div>
             <div class="card__h" data-i18n="alliances.placeholder.title"></div>
             <p class="text" data-i18n="alliances.placeholder.desc"></p>
-          </article>
-        </div>
+
+            <div class="miniGrid">
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
+                <ul class="miniList miniList--placeholder">
+                  <li><span>Bear Hunt</span><span>—</span></li>
+                  <li><span>Foundry</span><span>—</span></li>
+                  <li><span>Canyon</span><span>—</span></li>
+                  <li><span>Crazy Joe</span><span>—</span></li>
+                  <li><span>Mercenaries</span><span>—</span></li>
+                </ul>
+              </div>
+
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.reqTitle"></div>
+                <ul class="reqList reqList--placeholder">
+                  <li>—</li>
+                  <li>—</li>
+                  <li>—</li>
+                </ul>
+
+                <div class="miniTitle mt smallTitle" data-i18n="alliances.one.coordsTitle"></div>
+                <div class="coord coord--small">X:&nbsp;—&nbsp;&nbsp;Y:&nbsp;—</div>
+              </div>
+            </div>
+          </article></div>
       </div>
       <div class="divider divider--wide"></div>
     </section>
