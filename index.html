@@ -1,11 +1,14 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>STATE 2528 — Golden Empire</title>
+  <title>STATE 2528</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,6 +16,7 @@
 </head>
 
 <body>
+  <!-- Background -->
   <div class="bg" aria-hidden="true">
     <div class="bg__base"></div>
     <div class="bg__layer bg__layer--slow" data-parallax="0.03"></div>
@@ -23,77 +27,314 @@
     <div class="bg__vignette"></div>
   </div>
 
+  <!-- Topbar -->
   <header class="topbar" id="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="#top">
-        <div class="brand__badge"><span class="brand__crown">♛</span></div>
+      <a class="brand" href="#top" aria-label="State 2528">
+        <div class="brand__badge">
+          <span class="brand__crown">♛</span>
+        </div>
         <div>
-          <div class="brand__num">2528</div>
+          <div class="brand__num" style="letter-spacing:.22em">2528</div>
           <div class="brand__sub">GOLDEN EMPIRE</div>
         </div>
       </a>
-      <nav class="nav">
-        <a class="nav__link" href="#about">State</a>
-        <a class="nav__link" href="#nap">NAP</a>
-        <a class="nav__link" href="#reasons">Advantages</a>
-        <a class="nav__link" href="#alliances">Alliances</a>
-        <a class="nav__link" href="#apply">Transfer</a>
+
+      <nav class="nav nav--desktop" aria-label="Primary">
+        <a class="nav__link" href="#about" data-i18n="nav.about">State</a>
+        <a class="nav__link" href="#nap" data-i18n="nav.nap">NAP</a>
+        <a class="nav__link" href="#reasons" data-i18n="nav.reasons">Why Us</a>
+        <a class="nav__link" href="#alliances" data-i18n="nav.alliances">Alliances</a>
+        <a class="nav__link" href="#apply" data-i18n="nav.apply">Apply</a>
       </nav>
-      <button class="btn btn--ghost" id="langBtn">🌐 <span id="langLabel">ENG</span></button>
+
+      <div class="topbar__actions">
+        <button class="btn btn--ghost" id="langBtn" type="button" aria-haspopup="menu" aria-expanded="false">
+          <span aria-hidden="true">🌐</span>
+          <span id="langLabel">ENG</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="top">
+    <!-- HERO -->
     <section class="hero" id="about">
-      <div class="hero__fx"></div>
+      <div class="hero__fx" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <div>
+        <div class="hero__left">
+
           <div class="hero__banner reveal">
-            <div class="kicker">IMPERIAL STATE PROTOCOL</div>
-            <h1 class="hero__title shimmer">STATE 2528</h1>
-            <p class="hero__slogan">Order Inside. Power Outside.</p>
+            <div class="kicker" data-i18n="hero.subtitle">Stability & Teamwork</div>
+            <h1 class="hero__title" data-i18n="hero.title">STATE 2528</h1>
           </div>
 
           <article class="hero__aboutCard reveal">
-            <div class="kicker">STATE DOSSIER</div>
-            <h2 class="hero__aboutTitle">A Stable, United Golden Empire</h2>
-            <p class="text">
-              State 2528 is a structured, multinational state built on coordination,
-              respect, and strategic dominance in global events.
-            </p>
-            <div class="statusRow">
-              <span>STATUS: ACTIVE</span>
-              <span>NAP: STABLE</span>
-              <span>COORDINATION: HIGH</span>
-            </div>
+            <div class="kicker" data-i18n="about.kicker">About the State</div>
+            <h2 class="hero__aboutTitle" data-i18n="about.title">A Stable, United State</h2>
+            <p class="text" data-i18n="about.shortIntro"></p>
+            <p class="text" data-i18n="about.shortApproach"></p>
           </article>
+
         </div>
 
-        <div class="hero__sig">
+        <!-- Decorative right signature -->
+        <div class="hero__sig" aria-hidden="true">
           <div class="sig__ring"></div>
           <div class="sig__crest">♛</div>
           <div class="sig__num">2528</div>
           <div class="sig__sub">GOLDEN EMPIRE</div>
         </div>
       </div>
+      <div class="divider divider--wide"></div>
     </section>
 
+    <!-- NAP -->
+    <section class="section" id="nap">
+      <div class="container">
+        <div class="section__head">
+          <div class="kicker" data-i18n="nap.kicker">NAP Protocol</div>
+          <h2 class="section__title" data-i18n="nap.title">Fair Play & Shared Power</h2>
+          <p class="section__sub" data-i18n="nap.desc"></p>
+        </div>
+
+        <div class="grid grid--nap">
+          <article class="card">
+            <div class="card__h" data-i18n="nap.rulesTitle">NAP Rules</div>
+            <ul class="list">
+              <li><span class="check">✓</span><span data-i18n="nap.rules.0"></span></li>
+              <li><span class="check">✓</span><span data-i18n="nap.rules.1"></span></li>
+              <li><span class="check">✓</span><span data-i18n="nap.rules.2"></span></li>
+              <li><span class="check">✓</span><span data-i18n="nap.rules.3"></span></li>
+            </ul>
+
+            <div class="miniTitle mt" data-i18n="nap.napAlliancesTitle">NAP Alliances</div>
+            <div class="chips chips--nap" aria-label="NAP alliances">
+              <span class="chip">KOR</span>
+              <span class="chip">ONE</span>
+              <span class="chip">AFK</span>
+              <span class="chip">GOD</span>
+              <span class="chip">GPR</span>
+              <span class="chip">PPP</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__h" data-i18n="nap.rotationTitle">Castle & Fort Rotations</div>
+            <p class="text" data-i18n="nap.rotationDesc"></p>
+            <p class="text" data-i18n="nap.fortsDesc"></p>
+          </article>
+        </div>
+      </div>
+      <div class="divider divider--wide"></div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section" id="reasons">
+      <div class="container">
+        <div class="section__head">
+          <div class="kicker" data-i18n="reasons.kicker">Why Join</div>
+          <h2 class="section__title" data-i18n="reasons.title">What We Offer</h2>
+        </div>
+
+        <div class="cards cards--3"><article class="card offerCard offerCard--globe">
+            <div class="offerIcon offerIcon--globe" aria-hidden="true"></div>
+            <div class="card__h" data-i18n="reasons.items.0.title"></div>
+            <p class="text" data-i18n="reasons.items.0.desc"></p>
+          </article>
+          <article class="card offerCard offerCard--crown">
+            <div class="offerIcon offerIcon--crown" aria-hidden="true"></div>
+            <div class="card__h" data-i18n="reasons.items.1.title"></div>
+            <p class="text" data-i18n="reasons.items.1.desc"></p>
+          </article>
+          <article class="card offerCard offerCard--discord">
+            <div class="offerIcon offerIcon--discord" aria-hidden="true"></div>
+            <div class="card__h" data-i18n="reasons.items.2.title"></div>
+            <p class="text" data-i18n="reasons.items.2.desc"></p>
+          </article>
+          <article class="card offerCard offerCard--shield">
+            <div class="offerIcon offerIcon--shield" aria-hidden="true"></div>
+            <div class="card__h" data-i18n="reasons.items.3.title"></div>
+            <p class="text" data-i18n="reasons.items.3.desc"></p>
+          </article>
+          <article class="card offerCard offerCard--trophy">
+            <div class="offerIcon offerIcon--trophy" aria-hidden="true"></div>
+            <div class="card__h" data-i18n="reasons.items.4.title"></div>
+            <p class="text" data-i18n="reasons.items.4.desc"></p>
+          </article>
+          <article class="card offerCard offerCard--handshake">
+            <div class="offerIcon offerIcon--handshake" aria-hidden="true"></div>
+            <div class="card__h" data-i18n="reasons.items.5.title"></div>
+            <p class="text" data-i18n="reasons.items.5.desc"></p>
+          </article></div>
+      </div>
+      <div class="divider divider--wide"></div>
+    </section>
+
+    <!-- ALLIANCES -->
+    <section class="section" id="alliances">
+      <div class="container">
+        <div class="section__head">
+          <div class="kicker" data-i18n="alliances.kicker">Alliances</div>
+          <h2 class="section__title" data-i18n="alliances.title">Organized Teams. Clear Identity.</h2>
+          <p class="section__sub" data-i18n="alliances.subtitle"></p>
+        </div>
+
+        <div class="cards cards--2">
+          <article class="card allianceCard">
+            <div class="allianceCode">[KOR]</div>
+            <div class="card__h" data-i18n="alliances.placeholder.title"></div>
+            <p class="text" data-i18n="alliances.placeholder.desc"></p>
+
+            <div class="miniGrid">
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
+                <ul class="miniList miniList--placeholder">
+                  <li><span data-i18n="events.bearHunt">Bear Hunt</span><span>—</span></li>
+                  <li><span data-i18n="events.foundry">Foundry</span><span>—</span></li>
+                  <li><span data-i18n="events.canyon">Canyon</span><span>—</span></li>
+                  <li><span data-i18n="events.crazyJoe">Crazy Joe</span><span>—</span></li>
+                  <li><span data-i18n="events.mercenaries">Mercenaries</span><span>—</span></li>
+                </ul>
+              </div>
+
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.reqTitle"></div>
+                <ul class="reqList reqList--placeholder">
+                  <li>—</li>
+                  <li>—</li>
+                  <li>—</li>
+                </ul>
+
+                <div class="miniTitle mt smallTitle" data-i18n="alliances.one.coordsTitle"></div>
+                <div class="coord coord--small">X:&nbsp;—&nbsp;&nbsp;Y:&nbsp;—</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card allianceCard allianceCard--featured">
+            <div class="allianceCode allianceCode--featured">[ONE]</div>
+            <div class="card__h" data-i18n="alliances.one.motto"></div>
+            <p class="text" data-i18n="alliances.one.desc"></p>
+
+            <div class="miniGrid">
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
+                <ul class="miniList">
+                  <li><span data-i18n="events.bearHunt">Bear Hunt</span><span>02:00 • 13:00 • 18:30</span></li>
+                  <li><span data-i18n="events.foundry">Foundry</span><span>14:00 • 19:00</span></li>
+                  <li><span data-i18n="events.canyon">Canyon</span><span>14:00 • 19:00</span></li>
+                  <li><span data-i18n="events.crazyJoe">Crazy Joe</span><span>15:00</span></li>
+                  <li><span data-i18n="events.mercenaries">Mercenaries</span><span>15:00</span></li>
+                </ul>
+              </div>
+
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.reqTitle"></div>
+                <ul class="reqList">
+                  <li data-i18n="alliances.one.req.0"></li>
+                  <li data-i18n="alliances.one.req.1"></li>
+                  <li data-i18n="alliances.one.req.2"></li>
+                </ul>
+
+                <div class="miniTitle mt smallTitle" data-i18n="alliances.one.coordsTitle"></div>
+                <div class="coord coord--small">X:589&nbsp;&nbsp;Y:461</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card allianceCard">
+            <div class="allianceCode">[AFK]</div>
+            <div class="card__h" data-i18n="alliances.placeholder.title"></div>
+            <p class="text" data-i18n="alliances.placeholder.desc"></p>
+
+            <div class="miniGrid">
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
+                <ul class="miniList miniList--placeholder">
+                  <li><span data-i18n="events.bearHunt">Bear Hunt</span><span>—</span></li>
+                  <li><span data-i18n="events.foundry">Foundry</span><span>—</span></li>
+                  <li><span data-i18n="events.canyon">Canyon</span><span>—</span></li>
+                  <li><span data-i18n="events.crazyJoe">Crazy Joe</span><span>—</span></li>
+                  <li><span data-i18n="events.mercenaries">Mercenaries</span><span>—</span></li>
+                </ul>
+              </div>
+
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.reqTitle"></div>
+                <ul class="reqList reqList--placeholder">
+                  <li>—</li>
+                  <li>—</li>
+                  <li>—</li>
+                </ul>
+
+                <div class="miniTitle mt smallTitle" data-i18n="alliances.one.coordsTitle"></div>
+                <div class="coord coord--small">X:&nbsp;—&nbsp;&nbsp;Y:&nbsp;—</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card allianceCard">
+            <div class="allianceCode">[GOD]</div>
+            <div class="card__h" data-i18n="alliances.placeholder.title"></div>
+            <p class="text" data-i18n="alliances.placeholder.desc"></p>
+
+            <div class="miniGrid">
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.scheduleTitle"></div>
+                <ul class="miniList miniList--placeholder">
+                  <li><span data-i18n="events.bearHunt">Bear Hunt</span><span>—</span></li>
+                  <li><span data-i18n="events.foundry">Foundry</span><span>—</span></li>
+                  <li><span data-i18n="events.canyon">Canyon</span><span>—</span></li>
+                  <li><span data-i18n="events.crazyJoe">Crazy Joe</span><span>—</span></li>
+                  <li><span data-i18n="events.mercenaries">Mercenaries</span><span>—</span></li>
+                </ul>
+              </div>
+
+              <div class="miniBox">
+                <div class="miniTitle" data-i18n="alliances.one.reqTitle"></div>
+                <ul class="reqList reqList--placeholder">
+                  <li>—</li>
+                  <li>—</li>
+                  <li>—</li>
+                </ul>
+
+                <div class="miniTitle mt smallTitle" data-i18n="alliances.one.coordsTitle"></div>
+                <div class="coord coord--small">X:&nbsp;—&nbsp;&nbsp;Y:&nbsp;—</div>
+              </div>
+            </div>
+          </article></div>
+      </div>
+      <div class="divider divider--wide"></div>
+    </section>
+
+    <!-- APPLY -->
     <section class="section" id="apply">
       <div class="container">
         <div class="section__head">
-          <div class="kicker">FINAL DECISION</div>
-          <h2 class="section__title">This Is Not a Random Transfer</h2>
-          <p class="section__sub">
-            Joining State 2528 is a strategic move. Only disciplined and mature players thrive here.
-          </p>
+          <div class="kicker" data-i18n="apply.kicker">Transfer</div>
+          <h2 class="section__title" data-i18n="apply.title">Ready to Join a Team of Winners?</h2>
+          <p class="section__sub" data-i18n="apply.desc"></p>
         </div>
-        <a class="btn btn--primary btn--cta" href="#">
-          Request Transfer Review
-        </a>
+
+        <article class="card applyCard" style="max-width:720px">
+          <div class="ctaRow">
+            <a class="btn btn--primary btn--cta" href="https://www.Form.com" target="_blank" rel="noopener noreferrer" data-i18n="apply.button">
+              Open Application Form →
+            </a>
+</div>
+</article>
       </div>
     </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__brand" data-i18n="footer.line">STATE 2528 • Golden Empire Protocol</div>
+        <div class="tiny muted" data-i18n="footer.small">Built for strategy, stability, and clean wins.</div>
+      </div>
+    </footer>
   </main>
 
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
