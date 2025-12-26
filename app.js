@@ -36,7 +36,7 @@ const COPY = {
   ENG: {
     nav: { about: "State", nap: "NAP", reasons: "Why Us", alliances: "Alliances", apply: "Apply" },
 
-    hero: { title: "STATE 2528", subtitle: "Stability & Teamwork" },
+    hero: { title: "STATE 2528", subtitle: "Stability & Teamwork", slogan: "Order inside. Power outside." },
 
     events: {
       bearHunt: "Bear Hunt",
@@ -48,6 +48,7 @@ const COPY = {
 
 
     about: {
+      status: { active: "STATUS: ACTIVE", nap: "NAP: STABLE", coord: "COORDINATION: HIGH" },
       kicker: "About the State",
       title: "A Stable, United State",
       shortIntro:
@@ -90,6 +91,7 @@ const COPY = {
     },
 
     alliances: {
+      meta: { role: "Division", focus: "SvS & Events", status: "Active" },
       kicker: "Alliances",
       title: "Alliances. One state. One standard.",
       subtitle: "Different groups, same goal — organized, coordinated, and moving as one.",
@@ -106,6 +108,7 @@ const COPY = {
     },
 
     apply: {
+      note: "This is not a random transfer — it’s a strategic move.",
       kicker: "Transfer",
       title: "Ready to Join a Team of Winners?",
       desc: "Tap the button below — our leadership will reach out with the next steps.",
@@ -118,7 +121,7 @@ const COPY = {
   RUS: {
     nav: { about: "Государство", nap: "NAP", reasons: "Почему мы", alliances: "Альянсы", apply: "Заявка" },
 
-    hero: { title: "STATE 2528", subtitle: "Стабильность и командная игра" },
+    hero: { title: "STATE 2528", subtitle: "Стабильность и командная игра", slogan: "Порядок внутри. Сила снаружи." },
 
     events: {
       bearHunt: "Bear Hunt",
@@ -130,6 +133,7 @@ const COPY = {
 
 
     about: {
+      status: { active: "СТАТУС: АКТИВЕН", nap: "NAP: СТАБИЛЕН", coord: "КООРДИНАЦИЯ: ВЫСОКАЯ" },
       kicker: "О государстве",
       title: "Стабильно, дружно и без лишней суеты",
       shortIntro:
@@ -172,6 +176,7 @@ const COPY = {
     },
 
     alliances: {
+      meta: { role: "Дивизион", focus: "SvS и события", status: "Активен" },
       kicker: "Альянсы",
       title: "Альянсы — одна цель.",
       subtitle: "Разные команды, одна цель — порядок, роли и командная работа по всему государству.",
@@ -187,6 +192,7 @@ const COPY = {
     },
 
     apply: {
+      note: "Это не случайный переезд — это стратегический шаг.",
       kicker: "Переезд",
       title: "Готов вступить в команду победителей?",
       desc: "Нажми кнопку ниже — руководство свяжется с тобой и подскажет следующие шаги.",
@@ -198,7 +204,7 @@ const COPY = {
 
   KOR: {
     nav: { about: "국가", nap: "NAP", reasons: "장점", alliances: "연맹", apply: "지원" },
-    hero: { title: "STATE 2528", subtitle: "안정과 팀워크" },
+    hero: { title: "STATE 2528", subtitle: "안정과 팀워크", slogan: "내부는 질서. 외부는 힘." },
 
     events: {
       bearHunt: "베어 헌트",
@@ -209,6 +215,7 @@ const COPY = {
     },
 
     about: {
+      status: { active: "상태: 활성", nap: "NAP: 안정", coord: "협력: 높음" },
       kicker: "국가 소개",
       title: "안정적이고 단합된 국가",
       shortIntro: "State 2528은 안정적인 다국적 국가이며 활성화된 NAP6와 강력한 연맹 간 협업 체계를 갖추고 있습니다.",
@@ -244,6 +251,7 @@ const COPY = {
       ]
     },
     alliances: {
+      meta: { role: "디비전", focus: "SvS & 이벤트", status: "활성" },
       kicker: "연맹",
       title: "연맹은 달라도 목표는 하나.",
       subtitle: "역할과 기준을 공유하고 국가 전체가 함께 움직입니다.",
@@ -258,6 +266,7 @@ const COPY = {
       }
     },
     apply: {
+      note: "무작정 이동이 아닙니다 — 전략적인 선택입니다.",
       kicker: "이동",
       title: "승자 팀에 합류할 준비 되셨나요?",
       desc: "아래 버튼으로 지원서를 열면 운영진이 다음 단계를 안내드립니다.",
@@ -268,7 +277,7 @@ const COPY = {
 
   CHI: {
     nav: { about: "国家", nap: "NAP", reasons: "优势", alliances: "联盟", apply: "申请" },
-    hero: { title: "STATE 2528", subtitle: "稳定与团队" },
+    hero: { title: "STATE 2528", subtitle: "稳定与团队", slogan: "内有秩序，外有力量。" },
 
     events: {
       bearHunt: "熊猎",
@@ -279,6 +288,7 @@ const COPY = {
     },
 
     about: {
+      status: { active: "状态：活跃", nap: "NAP：稳定", coord: "协作：高" },
       kicker: "关于国家",
       title: "稳定、团结的国家",
       shortIntro: "State 2528 是一个稳定的多国玩家国家，拥有活跃的 NAP6 与强大的联盟协作。",
@@ -308,6 +318,7 @@ const COPY = {
       ]
     },
     alliances: {
+      meta: { role: "分部", focus: "SvS与活动", status: "活跃" },
       kicker: "联盟",
       title: "联盟不同，目标一致。",
       subtitle: "我们保持秩序与协作，作为一个国家一起行动。",
@@ -322,6 +333,7 @@ const COPY = {
       }
     },
     apply: {
+      note: "这不是随便转服——而是战略选择。",
       kicker: "转服",
       title: "准备加入赢家团队了吗？",
       desc: "点击下方按钮打开申请表，我们会联系你确认后续步骤。",
@@ -332,7 +344,7 @@ const COPY = {
 
   DEU: {
     nav: { about: "Staat", nap: "NAP", reasons: "Warum wir", alliances: "Allianzen", apply: "Bewerben" },
-    hero: { title: "STATE 2528", subtitle: "Stabilität & Teamplay" },
+    hero: { title: "STATE 2528", subtitle: "Stabilität & Teamplay", slogan: "Ordnung innen. Stärke außen." },
 
     events: {
       bearHunt: "Bärenjagd",
@@ -343,6 +355,7 @@ const COPY = {
     },
 
     about: {
+      status: { active: "STATUS: AKTIV", nap: "NAP: STABIL", coord: "KOORDINATION: HOCH" },
       kicker: "Über den Staat",
       title: "Ein stabiler, vereinter Staat",
       shortIntro: "State 2528 ist ein stabiler, multinationaler Staat mit aktivem NAP6 und starker Allianz-Koordination.",
@@ -377,6 +390,7 @@ const COPY = {
       ]
     },
     alliances: {
+      meta: { role: "Division", focus: "SvS & Events", status: "Aktiv" },
       kicker: "Allianzen",
       title: "Allianzen, ein Ziel.",
       subtitle: "Unterschiedliche Gruppen — ein Staat. Wir bleiben organisiert und ziehen an einem Strang.",
@@ -391,6 +405,7 @@ const COPY = {
       }
     },
     apply: {
+      note: "Das ist kein zufälliger Transfer — es ist ein strategischer Schritt.",
       kicker: "Transfer",
       title: "Bereit für ein Gewinner-Team?",
       desc: "Klicke unten — die Leitung meldet sich mit den nächsten Schritten.",
@@ -520,7 +535,10 @@ function buildLangMenu() {
       state.lang = safeLang(code);
       localStorage.setItem("lang", state.lang);
       applyI18n();
-      closeLangMenu();
+      
+  initShimmerOnce();
+  initActiveNav();
+closeLangMenu();
     });
     menu.appendChild(b);
   }
@@ -747,3 +765,29 @@ function init() {
 }
 
 window.addEventListener("DOMContentLoaded", init);
+
+
+/* ---------- Micro polish: shimmer once + active nav ---------- */
+function initShimmerOnce(){
+  if (state.reduceMotion) return;
+  const h1 = document.querySelector(".hero__title");
+  if (!h1) return;
+  h1.classList.add("shimmer");
+}
+
+function initActiveNav(){
+  const links = [...document.querySelectorAll('.nav__link[href^="#"]')];
+  const sections = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  if (!links.length || !sections.length) return;
+
+  const setActive = (id) => {
+    links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + id));
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    const vis = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if (vis && vis.target && vis.target.id) setActive(vis.target.id);
+  }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.15, 0.25, 0.4] });
+
+  sections.forEach(s => io.observe(s));
+}
