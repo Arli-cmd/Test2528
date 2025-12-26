@@ -20,7 +20,6 @@ function detectLowPower(){
     const slowNet = /(^2g$|^slow-2g$)/.test(effectiveType);
     const smallScreen = window.matchMedia("(max-width: 768px)").matches;
 
-    // Conservative: phones + low memory/cores or Save-Data -> low power mode
     if (saveData || slowNet) return true;
     if (smallScreen && (mem && mem <= 4)) return true;
     if (smallScreen && (cores && cores <= 4)) return true;
@@ -35,12 +34,7 @@ const LANG_ORDER = ["ENG", "RUS", "KOR", "CHI", "DEU"];
 const COPY = {
   ENG: {
     nav: { about: "State", nap: "NAP", reasons: "Why Us", alliances: "Alliances", apply: "Apply" },
-
-    hero: {
-      title: "STATE 2528",
-      subtitle: "Stability & Teamwork",
-    },
-
+    hero: { title: "STATE 2528", subtitle: "Stability & Teamwork" },
     about: {
       kicker: "About the State",
       title: "A Stable, United State",
@@ -49,7 +43,6 @@ const COPY = {
       shortApproach:
         "Our approach emphasizes joint preparation, clear roles, and consistent execution across the state.",
     },
-
     nap: {
       kicker: "NAP Protocol",
       title: "Fair Play & Shared Power",
@@ -68,7 +61,6 @@ const COPY = {
       fortsDesc:
         "Fort and stronghold rotations are fair and contribution-based, aligned with preparation-phase SvS objectives.",
     },
-
     reasons: {
       kicker: "Why Join",
       title: "What We Offer",
@@ -81,7 +73,6 @@ const COPY = {
         { title: "Drama-Free & Mature Community", desc: "Zero tolerance for toxicity, conflicts, or personal attacks. Calm, mature, goal-focused environment." },
       ],
     },
-
     alliances: {
       kicker: "Alliances",
       title: "Alliances, same mission.",
@@ -97,25 +88,18 @@ const COPY = {
         coordsTitle: "Coordinates",
       },
     },
-
     apply: {
       kicker: "Transfer",
       title: "Ready to Join a Team of Winners?",
       desc: "Apply below and our leadership will reach out with next steps.",
       button: "Open Application Form →",
     },
-
     footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Built for strategy, stability, and clean wins." },
   },
 
   RUS: {
     nav: { about: "Государство", nap: "NAP", reasons: "Почему мы", alliances: "Альянсы", apply: "Заявка" },
-
-    hero: {
-      title: "STATE 2528",
-      subtitle: "Стабильность и командная игра",
-    },
-
+    hero: { title: "STATE 2528", subtitle: "Стабильность и командная игра" },
     about: {
       kicker: "О государстве",
       title: "Стабильное, объединённое государство",
@@ -124,7 +108,6 @@ const COPY = {
       shortApproach:
         "Готовимся вместе, распределяем роли и стабильно выполняем план по всему государству.",
     },
-
     nap: {
       kicker: "NAP протокол",
       title: "Честная игра и общий порядок",
@@ -143,7 +126,6 @@ const COPY = {
       fortsDesc:
         "Ротации фортов и укреплений — по вкладу и подготовке к SvS (preparation).",
     },
-
     reasons: {
       kicker: "Почему мы",
       title: "Что у нас есть",
@@ -156,7 +138,6 @@ const COPY = {
         { title: "Без драмы, зрелое комьюнити", desc: "Нулевая терпимость к токсичности и конфликтам. Спокойная среда с фокусом на цели." },
       ],
     },
-
     alliances: {
       kicker: "Альянсы",
       title: "Альянсы — одна цель.",
@@ -171,23 +152,18 @@ const COPY = {
         coordsTitle: "Координаты",
       },
     },
-
     apply: {
       kicker: "Переезд",
       title: "Готов вступить в команду победителей?",
       desc: "Нажми ниже — руководство свяжется с тобой и подскажет следующие шаги.",
       button: "Открыть форму →",
     },
-
     footer: { line: "STATE 2528 • Golden Empire Protocol", small: "Стратегия, стабильность и чистые победы." },
   },
 
   KOR: {
     nav: { about: "국가", nap: "NAP", reasons: "장점", alliances: "연맹", apply: "지원" },
-    hero: {
-      title: "STATE 2528",
-      subtitle: "안정과 팀워크",
-    },
+    hero: { title: "STATE 2528", subtitle: "안정과 팀워크" },
     about: {
       kicker: "국가 소개",
       title: "안정적이고 단합된 국가",
@@ -247,10 +223,7 @@ const COPY = {
 
   CHI: {
     nav: { about: "国家", nap: "NAP", reasons: "优势", alliances: "联盟", apply: "申请" },
-    hero: {
-      title: "STATE 2528",
-      subtitle: "稳定与团队",
-    },
+    hero: { title: "STATE 2528", subtitle: "稳定与团队" },
     about: {
       kicker: "关于国家",
       title: "稳定、团结的国家",
@@ -304,10 +277,7 @@ const COPY = {
 
   DEU: {
     nav: { about: "Staat", nap: "NAP", reasons: "Warum wir", alliances: "Allianzen", apply: "Bewerben" },
-    hero: {
-      title: "STATE 2528",
-      subtitle: "Stabilität & Teamplay",
-    },
+    hero: { title: "STATE 2528", subtitle: "Stabilität & Teamplay" },
     about: {
       kicker: "Über den Staat",
       title: "Ein stabiler, vereinter Staat",
@@ -497,7 +467,6 @@ function positionLangMenu(btn, menu) {
   const r = btn.getBoundingClientRect();
   const gap = 10;
 
-  // Align to the right edge of the button
   const left = Math.max(10, Math.min(window.innerWidth - menu.offsetWidth - 10, r.right - menu.offsetWidth));
   const top = Math.min(window.innerHeight - menu.offsetHeight - 10, r.bottom + gap);
 
